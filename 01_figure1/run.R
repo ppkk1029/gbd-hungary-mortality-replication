@@ -1,97 +1,71 @@
-# Figure 1：GBD Level 2 内部构成；如有官方 All causes 则核验并生成正式全死因构成
-path <- "data/raw/IHME-GBD_2023_DATA-b40ffc46-1.csv"
-stopifnot(file.exists(path))
-gbd <- read.csv(path,stringsAsFactors=FALSE)
-required <- c("year","sex_name","age_name","cause_name","metric_name","val")
-stopifnot(all(required %in% names(gbd)))
-ages <- c("60-64 years","65-69 years","70-74 years",
-          "75-79 years","80-84 years","85-89 years")
-stopifnot(setequal(unique(gbd$age_name),ages))
-stopifnot(!anyDuplicated(gbd[c("year","sex_name","age_name","cause_name","metric_name")]))
+# 第01章｜Figure 1：全部死亡人数中的主要死因构成（GBD方法复现）
+# 从同一GBD2023的Level 1三大类，得到官方层级下的全部死亡人数
+# 从Level 2得到各死因死亡人数；首次分析必须先核对L1与L2相等
+p1 <- "data/raw/IHME-GBD_2023_DATA-97ee48e8-1.csv"
+p2 <- "data/raw/IHME-GBD_2023_DATA-b40ffc46-1.csv"
+stopifnot(file.exists(p1),file.exists(p2))
+l1 <- read.csv(p1,stringsAsFactors=FALSE)
+l2 <- read.csv(p2,stringsAsFactors=FALSE)
 
-# 1. 原始 Number 与按年、死因加总
-deaths <- subset(gbd,metric_name=="Number")
-stopifnot(length(unique(deaths$cause_name))==19)
-by_year <- aggregate(val ~ year + cause_name,data=deaths,FUN=sum)
-annual_level2 <- aggregate(val ~ year,data=by_year,FUN=sum)
-annual_level2 <- annual_level2[order(annual_level2$year),]
-names(annual_level2)[2] <- "D19"
-print(subset(annual_level2,year==2019)) # 99182.03
+# 1. 同一年龄、年份、性别、指标下，两层级的和应一致
+keys <- c("year","sex_name","age_name","metric_name")
+a <- aggregate(val ~ year+sex_name+age_name+metric_name,data=l1,FUN=sum)
+b <- aggregate(val ~ year+sex_name+age_name+metric_name,data=l2,FUN=sum)
+names(a)[5] <- "L1"
+names(b)[5] <- "L2"
+verified <- merge(a,b,by=keys)
+stopifnot(nrow(verified)==1056,max(abs(verified$L1-verified$L2))<1e-6)
 
-# 2. 只使用训练期来固定图中展示的九个候选 GBD 类别
-train <- subset(by_year,year<=2015)
-ranking <- aggregate(val ~ cause_name,data=train,FUN=sum)
-ranking <- ranking[order(-ranking$val),]
-top9 <- head(ranking$cause_name,9)
-print(top9)
-outdir <- "outputs/01_figure1"
-dir.create(outdir,recursive=TRUE,showWarnings=FALSE)
-write.csv(ranking,file.path(outdir,"cause_ranking_training_only.csv"),row.names=FALSE)
-write.csv(by_year,file.path(outdir,"yearly_number_by_cause.csv"),row.names=FALSE)
+# 2. Figure 1只用Number（死亡人数），不使用Rate
+n1 <- subset(l1,metric_name=="Number")
+n2 <- subset(l2,metric_name=="Number")
+total <- aggregate(val ~ year,data=n1,FUN=sum)
+total <- total[order(total$year),]
+bycause <- aggregate(val ~ year+cause_name,data=n2,FUN=sum)
 
-# 3. 获取年份×死因的死亡人数矩阵，年龄和男女已经加总
-mat <- xtabs(val ~ year + cause_name,data=by_year)
-years <- as.integer(rownames(mat))
-stopifnot(identical(years,as.integer(annual_level2$year)))
-nine <- mat[,top9,drop=FALSE]
-allpath <- "data/raw/gbd_all_causes.csv"
-verified <- file.exists(allpath)
+# 3. 仅用训练期(1980-2015)选出9类死亡人数最多的GBD死因
+train <- subset(bycause,year<=2015)
+rank <- aggregate(val ~ cause_name,data=train,FUN=sum)
+rank <- rank[order(-rank$val),]
+chosen <- head(rank$cause_name,9)
+print(chosen)
 
-# 4. 确认分母：优先用官方 All causes；否则只计算19类内部构成
-if (verified) {
-  total <- read.csv(allpath,stringsAsFactors=FALSE)
-  stopifnot(all(required %in% names(total)))
-  total <- subset(total,metric_name=="Number" & cause_name=="All causes" &
-                        age_name %in% ages & sex_name %in% c("Male","Female"))
-  stopifnot(nrow(total)==44*6*2,
-            setequal(unique(total$year),1980:2023),
-            !anyDuplicated(total[c("year","sex_name","age_name")]))
-  official <- aggregate(val ~ year,data=total,FUN=sum)
-  official <- official[order(official$year),]
-  stopifnot(identical(as.integer(official$year),years))
-  denominator <- official$val
-  audit <- data.frame(year=years,D19=annual_level2$D19,
-                      All_causes=denominator,
-                      difference=denominator-annual_level2$D19)
-  write.csv(audit,file.path(outdir,"level2_vs_all_causes_check.csv"),row.names=FALSE)
-  print(head(audit))
-  stopifnot(all(denominator>0),all(denominator-rowSums(nine)>=-1e-5))
-  residual_label <- "All other causes"
-  fig_name <- "figure1_gbd_all_causes.png"
-  share_name <- "figure1_shares_all_causes.csv"
-  plot_title <- "Hungary: share of all deaths (GBD All causes denominator)"
-} else {
-  denominator <- annual_level2$D19
-  stopifnot(all(denominator>0))
-  residual_label <- "Other selected Level 2 causes"
-  fig_name <- "figure1_level2_internal_unverified.png"
-  share_name <- "figure1_level2_internal_shares.csv"
-  plot_title <- "Hungary: composition within 19 GBD Level 2 causes (UNVERIFIED)"
-  message("没有 All causes：只能画19类内部构成，不能称为全部死因的比例。")
-}
-rest <- denominator - rowSums(nine)
-stopifnot(all(rest >= -1e-5))
-display <- cbind(nine,pmax(rest,0))
-colnames(display)[ncol(display)] <- residual_label
-shares <- 100 * display/denominator
-stopifnot(max(abs(rowSums(shares)-100))<1e-5)
+# 4. 每年9类死亡数加总；其余所有死因统一归为All other causes
+wide <- xtabs(val ~ year+cause_name,data=bycause)
+years <- as.integer(rownames(wide))
+stopifnot(identical(years,as.integer(total$year)))
+nine <- wide[,chosen,drop=FALSE]
+others <- total$val-rowSums(nine)
+stopifnot(all(others>=-1e-6))
+stack <- cbind(nine,"All other causes"=pmax(others,0))
+shares <- sweep(stack,1,total$val,"/")*100
+stopifnot(max(abs(rowSums(shares)-100))<1e-6)
+
+dir.create("outputs/01_figure1",recursive=TRUE,showWarnings=FALSE)
+write.csv(rank,"outputs/01_figure1/train_cause_ranking.csv",row.names=FALSE)
 write.csv(data.frame(year=years,shares,check.names=FALSE),
-          file.path(outdir,share_name),row.names=FALSE)
+          "outputs/01_figure1/figure1_shares.csv",row.names=FALSE)
 
-# 5. 原文同类的堆积面积图，未核验时明确标注分母差异
-colours <- grDevices::hcl.colors(ncol(shares),"Set 3")
-png(file.path(outdir,fig_name),width=1800,height=1000,res=160)
+# 5. 画与原文Figure 1形式相同的堆积面积图
+png("outputs/01_figure1/figure1_gbd.png",width=1800,height=1000,res=160)
 par(mar=c(5,5,4,14),xpd=TRUE)
-plot(NA,xlim=range(years),ylim=c(0,100),
-     xlab="Year",ylab="Share (%)",main=plot_title)
+plot(NA,xlim=range(years),ylim=c(0,100),xlab="Year",ylab="Share of all deaths (%)",
+     main="GBD 2023 Hungary, ages 60-89 (different causes from Varga)")
+cols <- grDevices::hcl.colors(ncol(shares),"Set 3")
 low <- rep(0,length(years))
 for (j in seq_len(ncol(shares))) {
-  upper <- low+shares[,j]
-  polygon(c(years,rev(years)),c(low,rev(upper)),
-          col=colours[j],border=NA)
-  low <- upper
+  up <- low+shares[,j]
+  polygon(c(years,rev(years)),c(low,rev(up)),col=cols[j],border=NA)
+  low <- up
 }
 legend("topright",inset=c(-0.39,0),legend=colnames(shares),
-       fill=colours,cex=0.65,bty="n")
+       fill=cols,cex=0.65,bty="n")
 dev.off()
-cat("已输出:",file.path(outdir,fig_name),"\n")
+
+# 6. 直接输出与原文可对照的前9类覆盖率（不是原文那9类ICD）
+coverage <- data.frame(year=years,all_deaths=total$val,
+                       top9_deaths=rowSums(nine),
+                       top9_share=100*rowSums(nine)/total$val)
+write.csv(coverage,"outputs/01_figure1/top9_coverage.csv",row.names=FALSE)
+print(subset(coverage,year %in% c(2019,2020,2021)))
+cat("已生成 Figure 1 数据表、面积图和9类覆盖率。\n")
