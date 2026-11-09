@@ -290,9 +290,15 @@ if (interactive()) {
 
 draw_figure3 <- function() {
   oldpar <- par(no.readonly = TRUE)
-  on.exit(par(oldpar))
-  par(mfrow = c(2, 3), mar = c(3.5, 3.9, 3.0, 0.8),
-      oma = c(6.7, 0.3, 2.6, 0.3))
+  on.exit({
+    layout(1)
+    par(oldpar)
+  })
+  # Six parameter panels and a dedicated, full-width legend at the bottom.
+  layout(matrix(c(1, 2, 3, 4, 5, 6, 7, 7, 7),
+                nrow = 3, byrow = TRUE),
+         heights = c(1, 1, 0.36))
+  par(mar = c(3.5, 4.0, 2.9, 0.8), oma = c(0.2, 0.2, 2.2, 0.2))
   cols <- grDevices::hcl.colors(9, "Dark 3")
   for (sx in sexes) {
     for (parameter in c("alpha", "beta", "kappa")) {
@@ -308,14 +314,12 @@ draw_figure3 <- function() {
         lines(X, curves[[i]], col = cols[i], lwd = 1.55)
     }
   }
-  par(xpd = NA)
-  legend("bottom", inset = c(0, -0.13), legend = chosen,
-         col = cols, lty = 1, lwd = 1.8, cex = 0.61,
-         ncol = 3, bty = "n")
+  par(mar = c(0, 0, 0, 0))
+  plot.new()
+  legend("center", legend = chosen, col = cols, lty = 1, lwd = 1.8,
+         cex = 0.72, ncol = 3, bty = "n")
   mtext("GBD Hungary | Poisson Lee-Carter (Level 2 causes)",
-        side = 3, outer = TRUE, line = 1.1, cex = 1.15, font = 2)
-  mtext("Fit: 1980-2015 | Ages 60-89 | Male/Female separate | GBD quasi-likelihood",
-        side = 1, outer = TRUE, line = 1.0, cex = 0.75)
+        side = 3, outer = TRUE, line = 0.5, cex = 1.15, font = 2)
 }
 cat("\n请查看 RStudio Plots 窗格的 Figure 3 六面板图：alpha、beta、kappa × 男女。\n")
 draw_figure3()
