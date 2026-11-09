@@ -6,27 +6,24 @@
 
 **使用数据**：IHME GBD 2023，Hungary，1980–2023 年，男性和女性，60–89 岁六个五岁年龄组，19 个在该年龄范围有数据的 GBD 死因类别；Deaths 的 Number 与 Rate。属于**方法复现**，不是原始 HCSO 数据的数值复现。
 
-## 按论文顺序学习
+## 按原文小节组织 Part（不是一图一个 Part）
 
-| 章节 | 对应论文 | 当前状态 |
+| 论文小节 | 研究内容和材料 | 当前状态 |
 |---|---|---|
-| [00 数据核对](00_data/README.md) | §3 数据准备 | 已有核对代码 |
-| [01 死因构成](01_figure1/README.md) | §3.1 Figure 1 | Level 1 与 Level 2 已核验一致；已提供正式死因占比计算代码 |
-| [02 年龄标准化死亡率](02_figure2/README.md) | §3.1 Figure 2 | Population CSV 已检验（1980–2023，共 528 行）；1980 年权重已计算；待 Deaths/Population 配对检查和本地 R 绘图 |
-| [03 单人口死亡率模型](03_single_population/README.md) | §4.1 Figure 3 | Poisson LC 单因子 R 代码已提交；待用真实 CSV 运行和验证；其他六模型待复现 |
-| [04 DTW 聚类](04_dtw_clustering/README.md) | 时期因子聚类 | 待复现 |
-| [05 多人口死亡率模型](05_multi_population/README.md) | 聚类后的联合建模 | 待复现 |
-| [06 模型比较及预测](06_forecast_comparison/README.md) | 拟合、回测、预测结果 | 待复现 |
+| [§3.1 描述性统计](03_1_descriptive_statistics/README.md) | Figure 1 死因构成 + Figure 2 年龄标准化死亡率，**同属一小节** | 用户已在 RStudio 绘制 GBD Figure 1、Figure 2；原文件与质控记录尚未全部上传 |
+| [§4.1 单人口模型拟合](04_results/4_1_single_population/README.md) | Figure 3、Figure 4 及七种模型的参数和诊断 | 用户 Figure 3 截图显示女性糖尿病与肾脏疾病的 β 极端值；已新增数值诊断 + 稳健重估脚本，尚需运行验证 |
+| [§4.2 死因聚类](04_results/4_2_clusters/README.md) | DTW 公式（6）–（8）、对齐路径、层次/PAM、簇数选择、Figures 5–8、Tables 3–4 | 已实现**单因子 Poisson LC** 的完整聚类流程与异常剔除敏感性；七模型全部复现仍缺其他六种因子 |
+| [§4.3 多人口模型](05_multi_population/README.md) | 类内共享时期因子建模 | 待复现 |
+| [§4.4–4.7 模型比较与预测](06_forecast_comparison/README.md) | 拟合、ARIMA、回测及长期预测 | 待复现 |
 
-## 如何运行前两节
+**数据检查**：[00 数据核对](00_data/README.md)。早期按 Figure 分开的 `01_figure1`、`02_figure2`、`03_single_population` 保留用于旧链接兼容；**以新的小节索引和脚本为准**。
 
-1. 从 [GBD Results Tool](https://vizhub.healthdata.org/gbd-results/) 下载原始 CSV，将其保存在本地 `data/raw/IHME-GBD_2023_DATA-b40ffc46-1.csv`；仓库不会公开上传该原始文件。
-2. 在 RStudio 中将工作目录设为仓库根目录。
-3. 逐段运行 `00_data/check_data.R` 核对数据。
-4. 将 Level 1 CSV `IHME-GBD_2023_DATA-97ee48e8-1.csv` 也放入 `data/raw/`，先运行 `00_data/check_level1_level2.R` 核验，再运行 `01_figure1/run.R` 生成正式的 GBD Figure 1 构成占比图。
-5. Figure 2 的独立 Population 文件**已经由用户提供并完成结构核验**（1980–2023 年 528 行）。运行 [02_figure2/run.R](02_figure2/run.R) 时，依次用 **`file.choose()`** 选择 Population CSV 和 Deaths CSV，无需固定路径、改名或移动文件。程序先在 RStudio Console/Plots 展示年龄权重、数据一致性检查、ASMR 预览和九面板图；你输入 `y` 确认后，再通过文件夹选择窗口决定保存位置，结果写入所选文件夹下的 `Figure2_ASMR_results` 子文件夹。**目前尚未用两份真实 CSV 完成 R 端到端执行，也没有 ASMR 图。**
-6. 进入 §4.1：运行 [03_single_population/run_poisson_lc.R](03_single_population/run_poisson_lc.R)，通过 file.choose() 依次选择 Population 与 Deaths；在 Console 与 Plots 先检查 Poisson LC 的 α、β、κ 和收敛诊断；输入 y 后再交互式选择结果保存位置。拟合期先固定为 1980—2015，2016—2019 留作回测（GBD Number 为模型估计，属于拟似然式 Poisson 模型）。**真实数据尚未执行验证，不宣称已得到 Figure 3 结果。**
-7. 之后各章仅在真实计算完成后加入程序、结果及图表。
+## 继续复现的正确顺序（全部交互选文件）
+
+1. 若要检查你现有截图的女性 β≈18，先运行 [§4.1 旧参数诊断](04_results/4_1_single_population/diagnose_previous_beta.R)，在 `file.choose()` 窗口选择**旧版 beta.csv、kappa.csv**；输出异常抵消比和尺度校验，**不会覆盖旧结果**。
+2. 再运行 [§4.1 修正的 Poisson LC](04_results/4_1_single_population/run_4_1_poisson_lc.R)，依次交互选择 Population、Deaths，先在 Console/Plots 检查重估参数和异常标记，确认 `y` 后再选择结果保存父文件夹；生成新的 `kappa.csv`、`fit_diagnostics.csv`。
+3. 最后运行 [§4.2 DTW](04_results/4_2_clusters/run_4_2_dtw.R)，依次选择**新版** `kappa.csv` 和 `fit_diagnostics.csv`；展示男女 DTW 对齐、树状图、PAM 和聚类表后，输入 `y` 再选择保存文件夹。
+4. §4.2 不混用不同模型的时间因子；原文双因子 Poisson/Binomial LC 后续应聚类**第二个**因子。当前仅实现单因子 Poisson LC 的聚类方法，不能声称七种模型均已复现。
 
 ## 必须区分的三个量
 
@@ -40,7 +37,7 @@
 |---|---|---|
 | 来源 | 匈牙利 HCSO 登记及协调数据 | GBD 估计值 |
 | 历史年份 | 1970–2021 | 1980–2023 |
-| 死因 | 9 类 ICD 章节 | GBD 原生分类；最终筛选规则要预先明确 |
+| 死因 | 9 类 ICD 章节 | Level 2，按 1980–2015 训练期死亡人数前九类，**不重组 ICD** |
 | 年龄 | 单岁年龄，90+ 合并 | 60–89 岁六个五岁组，不含 90+ |
 | 人口暴露量 | 1970 年年中人口用于标准化；模型还涉及各年 exposure | 1980–2023 GBD Population 已收到并核验；可用于标准化权重及年度一致性检查，但不等于 HCSO central exposure |
 | 模型回测 | 2016–2019 | 训练期截止 2015，测试期同样选 2016–2019 |
@@ -49,4 +46,4 @@
 
 GBD 估计死亡人数不完全等同于原始登记计数。对基于 Poisson/Binomial 的模型，必须明确分布假设的局限；不同 GBD 轮次的历史重估也可能影响回顾性预测。选死因、选模型及 DTW 聚类不得利用测试期结果。
 
-本仓库没有公开原始 GBD CSV；使用者应从官方数据源获取并遵守署名和再分发规则。**代码尚未在本次上传中通过 RStudio 实际运行测试**。已有数值核查来自上传 CSV 的独立检查，后续以本地 R 运行结果为准。
+本仓库没有公开原始 GBD CSV；使用者应从官方数据源获取并遵守署名和再分发规则。**§3.1 已由用户在 RStudio 显示图形；§4.1 已由用户显示单因子 Poisson LC 图，但女性一组参数异常需要重估。**新版本 §4.1、§4.2 代码尚未在完整 Deaths CSV 上端到端运行，后续以本地诊断、数值一致性和图表为准。
