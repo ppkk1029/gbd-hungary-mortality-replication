@@ -13,7 +13,7 @@
 | [00 数据核对](00_data/README.md) | §3 数据准备 | 已有核对代码 |
 | [01 死因构成](01_figure1/README.md) | §3.1 Figure 1 | Level 1 与 Level 2 已核验一致；已提供正式死因占比计算代码 |
 | [02 年龄标准化死亡率](02_figure2/README.md) | §3.1 Figure 2 | Population CSV 已检验（1980–2023，共 528 行）；1980 年权重已计算；待 Deaths/Population 配对检查和本地 R 绘图 |
-| [03 单人口死亡率模型](03_single_population/README.md) | 单人口模型与拟合 | 待复现 |
+| [03 单人口死亡率模型](03_single_population/README.md) | §4.1 Figure 3 | Poisson LC 单因子 R 代码已提交；待用真实 CSV 运行和验证；其他六模型待复现 |
 | [04 DTW 聚类](04_dtw_clustering/README.md) | 时期因子聚类 | 待复现 |
 | [05 多人口死亡率模型](05_multi_population/README.md) | 聚类后的联合建模 | 待复现 |
 | [06 模型比较及预测](06_forecast_comparison/README.md) | 拟合、回测、预测结果 | 待复现 |
@@ -25,7 +25,8 @@
 3. 逐段运行 `00_data/check_data.R` 核对数据。
 4. 将 Level 1 CSV `IHME-GBD_2023_DATA-97ee48e8-1.csv` 也放入 `data/raw/`，先运行 `00_data/check_level1_level2.R` 核验，再运行 `01_figure1/run.R` 生成正式的 GBD Figure 1 构成占比图。
 5. Figure 2 的独立 Population 文件**已经由用户提供并完成结构核验**（1980–2023 年 528 行）。运行 [02_figure2/run.R](02_figure2/run.R) 时，依次用 **`file.choose()`** 选择 Population CSV 和 Deaths CSV，无需固定路径、改名或移动文件。程序先在 RStudio Console/Plots 展示年龄权重、数据一致性检查、ASMR 预览和九面板图；你输入 `y` 确认后，再通过文件夹选择窗口决定保存位置，结果写入所选文件夹下的 `Figure2_ASMR_results` 子文件夹。**目前尚未用两份真实 CSV 完成 R 端到端执行，也没有 ASMR 图。**
-6. 之后各章仅在真实计算完成后加入程序、结果及图表。
+6. 进入 §4.1：运行 [03_single_population/run_poisson_lc.R](03_single_population/run_poisson_lc.R)，通过 file.choose() 依次选择 Population 与 Deaths；在 Console 与 Plots 先检查 Poisson LC 的 α、β、κ 和收敛诊断；输入 y 后再交互式选择结果保存位置。拟合期先固定为 1980—2015，2016—2019 留作回测（GBD Number 为模型估计，属于拟似然式 Poisson 模型）。**真实数据尚未执行验证，不宣称已得到 Figure 3 结果。**
+7. 之后各章仅在真实计算完成后加入程序、结果及图表。
 
 ## 必须区分的三个量
 
