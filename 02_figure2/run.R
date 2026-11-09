@@ -1,18 +1,28 @@
 # Figure 2 | Varga (2025), s3.1: age-standardized cause-specific mortality
 # GBD 2023 Hungary METHOD replication; not the original HCSO numerical result.
 #
-# Run in RStudio from the GitHub REPOSITORY ROOT:
-#   source("02_figure2/run.R")
+# Run in RStudio by opening run.R and clicking Source, OR use:
+#   source(file.choose())   # choose this run.R script once
 #
-# Input CSV files (keep the original exported column names):
-#   data/raw/IHME-GBD_2023_DATA-pop.csv
-#   data/raw/IHME-GBD_2023_DATA-b40ffc46-1.csv  [Deaths Number + Rate]
-# If the deaths file was renamed on your PC, change deaths_path below.
+# Every run opens two file-selection dialogs. No fixed input file paths:
+#   1. Select GBD 2023 Population CSV (the uploaded pop file).
+#   2. Select GBD 2023 Deaths CSV with Number and age-specific Rate.
+# Filenames may be renamed; columns/data scope are checked below.
 # Do not commit raw GBD files to GitHub.
 
-population_path <- "data/raw/IHME-GBD_2023_DATA-pop.csv"
-deaths_path     <- "data/raw/IHME-GBD_2023_DATA-b40ffc46-1.csv"
-outdir          <- "outputs/02_figure2"
+cat("\n[1/2] 请选择 GBD Population 人口数据 CSV ...\n")
+population_path <- file.choose()
+cat("Population: ", population_path, "\n", sep = "")
+cat("[2/2] 请选择 GBD Deaths 死亡数据 CSV (Number + Rate) ...\n")
+deaths_path <- file.choose()
+cat("Deaths: ", deaths_path, "\n", sep = "")
+if (identical(normalizePath(population_path, winslash = "/", mustWork = TRUE),
+              normalizePath(deaths_path, winslash = "/", mustWork = TRUE))) {
+  stop("Population and Deaths cannot be the same CSV file; please select two different files.")
+}
+
+# Outputs still go to the project's relative folder (inputs can be anywhere).
+outdir <- "outputs/02_figure2"
 
 years <- 1980:2023
 standard_year <- 1980L
@@ -30,8 +40,8 @@ n_rate_rows <- n_population * n_causes
 
 # ---- 1. Independently downloaded GBD Population, all 44 years ----
 if (!file.exists(population_path)) {
-  stop("Missing Population CSV: ", population_path,
-       "\nPut the user-uploaded original file in data/raw/.")
+  stop("The selected Population CSV cannot be opened: ", population_path,
+       "\nRun the script again and reselect it with file.choose().")
 }
 pop <- read.csv(population_path, check.names = FALSE,
                 stringsAsFactors = FALSE)
@@ -94,9 +104,9 @@ cat("Population file PASSED: ", nrow(pop),
 
 # ---- 3. Check Deaths Number and age-specific Rate data ----
 if (!file.exists(deaths_path)) {
-  stop("Population checks passed and weights were saved, but Deaths CSV is absent: ",
+  stop("Population checks passed, but the selected Deaths CSV cannot be opened: ",
        deaths_path,
-       "\nChange deaths_path to your actual local Deaths filename.")
+       "\nRun the script again and reselect the Deaths file with file.choose().")
 }
 gbd <- read.csv(deaths_path, check.names = FALSE,
                 stringsAsFactors = FALSE)
