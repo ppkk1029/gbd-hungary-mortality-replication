@@ -11,7 +11,7 @@
 | 章节 | 对应论文 | 当前状态 |
 |---|---|---|
 | [00 数据核对](00_data/README.md) | §3 数据准备 | 已有核对代码 |
-| [01 死因构成](01_figure1/README.md) | §3.1 Figure 1 | 已有计算代码；缺 All causes 分母，暂不生成正式占比图 |
+| [01 死因构成](01_figure1/README.md) | §3.1 Figure 1 | 已有 Level 2 内部占比代码；独立核对 All causes 后才可称为全部死亡占比 |
 | [02 年龄标准化死亡率](02_figure2/README.md) | §3.1 Figure 2 | 已有 ASMR 计算和九面板图代码；待本地原始 CSV 执行与结果验证 |
 | [03 单人口死亡率模型](03_single_population/README.md) | 单人口模型与拟合 | 待复现 |
 | [04 DTW 聚类](04_dtw_clustering/README.md) | 时期因子聚类 | 待复现 |
@@ -23,7 +23,7 @@
 1. 从 [GBD Results Tool](https://vizhub.healthdata.org/gbd-results/) 下载原始 CSV，将其保存在本地 `data/raw/IHME-GBD_2023_DATA-b40ffc46-1.csv`；仓库不会公开上传该原始文件。
 2. 在 RStudio 中将工作目录设为仓库根目录。
 3. 逐段运行 `00_data/check_data.R` 核对数据。
-4. 运行 `01_figure1/run.R` 计算逐年各死因死亡人数；如另行下载同口径 All causes 数据，保存为 `data/raw/gbd_all_causes.csv`，才会生成 Figure 1 的百分比堆积面积图。
+4. 运行 `01_figure1/run.R` 计算逐年各死因死亡人数；现有 19 类 Level 2 可先生成**明确标注为未核验分母**的构成面积图；如另行下载同口径 All causes，保存为 `data/raw/gbd_all_causes.csv`，脚本将核验与官方全死因人数的差额，并优先用官方全死因作分母。
 5. 运行 `02_figure2/run.R`，程序会按 Number/Rate 反推并核验 1980 年人口代理，使用统一年龄权重计算各死因 ASMR，并在 `outputs/02_figure2` 输出图和 CSV；**当前代码尚未使用原始 CSV 运行，因此不宣称已获得实际结果**。
 6. 之后各章仅在真实计算完成后加入程序、结果及图表。
 
@@ -31,7 +31,7 @@
 
 - **Number**：某类死亡人数的 GBD 估计。
 - **Rate**：每 10 万人口死亡率；要换成每人年近似中心死亡率，除以 100,000。
-- **死因占全部死亡比例**：指定死因死亡人数 / 同年龄、年份范围的 **All causes** 死亡人数。19 类的内部占比不能冒充全部死亡比例。
+- **死因占全部死亡比例**：指定死因死亡人数 / 同年龄、年份范围的 **All causes** 死亡人数。GBD 的完整同层级死因理论上互斥且穷尽，合计应等于全死因。但当前下载文件只含 19 个有目标年龄组数据的 Level 2 类别，尚缺独立核验；19 类内部占比应标记为“未与 All causes 核验”，不能直接称为全部死亡占比。
 
 ## 与原文的主要差异
 
