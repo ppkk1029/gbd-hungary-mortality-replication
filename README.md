@@ -12,7 +12,7 @@
 |---|---|---|
 | [00 数据核对](00_data/README.md) | §3 数据准备 | 已有核对代码 |
 | [01 死因构成](01_figure1/README.md) | §3.1 Figure 1 | 已有计算代码；缺 All causes 分母，暂不生成正式占比图 |
-| [02 年龄标准化死亡率](02_figure2/README.md) | §3.1 Figure 2 | 待补标准人口权重 |
+| [02 年龄标准化死亡率](02_figure2/README.md) | §3.1 Figure 2 | 已有 ASMR 计算和九面板图代码；待本地原始 CSV 执行与结果验证 |
 | [03 单人口死亡率模型](03_single_population/README.md) | 单人口模型与拟合 | 待复现 |
 | [04 DTW 聚类](04_dtw_clustering/README.md) | 时期因子聚类 | 待复现 |
 | [05 多人口死亡率模型](05_multi_population/README.md) | 聚类后的联合建模 | 待复现 |
@@ -24,7 +24,7 @@
 2. 在 RStudio 中将工作目录设为仓库根目录。
 3. 逐段运行 `00_data/check_data.R` 核对数据。
 4. 运行 `01_figure1/run.R` 计算逐年各死因死亡人数；如另行下载同口径 All causes 数据，保存为 `data/raw/gbd_all_causes.csv`，才会生成 Figure 1 的百分比堆积面积图。
-5. 之后各章仅在真实计算完成后加入程序、结果及图表。
+5. 运行 `02_figure2/run.R`，程序会按 Number/Rate 反推并核验 1980 年人口代理，使用统一年龄权重计算各死因 ASMR，并在 `outputs/02_figure2` 输出图和 CSV；**当前代码尚未使用原始 CSV 运行，因此不宣称已获得实际结果**。\n6. 之后各章仅在真实计算完成后加入程序、结果及图表。
 
 ## 必须区分的三个量
 
