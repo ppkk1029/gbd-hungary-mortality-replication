@@ -1,7 +1,11 @@
-# 原始 GBD 数据放在这里
+# 原始 GBD CSV：只放在本地
 
-本地保存：
-- `IHME-GBD_2023_DATA-b40ffc46-1.csv`：Hungary，1980–2023，Male/Female，60–89 岁六个五岁年龄组，19 类分死因，Deaths Number 与 Rate。
-- `gbd_all_causes.csv`：后续从 GBD 下载同年份、相同年龄组和性别的 All causes / Deaths / Number，以计算 Figure 1 中真正的全部死因占比。
+把以下两份文件存入本目录，不要更改文件内容：
+- `IHME-GBD_2023_DATA-b40ffc46-1.csv`：GBD 2023，Level 2，19 类；1980–2023 年，六个五岁年龄组，男女，Deaths Number 和 Rate。
+- `IHME-GBD_2023_DATA-97ee48e8-1.csv`：GBD 2023，Level 1，3 大类；其余条件一致。
 
-文件不公开提交 GitHub（见 `.gitignore`）；保留官方下载出处、版本和筛选参数，原始数据不要手工改值。
+两份文件都来自 IHME [GBD Results Tool](https://vizhub.healthdata.org/gbd-results/)。
+
+核验结果：全部 528 个年龄 × 年份 × 性别单元上，Level 1 和 Level 2 死亡人数合计一致；不需要另外下载 `All causes` 文件。
+
+原始 CSV 在 `.gitignore` 中排除，不公开上传。R 脚本可以再生成中间结果及原文相应图表。
