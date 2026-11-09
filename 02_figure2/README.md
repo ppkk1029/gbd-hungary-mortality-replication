@@ -1,52 +1,71 @@
-# 02｜Figure 2：年龄标准化死亡率（ASMR）
+# 02｜Figure 2：年龄标准化死亡率（ASMR）｜方法复现
 
-**原文**：[Varga (2025), §3.1, Equation (5), Figure 2](https://unipub.lib.uni-corvinus.hu/11046/1/Forecastingcause-of-deathmortalitywithsingle-andmulti-populationmodelsinHungary.pdf)
+**2026-11-09 核查修订：原版用 Number/Rate 反推人口，未使用独立 Population 文件；现已修订为需要独立人口文件。**
 
-## 原文研究什么？
-原文 Figure 2 是九类 ICD 死因的 **3×3 面板图**，每类两条线：男性实线、女性虚线，1970–2021 年。纵轴为年龄标准化死亡率（每人每年）。使用 1970 年的年中标准人口年龄结构，分析 60 岁以上人群。本项目使用 GBD 2023：1980–2023 年、60–89 岁六个五岁年龄组、19 类 GBD 死因，**属于方法复现，不是 HCSO 原文数据数值复现**。
+## 一、原文与本项目对照
 
-## 为什么需要标准化？
-粗死亡率受年龄结构影响：即使同龄人风险下降，人口变老仍可能推高粗死亡率。将各年份的年龄组死亡率用**同一组年龄人口权重**加权，才能比较调整年龄结构后的时间趋势。
+| 项目 | Varga (2025) 原文 | GBD 方法复现 |
+|---|---|---|
+| 来源 | 匈牙利 HCSO 数据 | GBD 2023 估计 |
+| 年份 | 1970–2021 | 1980–2023 |
+| 年龄 | 60 岁及以上（含合并的 90+） | 60–89 岁六个五岁年龄组 |
+| 死因 | 固定九类 ICD 章节 I/II/IV/VI/IX/X/XI/XIV/XX | 19 类 GBD 死因；九图选训练期人数前九，不能声称 ICD 类别一致 |
+| 标准人口 | 1970 年年中人口 | 独立的 1980 年 GBD Population 文件 |
+| 男女权重 | 原文未明确两性标准人口是否合并 | 本项目使用男女合并的固定标准年龄权重 |
 
-## 公式
-`ASMR(t,c,s) = Σ_age [GBD_Rate(t,c,s,age)/100000] × weight(age)`
+因此，这是公式和绘图流程的**方法复现**，不是原文的数值复现。
 
-`weight(age) = population_1980_both_sexes(age) / Σ_age population_1980_both_sexes(age)`
+原文链接：https://doi.org/10.1080/03461238.2025.2480846
 
-- GBD `Rate`：这里是**年龄别、死因别、性别别**死亡率，单位为每 10 万人口；不是 ASMR。
-- GBD `Number`：死亡人数的模型估计值。
-- 若 Number 和 Rate 都为正，可计算同年龄×性别×年份的**隐含人口**：`Number*100000/Rate`。不同死因的隐含人口应一致；程序检查误差，若最大相对误差大于 1% 就停止。
-- 年龄权重从 1980 年、男女合并的人口代理计算，并**在所有年份、两种性别固定不变**。这是本项目的可比较性约定；原文说明使用 1970 年标准人口，但正文未明确其性别权重是否合并，不应声称两者完全一致。
-- 注意：GBD 隐含人口只是从模型指标推导的代理，**不是作者的 HCSO 年中人口**，也不是新下载的人口数据。
+## 二、必须准备的两份数据
 
-## 六步代码
-在 RStudio 中以仓库根目录为工作目录，放入原 CSV：
-`data/raw/IHME-GBD_2023_DATA-b40ffc46-1.csv`
+**1. 死亡数据**（已有）：
+路径：data/raw/IHME-GBD_2023_DATA-b40ffc46-1.csv
 
-然后运行：
-```r
-source("02_figure2/run.R")
-```
+GBD 2023，Hungary，1980–2023，Male/Female，60–89 岁六个五岁组；Deaths 的 Number 与年龄别 Rate。若本地文件名变更，请修改 run.R 中的 deaths_path。
 
-脚本：
-1. 核对 44 年×2 性别×6 年龄×19 死因×2 指标的完整性、重复、负值。
-2. 以年份、性别、年龄、死因为键配对 Number 和 Rate。
-3. 逐年龄、性别、年份反推并核验隐含人口。
-4. 计算 1980 年固定年龄权重，检查其和为 1。
-5. 计算全部 19 类的 ASMR，检查结果位于各年龄死亡率的最小/最大值之间。
-6. **仅生成原文 Figure 2 对应的九面板图**；九类按 1980–2015 训练期死亡人数从高到低选取，与 Figure 1 的筛选标准保持一致。由于 GBD 分类与 ICD 不完全对应，不能按图形位置强行逐一比较。
+**2. 人口数据**（新增，仍未提供）：
+从 https://vizhub.healthdata.org/gbd-results/ 选择 GBD 2023 Population、Hungary、**1980 年**、Male/Female、60–64/65–69/70–74/75–79/80–84/85–89 years、**Number**。保存为：
+data/raw/gbd_population_1980.csv
 
-## 输出和结果解释
-运行后应生成 `outputs/02_figure2/`：
+本次标准化**只需要基准年 1980 年的六年龄组×两性=12 条人口记录**，不需要另外下载 44 年全部人口用于标准年龄权重。请优先使用相同 GBD 2023 轮次。若下载工具没有 1980 年选项，不可填造人口；应改用官方可获得的基准年份，并统一修改代码和结果说明。
 
-| 文件 | 内容 |
-|---|---|
-| `implied_population_by_age_sex_year.csv` | 隐含人口代理（44×2×6 行） |
-| `standard_age_weights_1980.csv` | 六个标准年龄权重（加总为 1） |
-| `asmr_19_causes_1980_2023.csv` | 19 类 × 2 性别 × 44 年 = 1672 行 ASMR |
-| `figure2_selected_9_causes.csv` | 实际入图九类死因 |
-| `figure2_gbd_asmr_9_panels.png` | 3×3 男女 ASMR 折线图 |
+Population CSV 必须有列：year、sex_name、age_name、val；若还有 location_name、measure_name、metric_name，代码会核对地区、Population 和 Number。
 
-看结果时，注意曲线升降、转折点、男女差距，以及面板之间不同纵轴尺度。ASMR=0.003 对应 **每 10 万人约 300 人**，不是 0.003%。GBD 的疾病分类、估计方法、年龄截断及疫情影响都可能使图形不同于原文，不能未经检验就声称趋势一致。
+## 三、计算公式和关键区别
 
-**执行状态：已提交 R 脚本；GitHub 未包含原始 CSV，本次未运行 R 程序，也未得到实际 ASMR 数值或图片。** 请在本地执行后补录标准权重、人口校验值、九个死因名和具体趋势。原始 GBD 文件不默认公开上传。
+公式（5）的实现：
+
+ASMR(t,c,s) = sum_age [ GBDrate_per_100k(t,c,s,age) / 100000 × w(age) ]
+
+w(age) = [ Population_1980_Male(age) + Population_1980_Female(age) ] / sum_all_ages [ Population_1980_Male(age) + Population_1980_Female(age) ]
+
+年龄别 Rate 已经使用人口分母计算，不需要再次除人口；人口文件用来计算**固定年龄权重**。
+
+**修订前的问题**：旧程序使用 Deaths Number×100000/Rate 反推一个人口代理，再取跨死因中位数作为年龄权重来源。该代数关系在同一人口分母条件下成立，但反推数值不是已核实的 GBD Population 数据。GBD Number 和 Rate 均属估计输出，不能预先认定反推结果恰好等于官方人口。更不能把这个代理称作作者使用的 HCSO 年中暴露量。
+
+**修订后的处理**：run.R 明确要求独立 Population CSV；缺文件就停止，既不默认反推人口，也不生成未经核查的结果。
+
+## 四、在 RStudio 运行
+
+在仓库根目录打开 RStudio，执行：
+
+    source("02_figure2/run.R")
+
+程序逐步检验：
+1. 死亡数据的年份、性别、年龄、19 类死因与 Rate/Number 完整性；
+2. Population 中 1980 年 12 条年龄×性别人口是否完整；
+3. 六个固定权重加总为 1；
+4. 19 死因×男女×44 年共 1672 条 ASMR；
+5. 各 ASMR 是否处于年龄别率最小值与最大值之间；
+6. 画与原文类似的 3×3 男女折线图（注意九类死因**并非**原文那九类）。
+
+输出目录：outputs/02_figure2/
+
+文件包括 standard_age_weights_1980.csv、asmr_19_causes_1980_2023.csv、figure2_selected_9_causes.csv 和 figure2_gbd_asmr_9_panels.png。
+
+## 五、实际状态
+
+**已修订并提交方法及 R 代码；用户尚未提供 GBD Population 数据，且尚未在真实 CSV 上运行 R，因此没有可靠的 ASMR 实测结果或绘制图片。** 后续应核查六个标准年龄权重、人口量级、九类死因实际名称及与原文趋势的异同。
+
+研究限制：GBD 估计与 HCSO 登记数据不同；只用到 60–89 岁、欠缺 90+；人口标准年用 1980 而非 1970；GBD 分类与原文 ICD 章节不同；原文男女权重口径未在 §3.1 中充分说明。
