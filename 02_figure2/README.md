@@ -21,16 +21,15 @@ R 脚本已更新为读取完整 1980–2023 人口数据，核验 Deaths Number
 ## 2. 原始数据
 
 **Population（本次已提供，内部检查通过）**：
-- 文件名：IHME-GBD_2023_DATA-pop.csv
-- 本地路径：data/raw/IHME-GBD_2023_DATA-pop.csv
+- 在程序弹出的**第一个文件选择窗口**中，选择你电脑上的 Population CSV，无需改名、无需挪动文件。
 - 528 行、15 列：1980–2023 共 44 年 × 男女 × 六个年龄组
 - 地区 Hungary、人口组 All Population、指标 Population / Number
 - 0 缺失、0 重复、无非正人口数；528 行均满足 lower ≤ val ≤ upper
 - **构造固定标准权重只用 1980 年的 12 行**；全 44 年用于交叉核验和后续研究。
 
-**Deaths Number + Rate（本次未一同上传）**：
-- 默认路径：data/raw/IHME-GBD_2023_DATA-b40ffc46-1.csv
-- 如你在本地将文件名改为 -2.csv，修改 run.R 开头的 deaths_path 指向实际文件即可。
+**Deaths Number + Rate**：
+- 在程序弹出的**第二个文件选择窗口**中，选择你电脑上含 Number 与 Rate 的 Deaths CSV。
+- 不需要修改文件名；此前从 -1.csv 改成 -2.csv 也不会影响读取。
 - 要求 Hungary、1980–2023、两性、六年龄组、19 类 GBD 死因，Deaths / Number 和 Deaths / Rate；总行数 20,064。
 - Rate 必须为每十万人口**年龄别**死因死亡率，而非已标准化的 Rate。
 
@@ -71,8 +70,13 @@ GBD 的年龄别 Rate 已经包含人口分母；不能**再除以人口一次**
 
 ## 4. 如何运行和验证
 
-在 RStudio 将工作目录设为项目根目录，执行命令：
-**source("02_figure2/run.R")**
+在 RStudio 打开更新后的 `run.R`，点击 **Source** 运行整份脚本。或者在控制台运行：
+
+```r
+source(file.choose())  # 第一次选择 Figure 2 的 run.R 程序本身
+```
+
+接下来会依次弹出两个选择窗口：① 选择 Population CSV；② 选择 Deaths CSV。**不要求任何固定输入目录或文件名。** 注意若使用控制台逐行执行，应从脚本最上方开始，以免跳过两个 `file.choose()`。输出仍按项目相对路径写入 `outputs/02_figure2/`。
 
 依次完成：
 1. 检验 Population 528 行全部数据：地区、年份、年龄、性别、Population/Number、重复、缺失、区间。
