@@ -24,7 +24,7 @@
 2. 在 RStudio 中将工作目录设为仓库根目录。
 3. 逐段运行 `00_data/check_data.R` 核对数据。
 4. 将 Level 1 CSV `IHME-GBD_2023_DATA-97ee48e8-1.csv` 也放入 `data/raw/`，先运行 `00_data/check_level1_level2.R` 核验，再运行 `01_figure1/run.R` 生成正式的 GBD Figure 1 构成占比图。
-5. Figure 2 的独立 Population 文件**已经由用户提供并完成结构核验**：保存为 `data/raw/IHME-GBD_2023_DATA-pop.csv`，内含 1980–2023 年 528 行人口估计。`02_figure2/run.R` 从 1980 年的 12 行计算固定年龄权重，并使用其余年份人口核验 Deaths Number/Rate 的分母一致性。若本地 Deaths 文件名不同，请修改 `deaths_path`。**目前尚未用两份真实 CSV 完成 R 端到端执行，也没有 ASMR 图。**
+5. Figure 2 的独立 Population 文件**已经由用户提供并完成结构核验**（1980–2023 年 528 行）。运行 [02_figure2/run.R](02_figure2/run.R) 时，依次用 **`file.choose()`** 交互选择 Population CSV 和 Deaths CSV；**无需固定路径、无需改名、无需移动文件**。程序用 1980 年人口构造固定权重，并用其他年份人口核验 Deaths Number/Rate 的一致性。**目前尚未用两份真实 CSV 完成 R 端到端执行，也没有 ASMR 图。**
 6. 之后各章仅在真实计算完成后加入程序、结果及图表。
 
 ## 必须区分的三个量
