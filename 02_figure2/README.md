@@ -67,6 +67,8 @@ GBD 的年龄别 Rate 已经包含人口分母；不能**再除以人口一次**
 
 这是**已经完成的 Population 数据计算**，不是已经生成的 Figure 2 ASMR 结果。
 
+为了便于复核，这六个实际计算的权重另保存于 [verified_age_weights_1980.csv](verified_age_weights_1980.csv)（由上传的人口 CSV 计算的派生结果，不是原始人口文件）。
+
 ## 4. 如何运行和验证
 
 在 RStudio 将工作目录设为项目根目录，执行命令：
