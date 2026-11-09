@@ -235,6 +235,14 @@ qc_summary <- data.frame(
   maximum_relative_difference = max_error
 )
 print(qc_summary, row.names = FALSE, digits = 5)
+qc_preview <- head(
+  qc[order(-qc$relative_error),
+     c("year", "sex_name", "age_name", "cause_name",
+       "rate_per_100k", "rate_recomputed_per_100k", "relative_error")],
+  10
+)
+cat("\nTen cells with the largest Number/Rate/Population differences:\n")
+print(qc_preview, row.names = FALSE, digits = 5)
 
 cat("\n[Preview C] Selected nine GBD causes (ranked by 1980-2015 deaths)\n")
 selected_causes <- data.frame(rank = seq_along(top9), cause_name = top9)
