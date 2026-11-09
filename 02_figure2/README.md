@@ -76,7 +76,11 @@ GBD 的年龄别 Rate 已经包含人口分母；不能**再除以人口一次**
 source(file.choose())  # 第一次选择 Figure 2 的 run.R 程序本身
 ```
 
-接下来会依次弹出两个选择窗口：① 选择 Population CSV；② 选择 Deaths CSV。**不要求任何固定输入目录或文件名。** 注意若使用控制台逐行执行，应从脚本最上方开始，以免跳过两个 `file.choose()`。输出仍按项目相对路径写入 `outputs/02_figure2/`。
+接下来依次弹出两个输入选择窗口：① 选择 Population CSV；② 选择 Deaths CSV。**不要求固定输入路径或文件名。**
+
+计算完成后，程序会先在 RStudio Console 展示年龄权重、Number/Rate/Population 质控摘要、九个入图死因和 1980/2023 年 ASMR 预览；在 Plots 窗格显示九面板图，并在交互式 RStudio 中打开数据预览表。此时**尚未保存任何结果文件**。
+
+检查完毕后，在 Console 输入 `y` 确认保存。随后会弹出**结果文件夹选择窗口**；你选择一个父文件夹，程序就在其中创建 `Figure2_ASMR_results` 子文件夹。输入其他字符或取消文件夹选择，均不会保存结果。若目标子文件夹已存在，程序会再次询问是否覆盖同名文件。
 
 依次完成：
 1. 检验 Population 528 行全部数据：地区、年份、年龄、性别、Population/Number、重复、缺失、区间。
@@ -87,9 +91,15 @@ source(file.choose())  # 第一次选择 Figure 2 的 run.R 程序本身
 6. 计算 19 死因 × 2 性别 × 44 年 = **1672** 条 ASMR；每一个标准化率应在相应六个年龄别死亡率的最小值和最大值之间。
 7. 用训练期（1980–2015）死亡人数选九类 GBD 死因，绘制原文风格的 3×3 面板图（男性实线、女性虚线），但**并非原文九个 ICD 章节的逐项复制**。
 
-## 5. 成功运行后生成的文件（当前尚未生成）
+## 5. 结果保存在哪里？
 
-本地目录：outputs/02_figure2/
+**不再使用固定的 `outputs/02_figure2/` 路径。** 结果预览并输入 `y` 确认后，程序才会让你选择保存位置。假设选择 `D:/Research/GBD/`，则保存到：
+
+`D:/Research/GBD/Figure2_ASMR_results/`
+
+实际位置由你在文件夹选择窗口中决定；运行结束后，Console 会打印完整保存路径。
+
+该文件夹内生成以下文件：
 
 | 文件 | 说明 |
 |---|---|
@@ -99,8 +109,9 @@ source(file.choose())  # 第一次选择 Figure 2 的 run.R 程序本身
 | asmr_19_causes_1980_2023.csv | 1672 条年龄标准化死亡率 |
 | figure2_selected_9_causes.csv | 九个图中实际使用的 GBD 死因 |
 | figure2_gbd_asmr_9_panels.png | Figure 2 风格九面板图 |
+| run_summary.txt | 运行日期、输入文件名、质控摘要及九类死因 |
 
-发生报错时可能只生成先前步骤的检查文件，此时**不能**标记 Figure 2 复现成功。
+如果质控未通过或你取消保存，程序不会保存正式结果；请先根据 Console 的提示检查数据。只有显示“RESULTS SUCCESSFULLY SAVED”并打印保存路径，才表示本次文件写出完成。
 
 ## 6. 后续解释的注意事项
 
