@@ -24,7 +24,8 @@
 2. 在 RStudio 中将工作目录设为仓库根目录。
 3. 逐段运行 `00_data/check_data.R` 核对数据。
 4. 运行 `01_figure1/run.R` 计算逐年各死因死亡人数；如另行下载同口径 All causes 数据，保存为 `data/raw/gbd_all_causes.csv`，才会生成 Figure 1 的百分比堆积面积图。
-5. 运行 `02_figure2/run.R`，程序会按 Number/Rate 反推并核验 1980 年人口代理，使用统一年龄权重计算各死因 ASMR，并在 `outputs/02_figure2` 输出图和 CSV；**当前代码尚未使用原始 CSV 运行，因此不宣称已获得实际结果**。\n6. 之后各章仅在真实计算完成后加入程序、结果及图表。
+5. 运行 `02_figure2/run.R`，程序会按 Number/Rate 反推并核验 1980 年人口代理，使用统一年龄权重计算各死因 ASMR，并在 `outputs/02_figure2` 输出图和 CSV；**当前代码尚未使用原始 CSV 运行，因此不宣称已获得实际结果**。
+6. 之后各章仅在真实计算完成后加入程序、结果及图表。
 
 ## 必须区分的三个量
 
