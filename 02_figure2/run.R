@@ -157,7 +157,7 @@ write.csv(data.frame(rank = 1:9, cause_name = top9),
 
 # Part 6. Reproduce original Figure 2's 3-by-3 layout and line styles.
 # One panel/cause: Male = solid, Female = dashed.
-png(file.path(out, "figure2_gbd_asrm_9_panels.png"),
+png(file.path(out, "figure2_gbd_asmr_9_panels.png"),
     width = 2250, height = 1950, res = 180)
 oldpar <- par(no.readonly = TRUE)
 par(mfrow = c(3, 3), mar = c(3.7, 4.7, 4.7, 1.4),
