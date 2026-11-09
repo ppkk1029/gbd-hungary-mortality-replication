@@ -1,0 +1,7 @@
+# 从 IHME 下载的原始 CSV 请留在本地，不默认公开再分发
+/data/raw/*.csv
+/data/raw/*.zip
+.Rhistory
+.RData
+.Rproj.user/
+.DS_Store
