@@ -12,7 +12,7 @@
 |---|---|---|
 | [00 数据核对](00_data/README.md) | §3 数据准备 | 已有核对代码 |
 | [01 死因构成](01_figure1/README.md) | §3.1 Figure 1 | Level 1 与 Level 2 已核验一致；已提供正式死因占比计算代码 |
-| [02 年龄标准化死亡率](02_figure2/README.md) | §3.1 Figure 2 | 已有 ASMR 计算和九面板图代码；待本地原始 CSV 执行与结果验证 |
+| [02 年龄标准化死亡率](02_figure2/README.md) | §3.1 Figure 2 | 已改为要求独立 Population 基准年文件；人口尚缺，未运行/未出图 |
 | [03 单人口死亡率模型](03_single_population/README.md) | 单人口模型与拟合 | 待复现 |
 | [04 DTW 聚类](04_dtw_clustering/README.md) | 时期因子聚类 | 待复现 |
 | [05 多人口死亡率模型](05_multi_population/README.md) | 聚类后的联合建模 | 待复现 |
@@ -24,7 +24,7 @@
 2. 在 RStudio 中将工作目录设为仓库根目录。
 3. 逐段运行 `00_data/check_data.R` 核对数据。
 4. 将 Level 1 CSV `IHME-GBD_2023_DATA-97ee48e8-1.csv` 也放入 `data/raw/`，先运行 `00_data/check_level1_level2.R` 核验，再运行 `01_figure1/run.R` 生成正式的 GBD Figure 1 构成占比图。
-5. 运行 `02_figure2/run.R`，程序会按 Number/Rate 反推并核验 1980 年人口代理，使用统一年龄权重计算各死因 ASMR，并在 `outputs/02_figure2` 输出图和 CSV；**当前代码尚未使用原始 CSV 运行，因此不宣称已获得实际结果**。
+5. Figure 2 需要新增独立的 GBD 2023 Population 数据文件 `data/raw/gbd_population_1980.csv`（1980 年、男女、六个年龄组，共 12 条）。`02_figure2/run.R` **不再从 Deaths Number/Rate 反推人口**；若 Population 文件缺失，立即停止运行，不会生成 Figure 2。得到标准人口权重后，使用已有年龄别 Deaths Rate 计算 ASMR。这是 GBD 方法复现，非 HCSO 原文数值复现。
 6. 之后各章仅在真实计算完成后加入程序、结果及图表。
 
 ## 必须区分的三个量
@@ -41,7 +41,7 @@
 | 历史年份 | 1970–2021 | 1980–2023 |
 | 死因 | 9 类 ICD 章节 | GBD 原生分类；最终筛选规则要预先明确 |
 | 年龄 | 单岁年龄，90+ 合并 | 60–89 岁六个五岁组，不含 90+ |
-| 人口暴露量 | central / initial exposure | 当前原始文件仅包含死亡人数与率 |
+| 人口暴露量 | 1970 年年中人口用于标准化；模型还涉及各年 exposure | Figure 2 尚缺独立 1980 年 Population；现有 Deaths 表仅有 Number/Rate |
 | 模型回测 | 2016–2019 | 训练期截止 2015，测试期同样选 2016–2019 |
 
 ### 方法与可复现性说明
