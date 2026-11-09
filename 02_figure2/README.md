@@ -78,7 +78,7 @@ source(file.choose())  # 第一次选择 Figure 2 的 run.R 程序本身
 
 接下来依次弹出两个输入选择窗口：① 选择 Population CSV；② 选择 Deaths CSV。**不要求固定输入路径或文件名。**
 
-计算完成后，程序会先在 RStudio Console 展示年龄权重、Number/Rate/Population 质控摘要、九个入图死因和 1980/2023 年 ASMR 预览；在 Plots 窗格显示九面板图，并在交互式 RStudio 中打开数据预览表。此时**尚未保存任何结果文件**。
+计算完成后，程序会先在 RStudio Console 展示年龄权重、Number/Rate/Population 质控摘要及差异最大的 10 条记录、九个入图死因和 1980/2023 年 ASMR 预览；在 Plots 窗格显示九面板图，并在交互式 RStudio 中打开数据预览表。此时**尚未保存任何结果文件**。
 
 检查完毕后，在 Console 输入 `y` 确认保存。随后会弹出**结果文件夹选择窗口**；你选择一个父文件夹，程序就在其中创建 `Figure2_ASMR_results` 子文件夹。输入其他字符或取消文件夹选择，均不会保存结果。若目标子文件夹已存在，程序会再次询问是否覆盖同名文件。
 
