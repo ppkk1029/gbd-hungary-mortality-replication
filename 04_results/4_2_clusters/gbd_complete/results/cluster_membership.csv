@@ -1,0 +1,127 @@
+sex,model,cause,code,cluster
+Male,Poisson LC1,Cardiovascular diseases,CVD,1
+Male,Poisson LC1,Neoplasms,NEO,1
+Male,Poisson LC1,Digestive diseases,DIG,1
+Male,Poisson LC1,Chronic respiratory diseases,CRD,1
+Male,Poisson LC1,Neurological disorders,NEU,2
+Male,Poisson LC1,Unintentional injuries,INJ,1
+Male,Poisson LC1,Diabetes and kidney diseases,DKD,2
+Male,Poisson LC1,Self-harm and interpersonal violence,SHV,1
+Male,Poisson LC1,Respiratory infections and tuberculosis,RIT,1
+Male,Binomial LC1,Cardiovascular diseases,CVD,1
+Male,Binomial LC1,Neoplasms,NEO,1
+Male,Binomial LC1,Digestive diseases,DIG,1
+Male,Binomial LC1,Chronic respiratory diseases,CRD,1
+Male,Binomial LC1,Neurological disorders,NEU,2
+Male,Binomial LC1,Unintentional injuries,INJ,1
+Male,Binomial LC1,Diabetes and kidney diseases,DKD,2
+Male,Binomial LC1,Self-harm and interpersonal violence,SHV,1
+Male,Binomial LC1,Respiratory infections and tuberculosis,RIT,1
+Male,Poisson LC2,Cardiovascular diseases,CVD,1
+Male,Poisson LC2,Neoplasms,NEO,2
+Male,Poisson LC2,Digestive diseases,DIG,2
+Male,Poisson LC2,Chronic respiratory diseases,CRD,2
+Male,Poisson LC2,Neurological disorders,NEU,1
+Male,Poisson LC2,Unintentional injuries,INJ,2
+Male,Poisson LC2,Diabetes and kidney diseases,DKD,2
+Male,Poisson LC2,Self-harm and interpersonal violence,SHV,2
+Male,Poisson LC2,Respiratory infections and tuberculosis,RIT,2
+Male,Binomial LC2,Cardiovascular diseases,CVD,1
+Male,Binomial LC2,Neoplasms,NEO,2
+Male,Binomial LC2,Digestive diseases,DIG,2
+Male,Binomial LC2,Chronic respiratory diseases,CRD,2
+Male,Binomial LC2,Neurological disorders,NEU,1
+Male,Binomial LC2,Unintentional injuries,INJ,2
+Male,Binomial LC2,Diabetes and kidney diseases,DKD,2
+Male,Binomial LC2,Self-harm and interpersonal violence,SHV,2
+Male,Binomial LC2,Respiratory infections and tuberculosis,RIT,2
+Male,CBD,Cardiovascular diseases,CVD,1
+Male,CBD,Neoplasms,NEO,1
+Male,CBD,Digestive diseases,DIG,1
+Male,CBD,Chronic respiratory diseases,CRD,1
+Male,CBD,Neurological disorders,NEU,2
+Male,CBD,Unintentional injuries,INJ,1
+Male,CBD,Diabetes and kidney diseases,DKD,2
+Male,CBD,Self-harm and interpersonal violence,SHV,1
+Male,CBD,Respiratory infections and tuberculosis,RIT,1
+Male,Plat2,Cardiovascular diseases,CVD,1
+Male,Plat2,Neoplasms,NEO,1
+Male,Plat2,Digestive diseases,DIG,1
+Male,Plat2,Chronic respiratory diseases,CRD,1
+Male,Plat2,Neurological disorders,NEU,2
+Male,Plat2,Unintentional injuries,INJ,1
+Male,Plat2,Diabetes and kidney diseases,DKD,2
+Male,Plat2,Self-harm and interpersonal violence,SHV,1
+Male,Plat2,Respiratory infections and tuberculosis,RIT,1
+Male,Plat3,Cardiovascular diseases,CVD,1
+Male,Plat3,Neoplasms,NEO,1
+Male,Plat3,Digestive diseases,DIG,1
+Male,Plat3,Chronic respiratory diseases,CRD,1
+Male,Plat3,Neurological disorders,NEU,2
+Male,Plat3,Unintentional injuries,INJ,1
+Male,Plat3,Diabetes and kidney diseases,DKD,2
+Male,Plat3,Self-harm and interpersonal violence,SHV,1
+Male,Plat3,Respiratory infections and tuberculosis,RIT,1
+Female,Poisson LC1,Cardiovascular diseases,CVD,1
+Female,Poisson LC1,Neoplasms,NEO,1
+Female,Poisson LC1,Digestive diseases,DIG,1
+Female,Poisson LC1,Chronic respiratory diseases,CRD,1
+Female,Poisson LC1,Neurological disorders,NEU,2
+Female,Poisson LC1,Unintentional injuries,INJ,1
+Female,Poisson LC1,Diabetes and kidney diseases,DKD,2
+Female,Poisson LC1,Self-harm and interpersonal violence,SHV,1
+Female,Poisson LC1,Respiratory infections and tuberculosis,RIT,1
+Female,Binomial LC1,Cardiovascular diseases,CVD,1
+Female,Binomial LC1,Neoplasms,NEO,1
+Female,Binomial LC1,Digestive diseases,DIG,1
+Female,Binomial LC1,Chronic respiratory diseases,CRD,1
+Female,Binomial LC1,Neurological disorders,NEU,2
+Female,Binomial LC1,Unintentional injuries,INJ,1
+Female,Binomial LC1,Diabetes and kidney diseases,DKD,2
+Female,Binomial LC1,Self-harm and interpersonal violence,SHV,1
+Female,Binomial LC1,Respiratory infections and tuberculosis,RIT,1
+Female,Poisson LC2,Cardiovascular diseases,CVD,1
+Female,Poisson LC2,Neoplasms,NEO,2
+Female,Poisson LC2,Digestive diseases,DIG,3
+Female,Poisson LC2,Chronic respiratory diseases,CRD,2
+Female,Poisson LC2,Neurological disorders,NEU,3
+Female,Poisson LC2,Unintentional injuries,INJ,3
+Female,Poisson LC2,Diabetes and kidney diseases,DKD,1
+Female,Poisson LC2,Self-harm and interpersonal violence,SHV,1
+Female,Poisson LC2,Respiratory infections and tuberculosis,RIT,2
+Female,Binomial LC2,Cardiovascular diseases,CVD,1
+Female,Binomial LC2,Neoplasms,NEO,2
+Female,Binomial LC2,Digestive diseases,DIG,3
+Female,Binomial LC2,Chronic respiratory diseases,CRD,2
+Female,Binomial LC2,Neurological disorders,NEU,3
+Female,Binomial LC2,Unintentional injuries,INJ,3
+Female,Binomial LC2,Diabetes and kidney diseases,DKD,1
+Female,Binomial LC2,Self-harm and interpersonal violence,SHV,1
+Female,Binomial LC2,Respiratory infections and tuberculosis,RIT,2
+Female,CBD,Cardiovascular diseases,CVD,1
+Female,CBD,Neoplasms,NEO,1
+Female,CBD,Digestive diseases,DIG,1
+Female,CBD,Chronic respiratory diseases,CRD,1
+Female,CBD,Neurological disorders,NEU,2
+Female,CBD,Unintentional injuries,INJ,1
+Female,CBD,Diabetes and kidney diseases,DKD,1
+Female,CBD,Self-harm and interpersonal violence,SHV,1
+Female,CBD,Respiratory infections and tuberculosis,RIT,1
+Female,Plat2,Cardiovascular diseases,CVD,1
+Female,Plat2,Neoplasms,NEO,1
+Female,Plat2,Digestive diseases,DIG,1
+Female,Plat2,Chronic respiratory diseases,CRD,1
+Female,Plat2,Neurological disorders,NEU,2
+Female,Plat2,Unintentional injuries,INJ,1
+Female,Plat2,Diabetes and kidney diseases,DKD,1
+Female,Plat2,Self-harm and interpersonal violence,SHV,1
+Female,Plat2,Respiratory infections and tuberculosis,RIT,1
+Female,Plat3,Cardiovascular diseases,CVD,1
+Female,Plat3,Neoplasms,NEO,1
+Female,Plat3,Digestive diseases,DIG,1
+Female,Plat3,Chronic respiratory diseases,CRD,1
+Female,Plat3,Neurological disorders,NEU,2
+Female,Plat3,Unintentional injuries,INJ,1
+Female,Plat3,Diabetes and kidney diseases,DKD,1
+Female,Plat3,Self-harm and interpersonal violence,SHV,1
+Female,Plat3,Respiratory infections and tuberculosis,RIT,1
