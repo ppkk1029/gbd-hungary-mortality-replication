@@ -45,6 +45,9 @@ See [cluster_summary_selected.csv](results/cluster_summary_selected.csv) and [cl
 
 ## How to reproduce from the CSV
 
+**RStudio users**: [run_4_2_complete_RStudio_launcher.R](run_4_2_complete_RStudio_launcher.R) lets you use graphical file selectors, preview the exact input/output paths, then invoke the following **Python** pipeline with a single confirmation. It is an R front-end to Python/SciPy, **not** an independently estimated R implementation. Install the listed Python packages first; it writes outputs next to the scripts in `results/`.
+
+
 ```bash
 python -m pip install numpy pandas scipy matplotlib scikit-learn
 OPENBLAS_NUM_THREADS=1 python run_all_models.py /path/to/fitted_rates.csv results
