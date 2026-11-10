@@ -1,0 +1,13 @@
+"check","value"
+"DTW_bruteforce_error",0
+"gradient_Poisson LC1",6.04047505916271e-12
+"gradient_Binomial LC1",3.81138526230236e-12
+"gradient_Poisson LC2",6.04045066461383e-12
+"gradient_Binomial LC2",4.61290909441713e-12
+"gradient_CBD",6.63359246548013e-13
+"gradient_Plat2",6.04013022866175e-12
+"gradient_Plat3",6.04026231159141e-12
+"fits_passed",126
+"max_gradient",3.14289199983416e-09
+"max_multistart_eta_difference",4.50521168282592e-06
+"rotation_surface_max_error",2.22044604925031e-16

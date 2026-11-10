@@ -1,6 +1,6 @@
-# §4.2 — GBD Hungary complete DTW clustering: code, audited results and figures
+# §4.2｜七模型与死因聚类：完整 R 代码、实跑结果与图 5–8
 
-**This folder supersedes the older one-factor-only script one directory above.** It is based on the existing 2026-11-10 full experiment archive, which had seven independently fitted single-population models × two sexes × nine causes (126 fitted models), and 14 sex-model DTW clustering analyses.
+**2026-11-10：已改为纯 R，并从同一份原始 GBD 输入端到端重跑。** 126 组拟合、14 组聚类全部完成；与迁移前存档的14组成员归属全部ARI=1。详见[实跑核验](R_MIGRATION_VALIDATION.md)和[中文逐步代码讲解](CODE_WALKTHROUGH_R.md)。
 
 ## Reproduction order and rationale
 
@@ -19,7 +19,9 @@
 
 **Figure 7: male CBD first-factor groups.** [SVG](figures/Figure7_GBD_Male_CBD.svg). Two clusters: CVD+NEO+DIG+CRD+INJ+SHV+RIT versus NEU+DKD, silhouette **0.7144**. Original male CBD Figure 7 reported **six** clusters on HCSO ICD groups, not two.
 
-**Figure 8: male two-factor Binomial Lee–Carter second-factor groups.** [SVG](figures/Figure8_GBD_Male_Binomial_LC2.svg). Two groups: CVD+NEU and seven other causes; silhouette **0.5154**. Original male Binomial LC2 Figure 8 reported **five** clusters; the GBD grouping differs from the original and from our CBD Figure 7.\n\nThe SVGs are plotted from verified, standardized factor values rounded to 0.01 for compact text-based GitHub storage; full-resolution source CSVs and PNGs are in the referenced result archive, with all output computed before rounding.
+**Figure 8: male two-factor Binomial Lee–Carter second-factor groups.** [SVG](figures/Figure8_GBD_Male_Binomial_LC2.svg). Two groups: CVD+NEU and seven other causes; silhouette **0.5154**. Original male Binomial LC2 Figure 8 reported **five** clusters; the GBD grouping differs from the original and from our CBD Figure 7. 
+
+图形已由R重绘，使用完整精度参数，不提前舍入。PNG与SVG均由同一个R绘图函数生成。
 
 ## Audited aggregate results
 
@@ -43,23 +45,44 @@ See [cluster_summary_selected.csv](results/cluster_summary_selected.csv) and [cl
 - The original male HCSO results were six clusters for most models, five for LC2; female original clusters were two. We get male K=2 throughout and female K=3 for LC2. Differences cannot be attributed to a single factor without matched data/age/category/DTW and K-selection controlled studies.
 - A **silhouette score is not a forecasting accuracy measure**. No §4.3 multi-population forecasts or held-out prediction gains are claimed.
 
-## How to reproduce from the CSV
+## 在 RStudio 中完整运行
 
-**RStudio users**: [run_4_2_complete_RStudio_launcher.R](run_4_2_complete_RStudio_launcher.R) lets you use graphical file selectors, preview the exact input/output paths, then invoke the following **Python** pipeline with a single confirmation. It is an R front-end to Python/SciPy, **not** an independently estimated R implementation. Install the listed Python packages first; it writes outputs next to the scripts in `results/`.
+1. 下载整个仓库，打开本目录 [run_4_2_complete.R](run_4_2_complete.R)，点击 **Source**。
+2. 选择此前的 `fitted_rates.csv`（3888行，含 `deaths_gbd`、`exposure_proxy`）。
+3. 程序会重新拟合、聚类、核验和绘图，自动在输入文件旁建立时间戳结果目录。
+4. 直接查看 Console 的14组结果和新目录中的 Figures 5–8。不需要安装第三方包。
 
-
-```bash
-python -m pip install numpy pandas scipy matplotlib scikit-learn
-OPENBLAS_NUM_THREADS=1 python run_all_models.py /path/to/fitted_rates.csv results
-OPENBLAS_NUM_THREADS=1 python verify_and_plot.py results
-OPENBLAS_NUM_THREADS=1 python complete_cvi.py results
-OPENBLAS_NUM_THREADS=1 python plot_paper_figures.py
+```r
+options(section42.autorun = FALSE)
+source("run_4_2_complete.R", encoding = "UTF-8")
+run_section42("D:/mortality/fitted_rates.csv", "D:/mortality/new_R_results")
 ```
 
-Input is the previously uploaded `fitted_rates(1).csv`, 3,888 rows (36 years × 6 ages × 9 causes × 2 sexes). The program verifies row count, years and selected causes. Full original CSV is not stored here, because the user's GBD file is not in the repository. Main outputs include all fitted parameters, 8,424 period-factor values, 4,536 standardized selected-factor values, 504 distances, 196 validity candidates, membership tables, alignment paths, sensitivity files and plots.
+或在命令行：
 
-**Dataset and inference warning:** GBD's estimated deaths are not integer registration counts; the Poisson/Binomial structures are working pseudo-likelihoods here. Binomial exposure `E0 ≈ Ec + D/2` is estimated, not observed. Numeric optimization checks of 126/126 models are **not** evidence for the models' scientific validity or future accuracy.
+```bash
+Rscript run_4_2_complete.R fitted_rates.csv new_R_results
+```
 
-**Input provenance**: [manifest.json](results/manifest.json); [validation.json](results/validation.json). The validated pre-existing complete archive is available via the project's [ChatGPT Library](https://chatgpt.com/library?file_id=libfile_9a69c3210b3c81918a86c5d8ac395012&account_id=personal), not duplicated as a binary ZIP in GitHub.
+输出目录必须不存在或为空。原始GBD输入未公开上传；`fitted_count`不用于估计。旧文件名 `run_4_2_complete_RStudio_launcher.R` 已改成直接执行完整R流程。原四个Python脚本已从当前工作树移除，历史可由Git记录追溯。
 
-**Paper**: [Varga (2025), §4.2, Figures 5–8, Tables 3–4](https://unipub.lib.uni-corvinus.hu/11046/1/Forecastingcause-of-deathmortalitywithsingle-andmulti-populationmodelsinHungary.pdf#page=14). See also the detailed [Notion analysis](https://app.notion.com/p/413eb49c94ed81149a9bfdca526c0bc2).
+## R 文件逐项对应
+
+| 文件 | 内容 |
+|---|---|
+| [model_functions.R](model_functions.R) | 数据检查、七模型目标函数/解析梯度、三起点估计、SVD |
+| [run_all_models.R](run_all_models.R) | 126组模型、14组聚类、旋转/窗口/删项敏感性 |
+| [clustering_functions.R](clustering_functions.R) | DTW动态规划、hclust、精确medoids、七项CVI、ARI |
+| [complete_cvi.R](complete_cvi.R) | 196组CVI核对、294次PAM起点检查 |
+| [verify_and_plot.R](verify_and_plot.R) | 有限差分梯度、路径枚举、结果完整性、迁移对照 |
+| [plot_paper_figures.R](plot_paper_figures.R) | Figures 5–8、热图、树状图、全模型曲线 |
+| [CODE_WALKTHROUGH_R.md](CODE_WALKTHROUGH_R.md) | 从研究问题到每一步R代码的中文讲解 |
+
+## 当前 R 实跑文件
+
+`results/` 中的全部CSV已更新为R计算结果：拟合诊断、alpha/beta/kappa、标准化因子、504个距离、196个候选CVI、主分组、敏感性、294次PAM检查，以及迁移数值对照。环境与设置见 `sessionInfo.txt`、`manifest.txt`；检查见 `validation.csv`。
+
+[完整核验与误差限度](R_MIGRATION_VALIDATION.md)记录：最大缩放梯度3.143e−9、三起点最大拟合面差4.505e−6、14组归属全部ARI=1。优化器和随机数发生器不同，因此数值尾数并非逐位相等；没有把旧结果改名当作R结果。
+
+[Notion解释与结果](https://app.notion.com/p/413eb49c94ed81149a9bfdca526c0bc2)｜[原论文](https://doi.org/10.1080/03461238.2025.2480846)
+

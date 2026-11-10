@@ -1,6 +1,6 @@
 # 匈牙利分死因死亡率预测：GBD 2023 方法复现（R）
 
-> **最新可复核入口（2026-11-10）：** [§4.2 完整七模型复现（代码、图 5/6/7/8、14 组聚类表）](04_results/4_2_clusters/gbd_complete/README.md)｜[Notion 分析全文（问题—方法—原因—结果—解释—原文对照）](https://app.notion.com/p/413eb49c94ed81149a9bfdca526c0bc2)。此项目是 GBD 对 Varga 论文的**方法性复现**，不是 HCSO 数值复刻。之前的 1/7、Figure 4 尚未重估等表述是历史记录，不能作为当前项目状态。
+> **最新可复核入口（2026-11-10，完整纯 R 已实跑）：** [§4.2 完整七模型复现（代码、图 5/6/7/8、14 组聚类表）](04_results/4_2_clusters/gbd_complete/README.md)｜[Notion 分析全文（问题—方法—原因—结果—解释—原文对照）](https://app.notion.com/p/413eb49c94ed81149a9bfdca526c0bc2)。此项目是 GBD 对 Varga 论文的**方法性复现**，不是 HCSO 数值复刻。之前的 1/7、Figure 4 尚未重估等表述是历史记录，不能作为当前项目状态。
 
 本项目面向初学者，按 Varga (2025) 论文的研究顺序，用 GBD 数据复现分死因死亡率预测方法。**只制作原文实际涉及的分析与图表**；每章解释研究问题、计算公式、R 代码、实际结果以及与论文的异同。尚未运行的分析明确标记为“待复现”。
 
@@ -40,12 +40,11 @@
 - 上传的 `fitted_rates(1).csv` 提供3888个真实 GBD 观测单元，Python/SciPy 已独立重新拟合18个双因子模型：18组训练 deviance 全部降低，但只有9组伪AIC和6组伪BIC降低。这是训练期拟合改善，**不是样本外预测提升**。
 - [修正 R 版脚本](04_results/4_1_single_population/run_4_1_poisson_lc_2factor.R)：取消 `readline` 保存交互、自动保存结果、RStudio Plots 最后显示男性原文 Figure 4 参数图。R 实现仍待与 Python 结果对照。
 
-## 单因子 RStudio 旧工作流（仅用于复核 Figure 3；不是目前完成 §4.2 七模型结果的推荐流程）
+## §4.2 当前 RStudio 完整工作流
 
-1. 若要检查你现有截图的女性 β≈18，先运行 [§4.1 旧参数诊断](04_results/4_1_single_population/diagnose_previous_beta.R)，在 `file.choose()` 窗口选择**旧版 beta.csv、kappa.csv**；输出异常抵消比和尺度校验，**不会覆盖旧结果**。
-2. 再运行 [§4.1 修正的 Poisson LC](04_results/4_1_single_population/run_4_1_poisson_lc.R)，依次交互选择 Population、Deaths，先在 Console/Plots 检查重估参数和异常标记，确认 `y` 后再选择结果保存父文件夹；生成新的 `kappa.csv`、`fit_diagnostics.csv`。
-3. 最后运行 [§4.2 DTW](04_results/4_2_clusters/run_4_2_dtw.R)，依次选择**新版** `kappa.csv` 和 `fit_diagnostics.csv`；展示男女 DTW 对齐、树状图、PAM 和聚类表后，输入 `y` 再选择保存文件夹。
-4. 这个旧版 R 程序仅支持 Poisson LC1 一条分支；**最新七模型完整方法与已核对结果**见 [gbd_complete](04_results/4_2_clusters/gbd_complete/README.md)，双因子 Poisson/Binomial LC 需要用**第二时期因子**，其余模型用第一因子。
+打开 [run_4_2_complete.R](04_results/4_2_clusters/gbd_complete/run_4_2_complete.R)，点击 Source，选择含 `deaths_gbd`、`exposure_proxy` 的 `fitted_rates.csv`。程序用 R 重新估计七模型并完成全部聚类、核验与 Figures 5–8，自动保存到新目录。两个旧的§4.2入口名也转向该完整流程，输入已统一为原始拟合数据CSV。
+
+[逐步代码讲解](04_results/4_2_clusters/gbd_complete/CODE_WALKTHROUGH_R.md)｜[R实跑核验](04_results/4_2_clusters/gbd_complete/R_MIGRATION_VALIDATION.md)
 
 ## 必须区分的三个量
 
@@ -68,4 +67,5 @@
 
 GBD 估计死亡人数不完全等同于原始登记计数。对基于 Poisson/Binomial 的模型，必须明确分布假设的局限；不同 GBD 轮次的历史重估也可能影响回顾性预测。选死因、选模型及 DTW 聚类不得利用测试期结果。
 
-本仓库没有公开原始 GBD CSV；使用者应从官方数据源获取并遵守署名和再分发规则。**2026-11-10 最新状态：** §4.1 已从原有 GBD 输入重拟合并核验 126 组单人口模型；§4.2 已有 14 组 DTW 聚类及各项诊断、Figures 5–7 的独立图和 Notion 分析报告，七模型 Python 重运行代码已提交 GitHub。此轮未从 GitHub 直接重新下载完整输入开展新的端到端运行；已核验结果属于之前真实实验的完整存档，原始输入 CSV 未提交 GitHub。§4.3 多人口预测和样本外提升**仍未完成**。
+本仓库没有公开原始 GBD CSV；使用者应从官方数据源获取并遵守署名和再分发规则。**2026-11-10 最新状态：** §4.1 已从原有 GBD 输入重拟合并核验 126 组单人口模型；§4.2 已有 14 组 DTW 聚类及各项诊断、Figures 5–8 的独立图和 Notion 分析报告，七模型和§4.2执行链已全部改为R，并从同一原始输入完成端到端重算。126组通过梯度检查，14组聚类与迁移前归属全部ARI=1；Figures 5–8已用R重绘。入口为 `04_results/4_2_clusters/gbd_complete/run_4_2_complete.R`，代码讲解和迁移核验见该目录。原始输入CSV未提交GitHub。§4.3 多人口预测和样本外提升**仍未完成**。
+

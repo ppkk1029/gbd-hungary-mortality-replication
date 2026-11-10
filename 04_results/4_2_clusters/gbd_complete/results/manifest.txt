@@ -1,0 +1,10 @@
+engine: R (no external-language dependency)
+R: 4.5.0
+input_md5: 93238a9e658a7840b4d78d06ce0ef9d4
+seed: 20261110
+years: 1980-2015; ages: 62,67,72,77,82,87; 9 causes; Male/Female
+DTW: squared local cost, symmetric2, sqrt(acc/(n+m)), closed endpoints; no main window
+LC: centered K, SVD orthogonal B, descending singular values, largest loading positive
+Binomial: N=exposure_proxy+deaths_gbd/2 (approximation)
+selection: maximum silhouette; tie lower K then alphabetical method; K=2..8
+GBD estimated counts: working likelihood, not HCSO registered counts

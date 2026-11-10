@@ -1,0 +1,1405 @@
+"sex","cause","model","factor","age","alpha","beta"
+"Male","Cardiovascular diseases","Poisson LC1",1,62,-4.38505991877671,0.452177900664157
+"Male","Cardiovascular diseases","Poisson LC1",1,67,-3.97168394299357,0.452618686171794
+"Male","Cardiovascular diseases","Poisson LC1",1,72,-3.50015406645215,0.43815903301573
+"Male","Cardiovascular diseases","Poisson LC1",1,77,-3.02583744526678,0.408447886033485
+"Male","Cardiovascular diseases","Poisson LC1",1,82,-2.52647342925487,0.370203592932837
+"Male","Cardiovascular diseases","Poisson LC1",1,87,-2.04897611406484,0.307908682956799
+"Male","Cardiovascular diseases","Binomial LC1",1,62,-4.37868150884868,0.445181944652631
+"Male","Cardiovascular diseases","Binomial LC1",1,67,-3.96200471358529,0.447009607262732
+"Male","Cardiovascular diseases","Binomial LC1",1,72,-3.48462048984415,0.435162097447547
+"Male","Cardiovascular diseases","Binomial LC1",1,77,-3.00082394745207,0.40930116428357
+"Male","Cardiovascular diseases","Binomial LC1",1,82,-2.48504812362049,0.376762406249568
+"Male","Cardiovascular diseases","Binomial LC1",1,87,-1.98165275006705,0.321172916461401
+"Male","Cardiovascular diseases","Poisson LC2",1,62,-4.38555212657376,0.452827451024679
+"Male","Cardiovascular diseases","Poisson LC2",1,67,-3.97367071388948,0.453808378757441
+"Male","Cardiovascular diseases","Poisson LC2",1,72,-3.4998251948065,0.440870694667083
+"Male","Cardiovascular diseases","Poisson LC2",1,77,-3.0271375811069,0.402645282849081
+"Male","Cardiovascular diseases","Poisson LC2",1,82,-2.52673938215927,0.369025131129025
+"Male","Cardiovascular diseases","Poisson LC2",1,87,-2.04745605245023,0.310379629399851
+"Male","Cardiovascular diseases","Poisson LC2",2,62,-4.38555212657376,-0.348124909110019
+"Male","Cardiovascular diseases","Poisson LC2",2,67,-3.97367071388948,-0.504214032713738
+"Male","Cardiovascular diseases","Poisson LC2",2,72,-3.4998251948065,-0.19727814819149
+"Male","Cardiovascular diseases","Poisson LC2",2,77,-3.0271375811069,0.38143343138541
+"Male","Cardiovascular diseases","Poisson LC2",2,82,-2.52673938215927,0.516304302001694
+"Male","Cardiovascular diseases","Poisson LC2",2,87,-2.04745605245023,0.416649726117664
+"Male","Cardiovascular diseases","Binomial LC2",1,62,-4.37916423602394,0.445461513070111
+"Male","Cardiovascular diseases","Binomial LC2",1,67,-3.96401140557704,0.447693607600206
+"Male","Cardiovascular diseases","Binomial LC2",1,72,-3.48428678786875,0.437566415750526
+"Male","Cardiovascular diseases","Binomial LC2",1,77,-3.00214892022627,0.403684359979031
+"Male","Cardiovascular diseases","Binomial LC2",1,82,-2.48530403301469,0.376095660226558
+"Male","Cardiovascular diseases","Binomial LC2",1,87,-1.97994265461534,0.32443966736746
+"Male","Cardiovascular diseases","Binomial LC2",2,62,-4.37916423602394,-0.353168691891317
+"Male","Cardiovascular diseases","Binomial LC2",2,67,-3.96401140557704,-0.507800966815904
+"Male","Cardiovascular diseases","Binomial LC2",2,72,-3.48428678786875,-0.209952634531972
+"Male","Cardiovascular diseases","Binomial LC2",2,77,-3.00214892022627,0.362824714005755
+"Male","Cardiovascular diseases","Binomial LC2",2,82,-2.48530403301469,0.50991144449316
+"Male","Cardiovascular diseases","Binomial LC2",2,87,-1.97994265461534,0.426237598181149
+"Male","Cardiovascular diseases","CBD",1,62,0,1
+"Male","Cardiovascular diseases","CBD",1,67,0,1
+"Male","Cardiovascular diseases","CBD",1,72,0,1
+"Male","Cardiovascular diseases","CBD",1,77,0,1
+"Male","Cardiovascular diseases","CBD",1,82,0,1
+"Male","Cardiovascular diseases","CBD",1,87,0,1
+"Male","Cardiovascular diseases","CBD",2,62,0,-1.25
+"Male","Cardiovascular diseases","CBD",2,67,0,-0.75
+"Male","Cardiovascular diseases","CBD",2,72,0,-0.25
+"Male","Cardiovascular diseases","CBD",2,77,0,0.25
+"Male","Cardiovascular diseases","CBD",2,82,0,0.75
+"Male","Cardiovascular diseases","CBD",2,87,0,1.25
+"Male","Cardiovascular diseases","Plat2",1,62,-4.38787494855327,1
+"Male","Cardiovascular diseases","Plat2",1,67,-3.97254544331143,1
+"Male","Cardiovascular diseases","Plat2",1,72,-3.49877599679087,1
+"Male","Cardiovascular diseases","Plat2",1,77,-3.02560511538363,1
+"Male","Cardiovascular diseases","Plat2",1,82,-2.52673589266493,1
+"Male","Cardiovascular diseases","Plat2",1,87,-2.04576654059737,1
+"Male","Cardiovascular diseases","Plat2",2,62,-4.38787494855327,1.25
+"Male","Cardiovascular diseases","Plat2",2,67,-3.97254544331143,0.75
+"Male","Cardiovascular diseases","Plat2",2,72,-3.49877599679087,0.25
+"Male","Cardiovascular diseases","Plat2",2,77,-3.02560511538363,-0.25
+"Male","Cardiovascular diseases","Plat2",2,82,-2.52673589266493,-0.75
+"Male","Cardiovascular diseases","Plat2",2,87,-2.04576654059737,-1.25
+"Male","Cardiovascular diseases","Plat3",1,62,-4.38776373723988,1
+"Male","Cardiovascular diseases","Plat3",1,67,-3.97223349829946,1
+"Male","Cardiovascular diseases","Plat3",1,72,-3.50103382409807,1
+"Male","Cardiovascular diseases","Plat3",1,77,-3.02656905749,1
+"Male","Cardiovascular diseases","Plat3",1,82,-2.52679141703436,1
+"Male","Cardiovascular diseases","Plat3",1,87,-2.04696764949916,1
+"Male","Cardiovascular diseases","Plat3",2,62,-4.38776373723988,1.25
+"Male","Cardiovascular diseases","Plat3",2,67,-3.97223349829946,0.75
+"Male","Cardiovascular diseases","Plat3",2,72,-3.50103382409807,0.25
+"Male","Cardiovascular diseases","Plat3",2,77,-3.02656905749,-0.25
+"Male","Cardiovascular diseases","Plat3",2,82,-2.52679141703436,-0.75
+"Male","Cardiovascular diseases","Plat3",2,87,-2.04696764949916,-1.25
+"Male","Cardiovascular diseases","Plat3",3,62,-4.38776373723988,1.25
+"Male","Cardiovascular diseases","Plat3",3,67,-3.97223349829946,0.75
+"Male","Cardiovascular diseases","Plat3",3,72,-3.50103382409807,0.25
+"Male","Cardiovascular diseases","Plat3",3,77,-3.02656905749,0
+"Male","Cardiovascular diseases","Plat3",3,82,-2.52679141703436,0
+"Male","Cardiovascular diseases","Plat3",3,87,-2.04696764949916,0
+"Male","Neoplasms","Poisson LC1",1,62,-4.62792344414893,0.355741096264194
+"Male","Neoplasms","Poisson LC1",1,67,-4.34003410779912,0.43322764663342
+"Male","Neoplasms","Poisson LC1",1,72,-4.06812291233966,0.380376910808291
+"Male","Neoplasms","Poisson LC1",1,77,-3.82714783795525,0.298092302865109
+"Male","Neoplasms","Poisson LC1",1,82,-3.62828197267339,0.380888085357519
+"Male","Neoplasms","Poisson LC1",1,87,-3.50458808316506,0.554202787570054
+"Male","Neoplasms","Binomial LC1",1,62,-4.62301834213958,0.35346128168562
+"Male","Neoplasms","Binomial LC1",1,67,-4.33348400968865,0.431272452991027
+"Male","Neoplasms","Binomial LC1",1,72,-4.05952311252553,0.37958873293193
+"Male","Neoplasms","Binomial LC1",1,77,-3.81619466527582,0.298291253252742
+"Male","Neoplasms","Binomial LC1",1,82,-3.61489384070169,0.382152597708216
+"Male","Neoplasms","Binomial LC1",1,87,-3.48940165465286,0.556743484711912
+"Male","Neoplasms","Poisson LC2",1,62,-4.63336504506506,0.319504643714023
+"Male","Neoplasms","Poisson LC2",1,67,-4.34251735779697,0.387899802646696
+"Male","Neoplasms","Poisson LC2",1,72,-4.06843165049649,0.391774147077218
+"Male","Neoplasms","Poisson LC2",1,77,-3.82717652890664,0.341506336095338
+"Male","Neoplasms","Poisson LC2",1,82,-3.62307624154428,0.421916099130448
+"Male","Neoplasms","Poisson LC2",1,87,-3.50154825585566,0.547104899571401
+"Male","Neoplasms","Poisson LC2",2,62,-4.63336504506506,0.645012308265141
+"Male","Neoplasms","Poisson LC2",2,67,-4.34251735779697,0.448410541940657
+"Male","Neoplasms","Poisson LC2",2,72,-4.06843165049649,-0.0468791183656511
+"Male","Neoplasms","Poisson LC2",2,77,-3.82717652890664,-0.336446417217991
+"Male","Neoplasms","Poisson LC2",2,82,-3.62307624154428,-0.514330246608363
+"Male","Neoplasms","Poisson LC2",2,87,-3.50154825585566,-0.0543843919629404
+"Male","Neoplasms","Binomial LC2",1,62,-4.62847970665784,0.311581833167602
+"Male","Neoplasms","Binomial LC2",1,67,-4.33598137034238,0.382019972813139
+"Male","Neoplasms","Binomial LC2",1,72,-4.0598337518926,0.391250584524989
+"Male","Neoplasms","Binomial LC2",1,77,-3.81621673106698,0.344518764920757
+"Male","Neoplasms","Binomial LC2",1,82,-3.60960211699821,0.427538413599775
+"Male","Neoplasms","Binomial LC2",1,87,-3.48632398970816,0.549925637913603
+"Male","Neoplasms","Binomial LC2",2,62,-4.62847970665784,0.647345990483454
+"Male","Neoplasms","Binomial LC2",2,67,-4.33598137034238,0.453162825614331
+"Male","Neoplasms","Binomial LC2",2,72,-4.0598337518926,-0.0412264812861276
+"Male","Neoplasms","Binomial LC2",2,77,-3.81621673106698,-0.332456460684751
+"Male","Neoplasms","Binomial LC2",2,82,-3.60960211699821,-0.511061338865366
+"Male","Neoplasms","Binomial LC2",2,87,-3.48632398970816,-0.0466477115526957
+"Male","Neoplasms","CBD",1,62,0,1
+"Male","Neoplasms","CBD",1,67,0,1
+"Male","Neoplasms","CBD",1,72,0,1
+"Male","Neoplasms","CBD",1,77,0,1
+"Male","Neoplasms","CBD",1,82,0,1
+"Male","Neoplasms","CBD",1,87,0,1
+"Male","Neoplasms","CBD",2,62,0,-1.25
+"Male","Neoplasms","CBD",2,67,0,-0.75
+"Male","Neoplasms","CBD",2,72,0,-0.25
+"Male","Neoplasms","CBD",2,77,0,0.25
+"Male","Neoplasms","CBD",2,82,0,0.75
+"Male","Neoplasms","CBD",2,87,0,1.25
+"Male","Neoplasms","Plat2",1,62,-4.6325386586483,1
+"Male","Neoplasms","Plat2",1,67,-4.34145218130289,1
+"Male","Neoplasms","Plat2",1,72,-4.06825060458598,1
+"Male","Neoplasms","Plat2",1,77,-3.82688219659508,1
+"Male","Neoplasms","Plat2",1,82,-3.62346870862575,1
+"Male","Neoplasms","Plat2",1,87,-3.49194961375671,1
+"Male","Neoplasms","Plat2",2,62,-4.6325386586483,1.25
+"Male","Neoplasms","Plat2",2,67,-4.34145218130289,0.75
+"Male","Neoplasms","Plat2",2,72,-4.06825060458598,0.25
+"Male","Neoplasms","Plat2",2,77,-3.82688219659508,-0.25
+"Male","Neoplasms","Plat2",2,82,-3.62346870862575,-0.75
+"Male","Neoplasms","Plat2",2,87,-3.49194961375671,-1.25
+"Male","Neoplasms","Plat3",1,62,-4.63481357260134,1
+"Male","Neoplasms","Plat3",1,67,-4.34146303838282,1
+"Male","Neoplasms","Plat3",1,72,-4.06929388097408,1
+"Male","Neoplasms","Plat3",1,77,-3.82658522332175,1
+"Male","Neoplasms","Plat3",1,82,-3.62401765808195,1
+"Male","Neoplasms","Plat3",1,87,-3.49528845974701,1
+"Male","Neoplasms","Plat3",2,62,-4.63481357260134,1.25
+"Male","Neoplasms","Plat3",2,67,-4.34146303838282,0.75
+"Male","Neoplasms","Plat3",2,72,-4.06929388097408,0.25
+"Male","Neoplasms","Plat3",2,77,-3.82658522332175,-0.25
+"Male","Neoplasms","Plat3",2,82,-3.62401765808195,-0.75
+"Male","Neoplasms","Plat3",2,87,-3.49528845974701,-1.25
+"Male","Neoplasms","Plat3",3,62,-4.63481357260134,1.25
+"Male","Neoplasms","Plat3",3,67,-4.34146303838282,0.75
+"Male","Neoplasms","Plat3",3,72,-4.06929388097408,0.25
+"Male","Neoplasms","Plat3",3,77,-3.82658522332175,0
+"Male","Neoplasms","Plat3",3,82,-3.62401765808195,0
+"Male","Neoplasms","Plat3",3,87,-3.49528845974701,0
+"Male","Digestive diseases","Poisson LC1",1,62,-5.83810915636841,0.426424288874268
+"Male","Digestive diseases","Poisson LC1",1,67,-5.79302094194039,0.351973698559803
+"Male","Digestive diseases","Poisson LC1",1,72,-5.76245732339978,0.423122927685884
+"Male","Digestive diseases","Poisson LC1",1,77,-5.64262005634173,0.442361552986041
+"Male","Digestive diseases","Poisson LC1",1,82,-5.47246536832917,0.429408488014419
+"Male","Digestive diseases","Poisson LC1",1,87,-5.25789129320634,0.367652602748413
+"Male","Digestive diseases","Binomial LC1",1,62,-5.83663920322377,0.426260680676753
+"Male","Digestive diseases","Binomial LC1",1,67,-5.79148714712441,0.351863461001703
+"Male","Digestive diseases","Binomial LC1",1,72,-5.76087189931704,0.423008925292872
+"Male","Digestive diseases","Binomial LC1",1,77,-5.6408312098941,0.442342266855071
+"Male","Digestive diseases","Binomial LC1",1,82,-5.47034453325525,0.429541632818007
+"Male","Digestive diseases","Binomial LC1",1,87,-5.25526751782562,0.367946586712015
+"Male","Digestive diseases","Poisson LC2",1,62,-5.84426377229281,0.286694341759138
+"Male","Digestive diseases","Poisson LC2",1,67,-5.7952753054757,0.262293758798794
+"Male","Digestive diseases","Poisson LC2",1,72,-5.76232348734348,0.391881806990689
+"Male","Digestive diseases","Poisson LC2",1,77,-5.64607596544311,0.47780226874629
+"Male","Digestive diseases","Poisson LC2",1,82,-5.47157821798398,0.527797783923035
+"Male","Digestive diseases","Poisson LC2",1,87,-5.24897296605203,0.434248176870138
+"Male","Digestive diseases","Poisson LC2",2,62,-5.84426377229281,0.70920416873859
+"Male","Digestive diseases","Poisson LC2",2,67,-5.7952753054757,0.451371932576212
+"Male","Digestive diseases","Poisson LC2",2,72,-5.76232348734348,0.200755328774214
+"Male","Digestive diseases","Poisson LC2",2,77,-5.64607596544311,-0.173486325052918
+"Male","Digestive diseases","Poisson LC2",2,82,-5.47157821798398,-0.41226924914083
+"Male","Digestive diseases","Poisson LC2",2,87,-5.24897296605203,-0.230058002963311
+"Male","Digestive diseases","Binomial LC2",1,62,-5.84279803941085,0.28634425992348
+"Male","Digestive diseases","Binomial LC2",1,67,-5.79374350267088,0.262045136215543
+"Male","Digestive diseases","Binomial LC2",1,72,-5.76073815061378,0.391663715518087
+"Male","Digestive diseases","Binomial LC2",1,77,-5.64428827234132,0.477762984150653
+"Male","Digestive diseases","Binomial LC2",1,82,-5.46943893759875,0.528011230555707
+"Male","Digestive diseases","Binomial LC2",1,87,-5.24631599962582,0.434609614163942
+"Male","Digestive diseases","Binomial LC2",2,62,-5.84279803941085,0.709277993764154
+"Male","Digestive diseases","Binomial LC2",2,67,-5.79374350267088,0.451525547093674
+"Male","Digestive diseases","Binomial LC2",2,72,-5.76073815061378,0.201102756013644
+"Male","Digestive diseases","Binomial LC2",2,77,-5.64428827234132,-0.173069635983075
+"Male","Digestive diseases","Binomial LC2",2,82,-5.46943893759875,-0.412056388878448
+"Male","Digestive diseases","Binomial LC2",2,87,-5.24631599962582,-0.229920688265567
+"Male","Digestive diseases","CBD",1,62,0,1
+"Male","Digestive diseases","CBD",1,67,0,1
+"Male","Digestive diseases","CBD",1,72,0,1
+"Male","Digestive diseases","CBD",1,77,0,1
+"Male","Digestive diseases","CBD",1,82,0,1
+"Male","Digestive diseases","CBD",1,87,0,1
+"Male","Digestive diseases","CBD",2,62,0,-1.25
+"Male","Digestive diseases","CBD",2,67,0,-0.75
+"Male","Digestive diseases","CBD",2,72,0,-0.25
+"Male","Digestive diseases","CBD",2,77,0,0.25
+"Male","Digestive diseases","CBD",2,82,0,0.75
+"Male","Digestive diseases","CBD",2,87,0,1.25
+"Male","Digestive diseases","Plat2",1,62,-5.84379440908055,1
+"Male","Digestive diseases","Plat2",1,67,-5.79604162595048,1
+"Male","Digestive diseases","Plat2",1,72,-5.76188144009031,1
+"Male","Digestive diseases","Plat2",1,77,-5.64421600732877,1
+"Male","Digestive diseases","Plat2",1,82,-5.47068437687263,1
+"Male","Digestive diseases","Plat2",1,87,-5.2459102418989,1
+"Male","Digestive diseases","Plat2",2,62,-5.84379440908055,1.25
+"Male","Digestive diseases","Plat2",2,67,-5.79604162595048,0.75
+"Male","Digestive diseases","Plat2",2,72,-5.76188144009031,0.25
+"Male","Digestive diseases","Plat2",2,77,-5.64421600732877,-0.25
+"Male","Digestive diseases","Plat2",2,82,-5.47068437687263,-0.75
+"Male","Digestive diseases","Plat2",2,87,-5.2459102418989,-1.25
+"Male","Digestive diseases","Plat3",1,62,-5.84532593381187,1
+"Male","Digestive diseases","Plat3",1,67,-5.79611468397065,1
+"Male","Digestive diseases","Plat3",1,72,-5.76356280373328,1
+"Male","Digestive diseases","Plat3",1,77,-5.64387851349158,1
+"Male","Digestive diseases","Plat3",1,82,-5.47031699408081,1
+"Male","Digestive diseases","Plat3",1,87,-5.24478530238195,1
+"Male","Digestive diseases","Plat3",2,62,-5.84532593381187,1.25
+"Male","Digestive diseases","Plat3",2,67,-5.79611468397065,0.75
+"Male","Digestive diseases","Plat3",2,72,-5.76356280373328,0.25
+"Male","Digestive diseases","Plat3",2,77,-5.64387851349158,-0.25
+"Male","Digestive diseases","Plat3",2,82,-5.47031699408081,-0.75
+"Male","Digestive diseases","Plat3",2,87,-5.24478530238195,-1.25
+"Male","Digestive diseases","Plat3",3,62,-5.84532593381187,1.25
+"Male","Digestive diseases","Plat3",3,67,-5.79611468397065,0.75
+"Male","Digestive diseases","Plat3",3,72,-5.76356280373328,0.25
+"Male","Digestive diseases","Plat3",3,77,-5.64387851349158,0
+"Male","Digestive diseases","Plat3",3,82,-5.47031699408081,0
+"Male","Digestive diseases","Plat3",3,87,-5.24478530238195,0
+"Male","Chronic respiratory diseases","Poisson LC1",1,62,-6.66259552854374,0.234734919997283
+"Male","Chronic respiratory diseases","Poisson LC1",1,67,-6.2175471555637,0.29493634244171
+"Male","Chronic respiratory diseases","Poisson LC1",1,72,-5.70006097184917,0.376279877761637
+"Male","Chronic respiratory diseases","Poisson LC1",1,77,-5.2267503362675,0.454243475931704
+"Male","Chronic respiratory diseases","Poisson LC1",1,82,-4.78628394193899,0.492871408510828
+"Male","Chronic respiratory diseases","Poisson LC1",1,87,-4.39758544838509,0.516784446436519
+"Male","Chronic respiratory diseases","Binomial LC1",1,62,-6.66194727443986,0.233956955440161
+"Male","Chronic respiratory diseases","Binomial LC1",1,67,-6.21653636138659,0.294066691532675
+"Male","Chronic respiratory diseases","Binomial LC1",1,72,-5.69835598729751,0.375452568225489
+"Male","Chronic respiratory diseases","Binomial LC1",1,77,-5.22398218746818,0.453753531140762
+"Male","Chronic respiratory diseases","Binomial LC1",1,82,-4.78195806040632,0.493196872958326
+"Male","Chronic respiratory diseases","Binomial LC1",1,87,-4.39117446745866,0.518352071884062
+"Male","Chronic respiratory diseases","Poisson LC2",1,62,-6.6628085400289,0.234970221960966
+"Male","Chronic respiratory diseases","Poisson LC2",1,67,-6.21744076773514,0.294000557362778
+"Male","Chronic respiratory diseases","Poisson LC2",1,72,-5.70240252177464,0.365987114455988
+"Male","Chronic respiratory diseases","Poisson LC2",1,77,-5.22685085385818,0.446930647442278
+"Male","Chronic respiratory diseases","Poisson LC2",1,82,-4.7868742277467,0.498351897929916
+"Male","Chronic respiratory diseases","Poisson LC2",1,87,-4.39981722657266,0.525646726728748
+"Male","Chronic respiratory diseases","Poisson LC2",2,62,-6.6628085400289,-0.0130472866278101
+"Male","Chronic respiratory diseases","Poisson LC2",2,67,-6.21744076773514,-0.135947809821751
+"Male","Chronic respiratory diseases","Poisson LC2",2,72,-5.70240252177464,-0.496178688968323
+"Male","Chronic respiratory diseases","Poisson LC2",2,77,-5.22685085385818,-0.494274467081276
+"Male","Chronic respiratory diseases","Poisson LC2",2,82,-4.7868742277467,0.179787354549142
+"Male","Chronic respiratory diseases","Poisson LC2",2,87,-4.39981722657266,0.677143949441874
+"Male","Chronic respiratory diseases","Binomial LC2",1,62,-6.6621617691781,0.234210077056554
+"Male","Chronic respiratory diseases","Binomial LC2",1,67,-6.21643022904119,0.293171741932153
+"Male","Chronic respiratory diseases","Binomial LC2",1,72,-5.70069798337131,0.365232457925366
+"Male","Chronic respiratory diseases","Binomial LC2",1,77,-5.22408336604295,0.446515566432301
+"Male","Chronic respiratory diseases","Binomial LC2",1,82,-4.78254706619684,0.498651052226678
+"Male","Chronic respiratory diseases","Binomial LC2",1,87,-4.39341341757339,0.527040983474999
+"Male","Chronic respiratory diseases","Binomial LC2",2,62,-6.6621617691781,-0.0135374637670833
+"Male","Chronic respiratory diseases","Binomial LC2",2,67,-6.21643022904119,-0.135791055688949
+"Male","Chronic respiratory diseases","Binomial LC2",2,72,-5.70069798337131,-0.495980170145822
+"Male","Chronic respiratory diseases","Binomial LC2",2,77,-5.22408336604295,-0.495539406829326
+"Male","Chronic respiratory diseases","Binomial LC2",2,82,-4.78254706619684,0.177729535328405
+"Male","Chronic respiratory diseases","Binomial LC2",2,87,-4.39341341757339,0.676929911913298
+"Male","Chronic respiratory diseases","CBD",1,62,0,1
+"Male","Chronic respiratory diseases","CBD",1,67,0,1
+"Male","Chronic respiratory diseases","CBD",1,72,0,1
+"Male","Chronic respiratory diseases","CBD",1,77,0,1
+"Male","Chronic respiratory diseases","CBD",1,82,0,1
+"Male","Chronic respiratory diseases","CBD",1,87,0,1
+"Male","Chronic respiratory diseases","CBD",2,62,0,-1.25
+"Male","Chronic respiratory diseases","CBD",2,67,0,-0.75
+"Male","Chronic respiratory diseases","CBD",2,72,0,-0.25
+"Male","Chronic respiratory diseases","CBD",2,77,0,0.25
+"Male","Chronic respiratory diseases","CBD",2,82,0,0.75
+"Male","Chronic respiratory diseases","CBD",2,87,0,1.25
+"Male","Chronic respiratory diseases","Plat2",1,62,-6.66362674655745,1
+"Male","Chronic respiratory diseases","Plat2",1,67,-6.21958552276829,1
+"Male","Chronic respiratory diseases","Plat2",1,72,-5.70013030630109,1
+"Male","Chronic respiratory diseases","Plat2",1,77,-5.22422728232137,1
+"Male","Chronic respiratory diseases","Plat2",1,82,-4.78543933908895,1
+"Male","Chronic respiratory diseases","Plat2",1,87,-4.39876452587128,1
+"Male","Chronic respiratory diseases","Plat2",2,62,-6.66362674655745,1.25
+"Male","Chronic respiratory diseases","Plat2",2,67,-6.21958552276829,0.75
+"Male","Chronic respiratory diseases","Plat2",2,72,-5.70013030630109,0.25
+"Male","Chronic respiratory diseases","Plat2",2,77,-5.22422728232137,-0.25
+"Male","Chronic respiratory diseases","Plat2",2,82,-4.78543933908895,-0.75
+"Male","Chronic respiratory diseases","Plat2",2,87,-4.39876452587128,-1.25
+"Male","Chronic respiratory diseases","Plat3",1,62,-6.66546407521195,1
+"Male","Chronic respiratory diseases","Plat3",1,67,-6.21904062928545,1
+"Male","Chronic respiratory diseases","Plat3",1,72,-5.70368983007452,1
+"Male","Chronic respiratory diseases","Plat3",1,77,-5.22596917508347,1
+"Male","Chronic respiratory diseases","Plat3",1,82,-4.78525676676512,1
+"Male","Chronic respiratory diseases","Plat3",1,87,-4.40049264658681,1
+"Male","Chronic respiratory diseases","Plat3",2,62,-6.66546407521195,1.25
+"Male","Chronic respiratory diseases","Plat3",2,67,-6.21904062928545,0.75
+"Male","Chronic respiratory diseases","Plat3",2,72,-5.70368983007452,0.25
+"Male","Chronic respiratory diseases","Plat3",2,77,-5.22596917508347,-0.25
+"Male","Chronic respiratory diseases","Plat3",2,82,-4.78525676676512,-0.75
+"Male","Chronic respiratory diseases","Plat3",2,87,-4.40049264658681,-1.25
+"Male","Chronic respiratory diseases","Plat3",3,62,-6.66546407521195,1.25
+"Male","Chronic respiratory diseases","Plat3",3,67,-6.21904062928545,0.75
+"Male","Chronic respiratory diseases","Plat3",3,72,-5.70368983007452,0.25
+"Male","Chronic respiratory diseases","Plat3",3,77,-5.22596917508347,0
+"Male","Chronic respiratory diseases","Plat3",3,82,-4.78525676676512,0
+"Male","Chronic respiratory diseases","Plat3",3,87,-4.40049264658681,0
+"Male","Neurological disorders","Poisson LC1",1,62,-8.22697887389381,0.706865667973945
+"Male","Neurological disorders","Poisson LC1",1,67,-7.62747273423722,0.493974880389769
+"Male","Neurological disorders","Poisson LC1",1,72,-6.94366969325835,0.38585043740764
+"Male","Neurological disorders","Poisson LC1",1,77,-6.16556396549553,0.233978466487155
+"Male","Neurological disorders","Poisson LC1",1,82,-5.30282530327051,0.140421875828454
+"Male","Neurological disorders","Poisson LC1",1,87,-4.6403753932073,0.18161761738645
+"Male","Neurological disorders","Binomial LC1",1,62,-8.22684510962644,0.706631515280523
+"Male","Neurological disorders","Binomial LC1",1,67,-7.62722918314449,0.493865672187268
+"Male","Neurological disorders","Binomial LC1",1,72,-6.94318712302523,0.385856840141071
+"Male","Neurological disorders","Binomial LC1",1,77,-6.16451307828315,0.234115374298636
+"Male","Neurological disorders","Binomial LC1",1,82,-5.30033338177398,0.140705231376926
+"Male","Neurological disorders","Binomial LC1",1,87,-4.63553649499116,0.182414713616783
+"Male","Neurological disorders","Poisson LC2",1,62,-8.22704628852951,0.741521719780308
+"Male","Neurological disorders","Poisson LC2",1,67,-7.62740139609387,0.495316166407083
+"Male","Neurological disorders","Poisson LC2",1,72,-6.94369258970305,0.362659304942088
+"Male","Neurological disorders","Poisson LC2",1,77,-6.16571946042888,0.203419695671369
+"Male","Neurological disorders","Poisson LC2",1,82,-5.30320428502371,0.067272036360784
+"Male","Neurological disorders","Poisson LC2",1,87,-4.64036597037085,0.165470732957847
+"Male","Neurological disorders","Poisson LC2",2,62,-8.22704628852951,-0.296181997790543
+"Male","Neurological disorders","Poisson LC2",2,67,-7.62740139609387,-0.0788080405494019
+"Male","Neurological disorders","Poisson LC2",2,72,-6.94369258970305,0.269431684238143
+"Male","Neurological disorders","Poisson LC2",2,77,-6.16571946042888,0.395264013923014
+"Male","Neurological disorders","Poisson LC2",2,82,-5.30320428502371,0.807547283610236
+"Male","Neurological disorders","Poisson LC2",2,87,-4.64036597037085,0.158448188659136
+"Male","Neurological disorders","Binomial LC2",1,62,-8.22691252569835,0.74130859345354
+"Male","Neurological disorders","Binomial LC2",1,67,-7.62715783931733,0.495239027616699
+"Male","Neurological disorders","Binomial LC2",1,72,-6.94321004037029,0.362718243909725
+"Male","Neurological disorders","Binomial LC2",1,77,-6.16466871947089,0.203593859462924
+"Male","Neurological disorders","Binomial LC2",1,82,-5.30071311574128,0.067485669764471
+"Male","Neurological disorders","Binomial LC2",1,87,-4.63552700924045,0.166224472018044
+"Male","Neurological disorders","Binomial LC2",2,62,-8.22691252569835,-0.296248758619702
+"Male","Neurological disorders","Binomial LC2",2,67,-7.62715783931733,-0.0790524062763127
+"Male","Neurological disorders","Binomial LC2",2,72,-6.94321004037029,0.268745032505843
+"Male","Neurological disorders","Binomial LC2",2,77,-6.16466871947089,0.394746794649994
+"Male","Neurological disorders","Binomial LC2",2,82,-5.30071311574128,0.807916735794896
+"Male","Neurological disorders","Binomial LC2",2,87,-4.63552700924045,0.158773466667827
+"Male","Neurological disorders","CBD",1,62,0,1
+"Male","Neurological disorders","CBD",1,67,0,1
+"Male","Neurological disorders","CBD",1,72,0,1
+"Male","Neurological disorders","CBD",1,77,0,1
+"Male","Neurological disorders","CBD",1,82,0,1
+"Male","Neurological disorders","CBD",1,87,0,1
+"Male","Neurological disorders","CBD",2,62,0,-1.25
+"Male","Neurological disorders","CBD",2,67,0,-0.75
+"Male","Neurological disorders","CBD",2,72,0,-0.25
+"Male","Neurological disorders","CBD",2,77,0,0.25
+"Male","Neurological disorders","CBD",2,82,0,0.75
+"Male","Neurological disorders","CBD",2,87,0,1.25
+"Male","Neurological disorders","Plat2",1,62,-8.22685063209742,1
+"Male","Neurological disorders","Plat2",1,67,-7.62751876905734,1
+"Male","Neurological disorders","Plat2",1,72,-6.94373680019582,1
+"Male","Neurological disorders","Plat2",1,77,-6.1657654237524,1
+"Male","Neurological disorders","Plat2",1,82,-5.30309284395431,1
+"Male","Neurological disorders","Plat2",1,87,-4.63954510664148,1
+"Male","Neurological disorders","Plat2",2,62,-8.22685063209742,1.25
+"Male","Neurological disorders","Plat2",2,67,-7.62751876905734,0.75
+"Male","Neurological disorders","Plat2",2,72,-6.94373680019582,0.25
+"Male","Neurological disorders","Plat2",2,77,-6.1657654237524,-0.25
+"Male","Neurological disorders","Plat2",2,82,-5.30309284395431,-0.75
+"Male","Neurological disorders","Plat2",2,87,-4.63954510664148,-1.25
+"Male","Neurological disorders","Plat3",1,62,-8.22733419794728,1
+"Male","Neurological disorders","Plat3",1,67,-7.62755233652787,1
+"Male","Neurological disorders","Plat3",1,72,-6.94390881937557,1
+"Male","Neurological disorders","Plat3",1,77,-6.16556900819404,1
+"Male","Neurological disorders","Plat3",1,82,-5.30313116671328,1
+"Male","Neurological disorders","Plat3",1,87,-4.63987299432254,1
+"Male","Neurological disorders","Plat3",2,62,-8.22733419794728,1.25
+"Male","Neurological disorders","Plat3",2,67,-7.62755233652787,0.75
+"Male","Neurological disorders","Plat3",2,72,-6.94390881937557,0.25
+"Male","Neurological disorders","Plat3",2,77,-6.16556900819404,-0.25
+"Male","Neurological disorders","Plat3",2,82,-5.30313116671328,-0.75
+"Male","Neurological disorders","Plat3",2,87,-4.63987299432254,-1.25
+"Male","Neurological disorders","Plat3",3,62,-8.22733419794728,1.25
+"Male","Neurological disorders","Plat3",3,67,-7.62755233652787,0.75
+"Male","Neurological disorders","Plat3",3,72,-6.94390881937557,0.25
+"Male","Neurological disorders","Plat3",3,77,-6.16556900819404,0
+"Male","Neurological disorders","Plat3",3,82,-5.30313116671328,0
+"Male","Neurological disorders","Plat3",3,87,-4.63987299432254,0
+"Male","Unintentional injuries","Poisson LC1",1,62,-7.12175835691476,0.252989661547385
+"Male","Unintentional injuries","Poisson LC1",1,67,-6.97887825822527,0.303537632387285
+"Male","Unintentional injuries","Poisson LC1",1,72,-6.65478314872428,0.355843696116587
+"Male","Unintentional injuries","Poisson LC1",1,77,-6.19287942568763,0.430044213027387
+"Male","Unintentional injuries","Poisson LC1",1,82,-5.61040200011714,0.496533509258091
+"Male","Unintentional injuries","Poisson LC1",1,87,-5.00974448304166,0.53455855603895
+"Male","Unintentional injuries","Binomial LC1",1,62,-7.12135157591409,0.252670022360151
+"Male","Unintentional injuries","Binomial LC1",1,67,-6.97840475619943,0.303175412189038
+"Male","Unintentional injuries","Binomial LC1",1,72,-6.65412323809964,0.35547239286147
+"Male","Unintentional injuries","Binomial LC1",1,77,-6.19182162368188,0.429749692919147
+"Male","Unintentional injuries","Binomial LC1",1,82,-5.60848931991321,0.496573505028135
+"Male","Unintentional injuries","Binomial LC1",1,87,-5.00623138571256,0.535361431836325
+"Male","Unintentional injuries","Poisson LC2",1,62,-7.1260107626492,0.248745530034159
+"Male","Unintentional injuries","Poisson LC2",1,67,-6.98302301803046,0.298317281675459
+"Male","Unintentional injuries","Poisson LC2",1,72,-6.65463919053061,0.356773943120229
+"Male","Unintentional injuries","Poisson LC2",1,77,-6.19388452184616,0.428706587753192
+"Male","Unintentional injuries","Poisson LC2",1,82,-5.60908221861403,0.498693795788144
+"Male","Unintentional injuries","Poisson LC2",1,87,-5.00878871184738,0.537921903171512
+"Male","Unintentional injuries","Poisson LC2",2,62,-7.1260107626492,0.636205256563002
+"Male","Unintentional injuries","Poisson LC2",2,67,-6.98302301803046,0.634277836745711
+"Male","Unintentional injuries","Poisson LC2",2,72,-6.65463919053061,0.0154840789704195
+"Male","Unintentional injuries","Poisson LC2",2,77,-6.19388452184616,-0.187362915034502
+"Male","Unintentional injuries","Poisson LC2",2,82,-5.60908221861403,-0.35488941503886
+"Male","Unintentional injuries","Poisson LC2",2,87,-5.00878871184738,-0.177885867331767
+"Male","Unintentional injuries","Binomial LC2",1,62,-7.12560301724913,0.248400355948625
+"Male","Unintentional injuries","Binomial LC2",1,67,-6.98255029570671,0.297926455044589
+"Male","Unintentional injuries","Binomial LC2",1,72,-6.65397923585146,0.35639427948516
+"Male","Unintentional injuries","Binomial LC2",1,77,-6.19282830942646,0.428412420891846
+"Male","Unintentional injuries","Binomial LC2",1,82,-5.60716527095164,0.498745689581196
+"Male","Unintentional injuries","Binomial LC2",1,87,-5.00526840460187,0.538735317989436
+"Male","Unintentional injuries","Binomial LC2",2,62,-7.12560301724913,0.636282650317144
+"Male","Unintentional injuries","Binomial LC2",2,67,-6.98255029570671,0.63444939826398
+"Male","Unintentional injuries","Binomial LC2",2,72,-6.65397923585146,0.015990125533723
+"Male","Unintentional injuries","Binomial LC2",2,77,-6.19282830942646,-0.186843958023349
+"Male","Unintentional injuries","Binomial LC2",2,82,-5.60716527095164,-0.354714984711771
+"Male","Unintentional injuries","Binomial LC2",2,87,-5.00526840460187,-0.177846227973433
+"Male","Unintentional injuries","CBD",1,62,0,1
+"Male","Unintentional injuries","CBD",1,67,0,1
+"Male","Unintentional injuries","CBD",1,72,0,1
+"Male","Unintentional injuries","CBD",1,77,0,1
+"Male","Unintentional injuries","CBD",1,82,0,1
+"Male","Unintentional injuries","CBD",1,87,0,1
+"Male","Unintentional injuries","CBD",2,62,0,-1.25
+"Male","Unintentional injuries","CBD",2,67,0,-0.75
+"Male","Unintentional injuries","CBD",2,72,0,-0.25
+"Male","Unintentional injuries","CBD",2,77,0,0.25
+"Male","Unintentional injuries","CBD",2,82,0,0.75
+"Male","Unintentional injuries","CBD",2,87,0,1.25
+"Male","Unintentional injuries","Plat2",1,62,-7.12536055038007,1
+"Male","Unintentional injuries","Plat2",1,67,-6.98103390611829,1
+"Male","Unintentional injuries","Plat2",1,72,-6.65533957943605,1
+"Male","Unintentional injuries","Plat2",1,77,-6.19262968617845,1
+"Male","Unintentional injuries","Plat2",1,82,-5.60828503961943,1
+"Male","Unintentional injuries","Plat2",1,87,-5.00855662252618,1
+"Male","Unintentional injuries","Plat2",2,62,-7.12536055038007,1.25
+"Male","Unintentional injuries","Plat2",2,67,-6.98103390611829,0.75
+"Male","Unintentional injuries","Plat2",2,72,-6.65533957943605,0.25
+"Male","Unintentional injuries","Plat2",2,77,-6.19262968617845,-0.25
+"Male","Unintentional injuries","Plat2",2,82,-5.60828503961943,-0.75
+"Male","Unintentional injuries","Plat2",2,87,-5.00855662252618,-1.25
+"Male","Unintentional injuries","Plat3",1,62,-7.12759027374451,1
+"Male","Unintentional injuries","Plat3",1,67,-6.98096106938875,1
+"Male","Unintentional injuries","Plat3",1,72,-6.65666595268985,1
+"Male","Unintentional injuries","Plat3",1,77,-6.19309298654888,1
+"Male","Unintentional injuries","Plat3",1,82,-5.60827946588238,1
+"Male","Unintentional injuries","Plat3",1,87,-5.00923102923803,1
+"Male","Unintentional injuries","Plat3",2,62,-7.12759027374451,1.25
+"Male","Unintentional injuries","Plat3",2,67,-6.98096106938875,0.75
+"Male","Unintentional injuries","Plat3",2,72,-6.65666595268985,0.25
+"Male","Unintentional injuries","Plat3",2,77,-6.19309298654888,-0.25
+"Male","Unintentional injuries","Plat3",2,82,-5.60827946588238,-0.75
+"Male","Unintentional injuries","Plat3",2,87,-5.00923102923803,-1.25
+"Male","Unintentional injuries","Plat3",3,62,-7.12759027374451,1.25
+"Male","Unintentional injuries","Plat3",3,67,-6.98096106938875,0.75
+"Male","Unintentional injuries","Plat3",3,72,-6.65666595268985,0.25
+"Male","Unintentional injuries","Plat3",3,77,-6.19309298654888,0
+"Male","Unintentional injuries","Plat3",3,82,-5.60827946588238,0
+"Male","Unintentional injuries","Plat3",3,87,-5.00923102923803,0
+"Male","Diabetes and kidney diseases","Poisson LC1",1,62,-7.49662422816563,0.174613913087405
+"Male","Diabetes and kidney diseases","Poisson LC1",1,67,-7.07523527743276,0.188984288398124
+"Male","Diabetes and kidney diseases","Poisson LC1",1,72,-6.64290812240602,0.284037401666213
+"Male","Diabetes and kidney diseases","Poisson LC1",1,77,-6.28463362926381,0.388731713855059
+"Male","Diabetes and kidney diseases","Poisson LC1",1,82,-5.99513542935828,0.530023986808523
+"Male","Diabetes and kidney diseases","Poisson LC1",1,87,-5.73032262127548,0.648906697916251
+"Male","Diabetes and kidney diseases","Binomial LC1",1,62,-7.49634594840735,0.174428634059781
+"Male","Diabetes and kidney diseases","Binomial LC1",1,67,-7.07481095759768,0.188814347912805
+"Male","Diabetes and kidney diseases","Binomial LC1",1,72,-6.64224956420488,0.283842629388988
+"Male","Diabetes and kidney diseases","Binomial LC1",1,77,-6.28368231568151,0.388579431119952
+"Male","Diabetes and kidney diseases","Binomial LC1",1,82,-5.99384429859872,0.530014249336851
+"Male","Diabetes and kidney diseases","Binomial LC1",1,87,-5.7286106171333,0.649190323860604
+"Male","Diabetes and kidney diseases","Poisson LC2",1,62,-7.49745416659935,0.171840022569503
+"Male","Diabetes and kidney diseases","Poisson LC2",1,67,-7.07303729384457,0.183139697950475
+"Male","Diabetes and kidney diseases","Poisson LC2",1,72,-6.64234212806634,0.277995832512499
+"Male","Diabetes and kidney diseases","Poisson LC2",1,77,-6.28434049242465,0.387192124536827
+"Male","Diabetes and kidney diseases","Poisson LC2",1,82,-5.99598451609584,0.531800351490733
+"Male","Diabetes and kidney diseases","Poisson LC2",1,87,-5.74151446121691,0.653391015881451
+"Male","Diabetes and kidney diseases","Poisson LC2",2,62,-7.49745416659935,0.621063602143155
+"Male","Diabetes and kidney diseases","Poisson LC2",2,67,-7.07303729384457,0.516837559861519
+"Male","Diabetes and kidney diseases","Poisson LC2",2,72,-6.64234212806634,0.410485036242764
+"Male","Diabetes and kidney diseases","Poisson LC2",2,77,-6.28434049242465,0.0233722910608664
+"Male","Diabetes and kidney diseases","Poisson LC2",2,82,-5.99598451609584,-0.109489048511092
+"Male","Diabetes and kidney diseases","Poisson LC2",2,87,-5.74151446121691,-0.407586626494097
+"Male","Diabetes and kidney diseases","Binomial LC2",1,62,-7.49717481458697,0.171642902751392
+"Male","Diabetes and kidney diseases","Binomial LC2",1,67,-7.07261105035317,0.182961428468472
+"Male","Diabetes and kidney diseases","Binomial LC2",1,72,-6.64168284126249,0.277797151525762
+"Male","Diabetes and kidney diseases","Binomial LC2",1,77,-6.28338945789373,0.387047718152307
+"Male","Diabetes and kidney diseases","Binomial LC2",1,82,-5.99469461284492,0.531797526732922
+"Male","Diabetes and kidney diseases","Binomial LC2",1,87,-5.73981907598074,0.653665072239495
+"Male","Diabetes and kidney diseases","Binomial LC2",2,62,-7.49717481458697,0.620948712157237
+"Male","Diabetes and kidney diseases","Binomial LC2",2,67,-7.07261105035317,0.516842173223943
+"Male","Diabetes and kidney diseases","Binomial LC2",2,72,-6.64168284126249,0.410752252232786
+"Male","Diabetes and kidney diseases","Binomial LC2",2,77,-6.28338945789373,0.0237188726111935
+"Male","Diabetes and kidney diseases","Binomial LC2",2,82,-5.99469461284492,-0.109088162370068
+"Male","Diabetes and kidney diseases","Binomial LC2",2,87,-5.73981907598074,-0.407574091480173
+"Male","Diabetes and kidney diseases","CBD",1,62,0,1
+"Male","Diabetes and kidney diseases","CBD",1,67,0,1
+"Male","Diabetes and kidney diseases","CBD",1,72,0,1
+"Male","Diabetes and kidney diseases","CBD",1,77,0,1
+"Male","Diabetes and kidney diseases","CBD",1,82,0,1
+"Male","Diabetes and kidney diseases","CBD",1,87,0,1
+"Male","Diabetes and kidney diseases","CBD",2,62,0,-1.25
+"Male","Diabetes and kidney diseases","CBD",2,67,0,-0.75
+"Male","Diabetes and kidney diseases","CBD",2,72,0,-0.25
+"Male","Diabetes and kidney diseases","CBD",2,77,0,0.25
+"Male","Diabetes and kidney diseases","CBD",2,82,0,0.75
+"Male","Diabetes and kidney diseases","CBD",2,87,0,1.25
+"Male","Diabetes and kidney diseases","Plat2",1,62,-7.49419438946644,1
+"Male","Diabetes and kidney diseases","Plat2",1,67,-7.07481910483366,1
+"Male","Diabetes and kidney diseases","Plat2",1,72,-6.645195773951,1
+"Male","Diabetes and kidney diseases","Plat2",1,77,-6.28763701136374,1
+"Male","Diabetes and kidney diseases","Plat2",1,82,-5.99168981973616,1
+"Male","Diabetes and kidney diseases","Plat2",1,87,-5.72937491407532,1
+"Male","Diabetes and kidney diseases","Plat2",2,62,-7.49419438946644,1.25
+"Male","Diabetes and kidney diseases","Plat2",2,67,-7.07481910483366,0.75
+"Male","Diabetes and kidney diseases","Plat2",2,72,-6.645195773951,0.25
+"Male","Diabetes and kidney diseases","Plat2",2,77,-6.28763701136374,-0.25
+"Male","Diabetes and kidney diseases","Plat2",2,82,-5.99168981973616,-0.75
+"Male","Diabetes and kidney diseases","Plat2",2,87,-5.72937491407532,-1.25
+"Male","Diabetes and kidney diseases","Plat3",1,62,-7.49730210534728,1
+"Male","Diabetes and kidney diseases","Plat3",1,67,-7.07514192436561,1
+"Male","Diabetes and kidney diseases","Plat3",1,72,-6.643354971294,1
+"Male","Diabetes and kidney diseases","Plat3",1,77,-6.28377792118345,1
+"Male","Diabetes and kidney diseases","Plat3",1,82,-5.99433546547422,1
+"Male","Diabetes and kidney diseases","Plat3",1,87,-5.74532482101548,1
+"Male","Diabetes and kidney diseases","Plat3",2,62,-7.49730210534728,1.25
+"Male","Diabetes and kidney diseases","Plat3",2,67,-7.07514192436561,0.75
+"Male","Diabetes and kidney diseases","Plat3",2,72,-6.643354971294,0.25
+"Male","Diabetes and kidney diseases","Plat3",2,77,-6.28377792118345,-0.25
+"Male","Diabetes and kidney diseases","Plat3",2,82,-5.99433546547422,-0.75
+"Male","Diabetes and kidney diseases","Plat3",2,87,-5.74532482101548,-1.25
+"Male","Diabetes and kidney diseases","Plat3",3,62,-7.49730210534728,1.25
+"Male","Diabetes and kidney diseases","Plat3",3,67,-7.07514192436561,0.75
+"Male","Diabetes and kidney diseases","Plat3",3,72,-6.643354971294,0.25
+"Male","Diabetes and kidney diseases","Plat3",3,77,-6.28377792118345,0
+"Male","Diabetes and kidney diseases","Plat3",3,82,-5.99433546547422,0
+"Male","Diabetes and kidney diseases","Plat3",3,87,-5.74532482101548,0
+"Male","Self-harm and interpersonal violence","Poisson LC1",1,62,-7.17304449587153,0.346076819387187
+"Male","Self-harm and interpersonal violence","Poisson LC1",1,67,-7.13668358227964,0.378948412372105
+"Male","Self-harm and interpersonal violence","Poisson LC1",1,72,-6.96120498835962,0.413151382523467
+"Male","Self-harm and interpersonal violence","Poisson LC1",1,77,-6.71962286115414,0.479703441415341
+"Male","Self-harm and interpersonal violence","Poisson LC1",1,82,-6.46471202091791,0.418914163027025
+"Male","Self-harm and interpersonal violence","Poisson LC1",1,87,-6.22237451396069,0.400412791094518
+"Male","Self-harm and interpersonal violence","Binomial LC1",1,62,-7.17265178298687,0.345990084049169
+"Male","Self-harm and interpersonal violence","Binomial LC1",1,67,-7.13627395415687,0.378859255820409
+"Male","Self-harm and interpersonal violence","Binomial LC1",1,72,-6.96071438037128,0.413086775271447
+"Male","Self-harm and interpersonal violence","Binomial LC1",1,77,-6.71899068909928,0.479692709318796
+"Male","Self-harm and interpersonal violence","Binomial LC1",1,82,-6.46390466805407,0.418982718731951
+"Male","Self-harm and interpersonal violence","Binomial LC1",1,87,-6.22134724929386,0.40057986487724
+"Male","Self-harm and interpersonal violence","Poisson LC2",1,62,-7.17432956036803,0.340717675494902
+"Male","Self-harm and interpersonal violence","Poisson LC2",1,67,-7.13649249298466,0.374192860731351
+"Male","Self-harm and interpersonal violence","Poisson LC2",1,72,-6.96122366473945,0.414307902065196
+"Male","Self-harm and interpersonal violence","Poisson LC2",1,77,-6.71967951883405,0.476390050554903
+"Male","Self-harm and interpersonal violence","Poisson LC2",1,82,-6.4636239914153,0.424843590614292
+"Male","Self-harm and interpersonal violence","Poisson LC2",1,87,-6.22736850130978,0.405956369719244
+"Male","Self-harm and interpersonal violence","Poisson LC2",2,62,-7.17432956036803,-0.384299647712111
+"Male","Self-harm and interpersonal violence","Poisson LC2",2,67,-7.13649249298466,-0.318513479734203
+"Male","Self-harm and interpersonal violence","Poisson LC2",2,72,-6.96122366473945,-0.100892363312223
+"Male","Self-harm and interpersonal violence","Poisson LC2",2,77,-6.71967951883405,-0.239706668634048
+"Male","Self-harm and interpersonal violence","Poisson LC2",2,82,-6.4636239914153,0.186452114655867
+"Male","Self-harm and interpersonal violence","Poisson LC2",2,87,-6.22736850130978,0.805270139129692
+"Male","Self-harm and interpersonal violence","Binomial LC2",1,62,-7.17393696934732,0.340641258575607
+"Male","Self-harm and interpersonal violence","Binomial LC2",1,67,-7.1360828076879,0.374113938875086
+"Male","Self-harm and interpersonal violence","Binomial LC2",1,72,-6.9607330336867,0.414250226753242
+"Male","Self-harm and interpersonal violence","Binomial LC2",1,77,-6.71904743147706,0.476388262154358
+"Male","Self-harm and interpersonal violence","Binomial LC2",1,82,-6.46281583545113,0.424907797188047
+"Male","Self-harm and interpersonal violence","Binomial LC2",1,87,-6.22634575634215,0.4060869745518
+"Male","Self-harm and interpersonal violence","Binomial LC2",2,62,-7.17393696934732,-0.3842495630428
+"Male","Self-harm and interpersonal violence","Binomial LC2",2,67,-7.1360828076879,-0.318518337907177
+"Male","Self-harm and interpersonal violence","Binomial LC2",2,72,-6.9607330336867,-0.100981996608596
+"Male","Self-harm and interpersonal violence","Binomial LC2",2,77,-6.71904743147706,-0.239874339429881
+"Male","Self-harm and interpersonal violence","Binomial LC2",2,82,-6.46281583545113,0.186270141942116
+"Male","Self-harm and interpersonal violence","Binomial LC2",2,87,-6.22634575634215,0.805273067712531
+"Male","Self-harm and interpersonal violence","CBD",1,62,0,1
+"Male","Self-harm and interpersonal violence","CBD",1,67,0,1
+"Male","Self-harm and interpersonal violence","CBD",1,72,0,1
+"Male","Self-harm and interpersonal violence","CBD",1,77,0,1
+"Male","Self-harm and interpersonal violence","CBD",1,82,0,1
+"Male","Self-harm and interpersonal violence","CBD",1,87,0,1
+"Male","Self-harm and interpersonal violence","CBD",2,62,0,-1.25
+"Male","Self-harm and interpersonal violence","CBD",2,67,0,-0.75
+"Male","Self-harm and interpersonal violence","CBD",2,72,0,-0.25
+"Male","Self-harm and interpersonal violence","CBD",2,77,0,0.25
+"Male","Self-harm and interpersonal violence","CBD",2,82,0,0.75
+"Male","Self-harm and interpersonal violence","CBD",2,87,0,1.25
+"Male","Self-harm and interpersonal violence","Plat2",1,62,-7.1768445241559,1
+"Male","Self-harm and interpersonal violence","Plat2",1,67,-7.13686231717986,1
+"Male","Self-harm and interpersonal violence","Plat2",1,72,-6.95963525934484,1
+"Male","Self-harm and interpersonal violence","Plat2",1,77,-6.71046938783373,1
+"Male","Self-harm and interpersonal violence","Plat2",1,82,-6.46607759489256,1
+"Male","Self-harm and interpersonal violence","Plat2",1,87,-6.22594493153024,1
+"Male","Self-harm and interpersonal violence","Plat2",2,62,-7.1768445241559,1.25
+"Male","Self-harm and interpersonal violence","Plat2",2,67,-7.13686231717986,0.75
+"Male","Self-harm and interpersonal violence","Plat2",2,72,-6.95963525934484,0.25
+"Male","Self-harm and interpersonal violence","Plat2",2,77,-6.71046938783373,-0.25
+"Male","Self-harm and interpersonal violence","Plat2",2,82,-6.46607759489256,-0.75
+"Male","Self-harm and interpersonal violence","Plat2",2,87,-6.22594493153024,-1.25
+"Male","Self-harm and interpersonal violence","Plat3",1,62,-7.17468115129641,1
+"Male","Self-harm and interpersonal violence","Plat3",1,67,-7.13712706227257,1
+"Male","Self-harm and interpersonal violence","Plat3",1,72,-6.9660815707271,1
+"Male","Self-harm and interpersonal violence","Plat3",1,77,-6.71370031816288,1
+"Male","Self-harm and interpersonal violence","Plat3",1,82,-6.46413025396462,1
+"Male","Self-harm and interpersonal violence","Plat3",1,87,-6.22598613558285,1
+"Male","Self-harm and interpersonal violence","Plat3",2,62,-7.17468115129641,1.25
+"Male","Self-harm and interpersonal violence","Plat3",2,67,-7.13712706227257,0.75
+"Male","Self-harm and interpersonal violence","Plat3",2,72,-6.9660815707271,0.25
+"Male","Self-harm and interpersonal violence","Plat3",2,77,-6.71370031816288,-0.25
+"Male","Self-harm and interpersonal violence","Plat3",2,82,-6.46413025396462,-0.75
+"Male","Self-harm and interpersonal violence","Plat3",2,87,-6.22598613558285,-1.25
+"Male","Self-harm and interpersonal violence","Plat3",3,62,-7.17468115129641,1.25
+"Male","Self-harm and interpersonal violence","Plat3",3,67,-7.13712706227257,0.75
+"Male","Self-harm and interpersonal violence","Plat3",3,72,-6.9660815707271,0.25
+"Male","Self-harm and interpersonal violence","Plat3",3,77,-6.71370031816288,0
+"Male","Self-harm and interpersonal violence","Plat3",3,82,-6.46413025396462,0
+"Male","Self-harm and interpersonal violence","Plat3",3,87,-6.22598613558285,0
+"Male","Respiratory infections and tuberculosis","Poisson LC1",1,62,-7.98710625262495,0.40360709430546
+"Male","Respiratory infections and tuberculosis","Poisson LC1",1,67,-7.73279858222288,0.43418275953787
+"Male","Respiratory infections and tuberculosis","Poisson LC1",1,72,-7.3253219926197,0.436370325835454
+"Male","Respiratory infections and tuberculosis","Poisson LC1",1,77,-6.82623726690015,0.445137866829169
+"Male","Respiratory infections and tuberculosis","Poisson LC1",1,82,-6.33412292524095,0.401458064091226
+"Male","Respiratory infections and tuberculosis","Poisson LC1",1,87,-5.86190978787477,0.31440624320701
+"Male","Respiratory infections and tuberculosis","Binomial LC1",1,62,-7.9869196477549,0.403440207865539
+"Male","Respiratory infections and tuberculosis","Binomial LC1",1,67,-7.7325566161136,0.434027207045374
+"Male","Respiratory infections and tuberculosis","Binomial LC1",1,72,-7.32496103933978,0.436273720102877
+"Male","Respiratory infections and tuberculosis","Binomial LC1",1,77,-6.82564117009851,0.445157757096497
+"Male","Respiratory infections and tuberculosis","Binomial LC1",1,82,-6.33316457612573,0.401636335413032
+"Male","Respiratory infections and tuberculosis","Binomial LC1",1,87,-5.86041781322796,0.31471328021265
+"Male","Respiratory infections and tuberculosis","Poisson LC2",1,62,-7.99109045874466,0.41195274325276
+"Male","Respiratory infections and tuberculosis","Poisson LC2",1,67,-7.73575991094363,0.442249693867063
+"Male","Respiratory infections and tuberculosis","Poisson LC2",1,72,-7.32577166936965,0.4312150420995
+"Male","Respiratory infections and tuberculosis","Poisson LC2",1,77,-6.82723585768767,0.434934360776132
+"Male","Respiratory infections and tuberculosis","Poisson LC2",1,82,-6.33391394819902,0.40062781779727
+"Male","Respiratory infections and tuberculosis","Poisson LC2",1,87,-5.86212647679623,0.314790702676233
+"Male","Respiratory infections and tuberculosis","Poisson LC2",2,62,-7.99109045874466,0.625687787290218
+"Male","Respiratory infections and tuberculosis","Poisson LC2",2,67,-7.73575991094363,0.371393354650474
+"Male","Respiratory infections and tuberculosis","Poisson LC2",2,72,-7.32577166936965,-0.296538648624288
+"Male","Respiratory infections and tuberculosis","Poisson LC2",2,77,-6.82723585768767,-0.608866424342953
+"Male","Respiratory infections and tuberculosis","Poisson LC2",2,82,-6.33391394819902,-0.102595166431214
+"Male","Respiratory infections and tuberculosis","Poisson LC2",2,87,-5.86212647679623,0.0374500729264704
+"Male","Respiratory infections and tuberculosis","Binomial LC2",1,62,-7.99090639255253,0.411784403316037
+"Male","Respiratory infections and tuberculosis","Binomial LC2",1,67,-7.735521085661,0.442096134533122
+"Male","Respiratory infections and tuberculosis","Binomial LC2",1,72,-7.3254102333712,0.431124752419996
+"Male","Respiratory infections and tuberculosis","Binomial LC2",1,77,-6.82664049566677,0.434962747652049
+"Male","Respiratory infections and tuberculosis","Binomial LC2",1,82,-6.33295407900217,0.400801208589721
+"Male","Respiratory infections and tuberculosis","Binomial LC2",1,87,-5.86063334659165,0.315090241383833
+"Male","Respiratory infections and tuberculosis","Binomial LC2",2,62,-7.99090639255253,0.625831737521476
+"Male","Respiratory infections and tuberculosis","Binomial LC2",2,67,-7.735521085661,0.371753520060107
+"Male","Respiratory infections and tuberculosis","Binomial LC2",2,72,-7.3254102333712,-0.296058216102719
+"Male","Respiratory infections and tuberculosis","Binomial LC2",2,77,-6.82664049566677,-0.608707177693481
+"Male","Respiratory infections and tuberculosis","Binomial LC2",2,82,-6.33295407900217,-0.102961378483107
+"Male","Respiratory infections and tuberculosis","Binomial LC2",2,87,-5.86063334659165,0.0368512642543088
+"Male","Respiratory infections and tuberculosis","CBD",1,62,0,1
+"Male","Respiratory infections and tuberculosis","CBD",1,67,0,1
+"Male","Respiratory infections and tuberculosis","CBD",1,72,0,1
+"Male","Respiratory infections and tuberculosis","CBD",1,77,0,1
+"Male","Respiratory infections and tuberculosis","CBD",1,82,0,1
+"Male","Respiratory infections and tuberculosis","CBD",1,87,0,1
+"Male","Respiratory infections and tuberculosis","CBD",2,62,0,-1.25
+"Male","Respiratory infections and tuberculosis","CBD",2,67,0,-0.75
+"Male","Respiratory infections and tuberculosis","CBD",2,72,0,-0.25
+"Male","Respiratory infections and tuberculosis","CBD",2,77,0,0.25
+"Male","Respiratory infections and tuberculosis","CBD",2,82,0,0.75
+"Male","Respiratory infections and tuberculosis","CBD",2,87,0,1.25
+"Male","Respiratory infections and tuberculosis","Plat2",1,62,-8.00201921775208,1
+"Male","Respiratory infections and tuberculosis","Plat2",1,67,-7.73322100288297,1
+"Male","Respiratory infections and tuberculosis","Plat2",1,72,-7.3180909584494,1
+"Male","Respiratory infections and tuberculosis","Plat2",1,77,-6.81273164770194,1
+"Male","Respiratory infections and tuberculosis","Plat2",1,82,-6.33259838520824,1
+"Male","Respiratory infections and tuberculosis","Plat2",1,87,-5.87092430822419,1
+"Male","Respiratory infections and tuberculosis","Plat2",2,62,-8.00201921775208,1.25
+"Male","Respiratory infections and tuberculosis","Plat2",2,67,-7.73322100288297,0.75
+"Male","Respiratory infections and tuberculosis","Plat2",2,72,-7.3180909584494,0.25
+"Male","Respiratory infections and tuberculosis","Plat2",2,77,-6.81273164770194,-0.25
+"Male","Respiratory infections and tuberculosis","Plat2",2,82,-6.33259838520824,-0.75
+"Male","Respiratory infections and tuberculosis","Plat2",2,87,-5.87092430822419,-1.25
+"Male","Respiratory infections and tuberculosis","Plat3",1,62,-7.99226062849269,1
+"Male","Respiratory infections and tuberculosis","Plat3",1,67,-7.7312575432988,1
+"Male","Respiratory infections and tuberculosis","Plat3",1,72,-7.33343215088061,1
+"Male","Respiratory infections and tuberculosis","Plat3",1,77,-6.82451807942771,1
+"Male","Respiratory infections and tuberculosis","Plat3",1,82,-6.33016605460232,1
+"Male","Respiratory infections and tuberculosis","Plat3",1,87,-5.86756425657633,1
+"Male","Respiratory infections and tuberculosis","Plat3",2,62,-7.99226062849269,1.25
+"Male","Respiratory infections and tuberculosis","Plat3",2,67,-7.7312575432988,0.75
+"Male","Respiratory infections and tuberculosis","Plat3",2,72,-7.33343215088061,0.25
+"Male","Respiratory infections and tuberculosis","Plat3",2,77,-6.82451807942771,-0.25
+"Male","Respiratory infections and tuberculosis","Plat3",2,82,-6.33016605460232,-0.75
+"Male","Respiratory infections and tuberculosis","Plat3",2,87,-5.86756425657633,-1.25
+"Male","Respiratory infections and tuberculosis","Plat3",3,62,-7.99226062849269,1.25
+"Male","Respiratory infections and tuberculosis","Plat3",3,67,-7.7312575432988,0.75
+"Male","Respiratory infections and tuberculosis","Plat3",3,72,-7.33343215088061,0.25
+"Male","Respiratory infections and tuberculosis","Plat3",3,77,-6.82451807942771,0
+"Male","Respiratory infections and tuberculosis","Plat3",3,82,-6.33016605460232,0
+"Male","Respiratory infections and tuberculosis","Plat3",3,87,-5.86756425657633,0
+"Female","Cardiovascular diseases","Poisson LC1",1,62,-5.32889725384198,0.498215991286247
+"Female","Cardiovascular diseases","Poisson LC1",1,67,-4.71245245584199,0.497810291867849
+"Female","Cardiovascular diseases","Poisson LC1",1,72,-4.04860760082497,0.46238852919545
+"Female","Cardiovascular diseases","Poisson LC1",1,77,-3.38223691699722,0.383039464613583
+"Female","Cardiovascular diseases","Poisson LC1",1,82,-2.73724738671011,0.307221748698721
+"Female","Cardiovascular diseases","Poisson LC1",1,87,-2.17096183111229,0.221490751681908
+"Female","Cardiovascular diseases","Binomial LC1",1,62,-5.32635121586865,0.49343589735577
+"Female","Cardiovascular diseases","Binomial LC1",1,67,-4.70770747995684,0.494019605618737
+"Female","Cardiovascular diseases","Binomial LC1",1,72,-4.0394581189751,0.460825093202781
+"Female","Cardiovascular diseases","Binomial LC1",1,77,-3.36458821490015,0.384902706686172
+"Female","Cardiovascular diseases","Binomial LC1",1,82,-2.70368774697223,0.313454521499954
+"Female","Cardiovascular diseases","Binomial LC1",1,87,-2.11161757840688,0.231737021808244
+"Female","Cardiovascular diseases","Poisson LC2",1,62,-5.32947534345802,0.498236734982639
+"Female","Cardiovascular diseases","Poisson LC2",1,67,-4.71464757610291,0.499732346008362
+"Female","Cardiovascular diseases","Poisson LC2",1,72,-4.04863145070046,0.464284936155217
+"Female","Cardiovascular diseases","Poisson LC2",1,77,-3.38259632508381,0.379376485882585
+"Female","Cardiovascular diseases","Poisson LC2",1,82,-2.73723785359157,0.305658819061161
+"Female","Cardiovascular diseases","Poisson LC2",1,87,-2.17032703516817,0.221615443089333
+"Female","Cardiovascular diseases","Poisson LC2",2,62,-5.32947534345802,-0.166912514922205
+"Female","Cardiovascular diseases","Poisson LC2",2,67,-4.71464757610291,-0.493992993017936
+"Female","Cardiovascular diseases","Poisson LC2",2,72,-4.04863145070046,-0.205939200790947
+"Female","Cardiovascular diseases","Poisson LC2",2,77,-3.38259632508381,0.410166026117057
+"Female","Cardiovascular diseases","Poisson LC2",2,82,-2.73723785359157,0.533942972956017
+"Female","Cardiovascular diseases","Poisson LC2",2,87,-2.17032703516817,0.482046588453174
+"Female","Cardiovascular diseases","Binomial LC2",1,62,-5.32691325741593,0.493379403349819
+"Female","Cardiovascular diseases","Binomial LC2",1,67,-4.70992855721678,0.495879177477521
+"Female","Cardiovascular diseases","Binomial LC2",1,72,-4.03949582571489,0.462692047608405
+"Female","Cardiovascular diseases","Binomial LC2",1,77,-3.36494206743029,0.381259176944962
+"Female","Cardiovascular diseases","Binomial LC2",1,82,-2.70367143074036,0.312007437879729
+"Female","Cardiovascular diseases","Binomial LC2",1,87,-2.11090299738234,0.232141063746406
+"Female","Cardiovascular diseases","Binomial LC2",2,62,-5.32691325741593,-0.169852707964403
+"Female","Cardiovascular diseases","Binomial LC2",2,67,-4.70992855721678,-0.493929447329368
+"Female","Cardiovascular diseases","Binomial LC2",2,72,-4.03949582571489,-0.217741258533286
+"Female","Cardiovascular diseases","Binomial LC2",2,77,-3.36494206743029,0.389967911941447
+"Female","Cardiovascular diseases","Binomial LC2",2,82,-2.70367143074036,0.531745774477688
+"Female","Cardiovascular diseases","Binomial LC2",2,87,-2.11090299738234,0.494918136636309
+"Female","Cardiovascular diseases","CBD",1,62,0,1
+"Female","Cardiovascular diseases","CBD",1,67,0,1
+"Female","Cardiovascular diseases","CBD",1,72,0,1
+"Female","Cardiovascular diseases","CBD",1,77,0,1
+"Female","Cardiovascular diseases","CBD",1,82,0,1
+"Female","Cardiovascular diseases","CBD",1,87,0,1
+"Female","Cardiovascular diseases","CBD",2,62,0,-1.25
+"Female","Cardiovascular diseases","CBD",2,67,0,-0.75
+"Female","Cardiovascular diseases","CBD",2,72,0,-0.25
+"Female","Cardiovascular diseases","CBD",2,77,0,0.25
+"Female","Cardiovascular diseases","CBD",2,82,0,0.75
+"Female","Cardiovascular diseases","CBD",2,87,0,1.25
+"Female","Cardiovascular diseases","Plat2",1,62,-5.34139103097988,1
+"Female","Cardiovascular diseases","Plat2",1,67,-4.71412604840686,1
+"Female","Cardiovascular diseases","Plat2",1,72,-4.04487711827288,1
+"Female","Cardiovascular diseases","Plat2",1,77,-3.38123015235797,1
+"Female","Cardiovascular diseases","Plat2",1,82,-2.73728976329262,1
+"Female","Cardiovascular diseases","Plat2",1,87,-2.16895142517162,1
+"Female","Cardiovascular diseases","Plat2",2,62,-5.34139103097988,1.25
+"Female","Cardiovascular diseases","Plat2",2,67,-4.71412604840686,0.75
+"Female","Cardiovascular diseases","Plat2",2,72,-4.04487711827288,0.25
+"Female","Cardiovascular diseases","Plat2",2,77,-3.38123015235797,-0.25
+"Female","Cardiovascular diseases","Plat2",2,82,-2.73728976329262,-0.75
+"Female","Cardiovascular diseases","Plat2",2,87,-2.16895142517162,-1.25
+"Female","Cardiovascular diseases","Plat3",1,62,-5.33468891378167,1
+"Female","Cardiovascular diseases","Plat3",1,67,-4.71156217822147,1
+"Female","Cardiovascular diseases","Plat3",1,72,-4.04742247686197,1
+"Female","Cardiovascular diseases","Plat3",1,77,-3.38373752602776,1
+"Female","Cardiovascular diseases","Plat3",1,82,-2.7372704758845,1
+"Female","Cardiovascular diseases","Plat3",1,87,-2.17072103313765,1
+"Female","Cardiovascular diseases","Plat3",2,62,-5.33468891378167,1.25
+"Female","Cardiovascular diseases","Plat3",2,67,-4.71156217822147,0.75
+"Female","Cardiovascular diseases","Plat3",2,72,-4.04742247686197,0.25
+"Female","Cardiovascular diseases","Plat3",2,77,-3.38373752602776,-0.25
+"Female","Cardiovascular diseases","Plat3",2,82,-2.7372704758845,-0.75
+"Female","Cardiovascular diseases","Plat3",2,87,-2.17072103313765,-1.25
+"Female","Cardiovascular diseases","Plat3",3,62,-5.33468891378167,1.25
+"Female","Cardiovascular diseases","Plat3",3,67,-4.71156217822147,0.75
+"Female","Cardiovascular diseases","Plat3",3,72,-4.04742247686197,0.25
+"Female","Cardiovascular diseases","Plat3",3,77,-3.38373752602776,0
+"Female","Cardiovascular diseases","Plat3",3,82,-2.7372704758845,0
+"Female","Cardiovascular diseases","Plat3",3,87,-2.17072103313765,0
+"Female","Neoplasms","Poisson LC1",1,62,-5.34856118991655,-0.139799513733796
+"Female","Neoplasms","Poisson LC1",1,67,-5.06171815476288,0.0832443395445001
+"Female","Neoplasms","Poisson LC1",1,72,-4.76983976876522,0.28734297449431
+"Female","Neoplasms","Poisson LC1",1,77,-4.49745072963666,0.47214788132789
+"Female","Neoplasms","Poisson LC1",1,82,-4.2323534354113,0.576983303753967
+"Female","Neoplasms","Poisson LC1",1,87,-4.04372294712885,0.578901663712498
+"Female","Neoplasms","Binomial LC1",1,62,-5.3461800642848,-0.139153613719617
+"Female","Neoplasms","Binomial LC1",1,67,-5.05854560591014,0.0829460305786563
+"Female","Neoplasms","Binomial LC1",1,72,-4.76558642941114,0.286575449158134
+"Female","Neoplasms","Binomial LC1",1,77,-4.49185385473193,0.471480242211112
+"Female","Neoplasms","Binomial LC1",1,82,-4.22504285927253,0.577127574970979
+"Female","Neoplasms","Binomial LC1",1,87,-4.03488743532208,0.579880059281657
+"Female","Neoplasms","Poisson LC2",1,62,-5.34990765878272,-0.132188966534678
+"Female","Neoplasms","Poisson LC2",1,67,-5.06301716726383,0.0813419401951358
+"Female","Neoplasms","Poisson LC2",1,72,-4.76987348376878,0.287350799359119
+"Female","Neoplasms","Poisson LC2",1,77,-4.49726915056682,0.473374446557107
+"Female","Neoplasms","Poisson LC2",1,82,-4.23216989802729,0.579701142570067
+"Female","Neoplasms","Poisson LC2",1,87,-4.04299211208575,0.577236782134655
+"Female","Neoplasms","Poisson LC2",2,62,-5.34990765878272,0.607369037234745
+"Female","Neoplasms","Poisson LC2",2,67,-5.06301716726383,0.602495071878464
+"Female","Neoplasms","Poisson LC2",2,72,-4.76987348376878,0.458264642412378
+"Female","Neoplasms","Poisson LC2",2,77,-4.49726915056682,0.133796042609052
+"Female","Neoplasms","Poisson LC2",2,82,-4.23216989802729,-0.150014185371711
+"Female","Neoplasms","Poisson LC2",2,87,-4.04299211208575,-0.133005344459457
+"Female","Neoplasms","Binomial LC2",1,62,-5.34752957305469,-0.131628321836484
+"Female","Neoplasms","Binomial LC2",1,67,-5.05984790123927,0.0810149726914806
+"Female","Neoplasms","Binomial LC2",1,72,-4.76561967454913,0.286571304899005
+"Female","Neoplasms","Binomial LC2",1,77,-4.49167121770808,0.472713096386447
+"Female","Neoplasms","Binomial LC2",1,82,-4.22485814347257,0.579836653060314
+"Female","Neoplasms","Binomial LC2",1,87,-4.03415008567873,0.578203450846967
+"Female","Neoplasms","Binomial LC2",2,62,-5.34752957305469,0.606771354342332
+"Female","Neoplasms","Binomial LC2",2,67,-5.05984790123927,0.602460263216946
+"Female","Neoplasms","Binomial LC2",2,72,-4.76561967454913,0.45884209711541
+"Female","Neoplasms","Binomial LC2",2,77,-4.49167121770808,0.13449218122508
+"Female","Neoplasms","Binomial LC2",2,82,-4.22485814347257,-0.149901366693199
+"Female","Neoplasms","Binomial LC2",2,87,-4.03415008567873,-0.133324859503782
+"Female","Neoplasms","CBD",1,62,0,1
+"Female","Neoplasms","CBD",1,67,0,1
+"Female","Neoplasms","CBD",1,72,0,1
+"Female","Neoplasms","CBD",1,77,0,1
+"Female","Neoplasms","CBD",1,82,0,1
+"Female","Neoplasms","CBD",1,87,0,1
+"Female","Neoplasms","CBD",2,62,0,-1.25
+"Female","Neoplasms","CBD",2,67,0,-0.75
+"Female","Neoplasms","CBD",2,72,0,-0.25
+"Female","Neoplasms","CBD",2,77,0,0.25
+"Female","Neoplasms","CBD",2,82,0,0.75
+"Female","Neoplasms","CBD",2,87,0,1.25
+"Female","Neoplasms","Plat2",1,62,-5.34948626511826,1
+"Female","Neoplasms","Plat2",1,67,-5.06279426919891,1
+"Female","Neoplasms","Plat2",1,72,-4.76989876471275,1
+"Female","Neoplasms","Plat2",1,77,-4.49753052850365,1
+"Female","Neoplasms","Plat2",1,82,-4.23268872900127,1
+"Female","Neoplasms","Plat2",1,87,-4.04040869161017,1
+"Female","Neoplasms","Plat2",2,62,-5.34948626511826,1.25
+"Female","Neoplasms","Plat2",2,67,-5.06279426919891,0.75
+"Female","Neoplasms","Plat2",2,72,-4.76989876471275,0.25
+"Female","Neoplasms","Plat2",2,77,-4.49753052850365,-0.25
+"Female","Neoplasms","Plat2",2,82,-4.23268872900127,-0.75
+"Female","Neoplasms","Plat2",2,87,-4.04040869161017,-1.25
+"Female","Neoplasms","Plat3",1,62,-5.35048938384875,1
+"Female","Neoplasms","Plat3",1,67,-5.06283117856573,1
+"Female","Neoplasms","Plat3",1,72,-4.76977920119122,1
+"Female","Neoplasms","Plat3",1,77,-4.49727028058363,1
+"Female","Neoplasms","Plat3",1,82,-4.2331993008588,1
+"Female","Neoplasms","Plat3",1,87,-4.04323222446949,1
+"Female","Neoplasms","Plat3",2,62,-5.35048938384875,1.25
+"Female","Neoplasms","Plat3",2,67,-5.06283117856573,0.75
+"Female","Neoplasms","Plat3",2,72,-4.76977920119122,0.25
+"Female","Neoplasms","Plat3",2,77,-4.49727028058363,-0.25
+"Female","Neoplasms","Plat3",2,82,-4.2331993008588,-0.75
+"Female","Neoplasms","Plat3",2,87,-4.04323222446949,-1.25
+"Female","Neoplasms","Plat3",3,62,-5.35048938384875,1.25
+"Female","Neoplasms","Plat3",3,67,-5.06283117856573,0.75
+"Female","Neoplasms","Plat3",3,72,-4.76977920119122,0.25
+"Female","Neoplasms","Plat3",3,77,-4.49727028058363,0
+"Female","Neoplasms","Plat3",3,82,-4.2331993008588,0
+"Female","Neoplasms","Plat3",3,87,-4.04323222446949,0
+"Female","Digestive diseases","Poisson LC1",1,62,-6.84911650513715,0.245216816789116
+"Female","Digestive diseases","Poisson LC1",1,67,-6.73615571250143,0.267895790661736
+"Female","Digestive diseases","Poisson LC1",1,72,-6.53019877338918,0.461906816861903
+"Female","Digestive diseases","Poisson LC1",1,77,-6.1718566940895,0.538391154793987
+"Female","Digestive diseases","Poisson LC1",1,82,-5.7695085234768,0.499240572340854
+"Female","Digestive diseases","Poisson LC1",1,87,-5.4235433467912,0.340053622263335
+"Female","Digestive diseases","Binomial LC1",1,62,-6.8485841221336,0.245060943849204
+"Female","Digestive diseases","Binomial LC1",1,67,-6.73555923196381,0.267745530566243
+"Female","Digestive diseases","Binomial LC1",1,72,-6.52945969862543,0.461707805766671
+"Female","Digestive diseases","Binomial LC1",1,77,-6.17079421153452,0.538315018941466
+"Female","Digestive diseases","Binomial LC1",1,82,-5.76792319170003,0.499427829852265
+"Female","Digestive diseases","Binomial LC1",1,87,-5.42131979638696,0.340399985174455
+"Female","Digestive diseases","Poisson LC2",1,62,-6.85436075661803,0.233270492944129
+"Female","Digestive diseases","Poisson LC2",1,67,-6.73892582762769,0.269308376171029
+"Female","Digestive diseases","Poisson LC2",1,72,-6.53009499020309,0.46881052682634
+"Female","Digestive diseases","Poisson LC2",1,77,-6.17396443176587,0.528279650372556
+"Female","Digestive diseases","Poisson LC2",1,82,-5.76900991959109,0.504610101862246
+"Female","Digestive diseases","Poisson LC2",1,87,-5.42326057683032,0.34578001920782
+"Female","Digestive diseases","Poisson LC2",2,62,-6.85436075661803,0.817059545836248
+"Female","Digestive diseases","Poisson LC2",2,67,-6.73892582762769,0.374344329624266
+"Female","Digestive diseases","Poisson LC2",2,72,-6.53009499020309,0.0621822939866932
+"Female","Digestive diseases","Poisson LC2",2,77,-6.17396443176587,-0.389287120288814
+"Female","Digestive diseases","Poisson LC2",2,82,-5.76900991959109,-0.177441843287787
+"Female","Digestive diseases","Poisson LC2",2,87,-5.42326057683032,-0.0733710704464012
+"Female","Digestive diseases","Binomial LC2",1,62,-6.8538294185157,0.233049881577678
+"Female","Digestive diseases","Binomial LC2",1,67,-6.73833065667244,0.26911741848053
+"Female","Digestive diseases","Binomial LC2",1,72,-6.52935595763195,0.468587406459736
+"Female","Digestive diseases","Binomial LC2",1,77,-6.17290347287431,0.528244350675672
+"Female","Digestive diseases","Binomial LC2",1,82,-5.76742263549114,0.504814863538757
+"Female","Digestive diseases","Binomial LC2",1,87,-5.42103558227691,0.346134756711787
+"Female","Digestive diseases","Binomial LC2",2,62,-6.8538294185157,0.817065323924655
+"Female","Digestive diseases","Binomial LC2",2,67,-6.73833065667244,0.37448017041561
+"Female","Digestive diseases","Binomial LC2",2,72,-6.52935595763195,0.0624851254594637
+"Female","Digestive diseases","Binomial LC2",2,77,-6.17290347287431,-0.389141177707432
+"Female","Digestive diseases","Binomial LC2",2,82,-5.76742263549114,-0.177363653709487
+"Female","Digestive diseases","Binomial LC2",2,87,-5.42103558227691,-0.0733194766552732
+"Female","Digestive diseases","CBD",1,62,0,1
+"Female","Digestive diseases","CBD",1,67,0,1
+"Female","Digestive diseases","CBD",1,72,0,1
+"Female","Digestive diseases","CBD",1,77,0,1
+"Female","Digestive diseases","CBD",1,82,0,1
+"Female","Digestive diseases","CBD",1,87,0,1
+"Female","Digestive diseases","CBD",2,62,0,-1.25
+"Female","Digestive diseases","CBD",2,67,0,-0.75
+"Female","Digestive diseases","CBD",2,72,0,-0.25
+"Female","Digestive diseases","CBD",2,77,0,0.25
+"Female","Digestive diseases","CBD",2,82,0,0.75
+"Female","Digestive diseases","CBD",2,87,0,1.25
+"Female","Digestive diseases","Plat2",1,62,-6.85238679033811,1
+"Female","Digestive diseases","Plat2",1,67,-6.74022388437807,1
+"Female","Digestive diseases","Plat2",1,72,-6.52744037826111,1
+"Female","Digestive diseases","Plat2",1,77,-6.16955207179626,1
+"Female","Digestive diseases","Plat2",1,82,-5.76906194164209,1
+"Female","Digestive diseases","Plat2",1,87,-5.41624644747312,1
+"Female","Digestive diseases","Plat2",2,62,-6.85238679033811,1.25
+"Female","Digestive diseases","Plat2",2,67,-6.74022388437807,0.75
+"Female","Digestive diseases","Plat2",2,72,-6.52744037826111,0.25
+"Female","Digestive diseases","Plat2",2,77,-6.16955207179626,-0.25
+"Female","Digestive diseases","Plat2",2,82,-5.76906194164209,-0.75
+"Female","Digestive diseases","Plat2",2,87,-5.41624644747312,-1.25
+"Female","Digestive diseases","Plat3",1,62,-6.85476126599189,1
+"Female","Digestive diseases","Plat3",1,67,-6.74013726822908,1
+"Female","Digestive diseases","Plat3",1,72,-6.53066789621877,1
+"Female","Digestive diseases","Plat3",1,77,-6.17243426570229,1
+"Female","Digestive diseases","Plat3",1,82,-5.76910544557002,1
+"Female","Digestive diseases","Plat3",1,87,-5.42072997650322,1
+"Female","Digestive diseases","Plat3",2,62,-6.85476126599189,1.25
+"Female","Digestive diseases","Plat3",2,67,-6.74013726822908,0.75
+"Female","Digestive diseases","Plat3",2,72,-6.53066789621877,0.25
+"Female","Digestive diseases","Plat3",2,77,-6.17243426570229,-0.25
+"Female","Digestive diseases","Plat3",2,82,-5.76910544557002,-0.75
+"Female","Digestive diseases","Plat3",2,87,-5.42072997650322,-1.25
+"Female","Digestive diseases","Plat3",3,62,-6.85476126599189,1.25
+"Female","Digestive diseases","Plat3",3,67,-6.74013726822908,0.75
+"Female","Digestive diseases","Plat3",3,72,-6.53066789621877,0.25
+"Female","Digestive diseases","Plat3",3,77,-6.17243426570229,0
+"Female","Digestive diseases","Plat3",3,82,-5.76910544557002,0
+"Female","Digestive diseases","Plat3",3,87,-5.42072997650322,0
+"Female","Chronic respiratory diseases","Poisson LC1",1,62,-7.72227328753163,0.00723053511539051
+"Female","Chronic respiratory diseases","Poisson LC1",1,67,-7.30965041139621,0.181917632002051
+"Female","Chronic respiratory diseases","Poisson LC1",1,72,-6.84131759592743,0.336664955001871
+"Female","Chronic respiratory diseases","Poisson LC1",1,77,-6.30093212007997,0.433693157401811
+"Female","Chronic respiratory diseases","Poisson LC1",1,82,-5.76281206442381,0.517119704090105
+"Female","Chronic respiratory diseases","Poisson LC1",1,87,-5.21530170666755,0.630878640839037
+"Female","Chronic respiratory diseases","Binomial LC1",1,62,-7.72205256571077,0.00716196767420674
+"Female","Chronic respiratory diseases","Binomial LC1",1,67,-7.3093141854892,0.181612375260773
+"Female","Chronic respiratory diseases","Binomial LC1",1,72,-6.84077674921589,0.336186178567935
+"Female","Chronic respiratory diseases","Binomial LC1",1,77,-6.29999487923684,0.433271712993275
+"Female","Chronic respiratory diseases","Binomial LC1",1,82,-5.76118863694186,0.51699821990719
+"Female","Chronic respiratory diseases","Binomial LC1",1,87,-5.21246080196541,0.631611405884767
+"Female","Chronic respiratory diseases","Poisson LC2",1,62,-7.74415528295296,0.0523240148629704
+"Female","Chronic respiratory diseases","Poisson LC2",1,67,-7.32185057005927,0.197810476518424
+"Female","Chronic respiratory diseases","Poisson LC2",1,72,-6.84739554183657,0.347563920571295
+"Female","Chronic respiratory diseases","Poisson LC2",1,77,-6.30324757780845,0.441997272015415
+"Female","Chronic respiratory diseases","Poisson LC2",1,82,-5.76126155801792,0.515144716926726
+"Female","Chronic respiratory diseases","Poisson LC2",1,87,-5.20486422475627,0.613674886335345
+"Female","Chronic respiratory diseases","Poisson LC2",2,62,-7.74415528295296,0.727366205203426
+"Female","Chronic respiratory diseases","Poisson LC2",2,67,-7.32185057005927,0.517541809249794
+"Female","Chronic respiratory diseases","Poisson LC2",2,72,-6.84739554183657,0.256385127650374
+"Female","Chronic respiratory diseases","Poisson LC2",2,77,-6.30324757780845,0.0894144727403177
+"Female","Chronic respiratory diseases","Poisson LC2",2,82,-5.76126155801792,-0.117260353368775
+"Female","Chronic respiratory diseases","Poisson LC2",2,87,-5.20486422475627,-0.340015598345899
+"Female","Chronic respiratory diseases","Binomial LC2",1,62,-7.74393881964532,0.0519603375368893
+"Female","Chronic respiratory diseases","Binomial LC2",1,67,-7.32151668231196,0.197323928598838
+"Female","Chronic respiratory diseases","Binomial LC2",1,72,-6.84685677141745,0.347006165092733
+"Female","Chronic respiratory diseases","Binomial LC2",1,77,-6.30231243451408,0.441556705265297
+"Female","Chronic respiratory diseases","Binomial LC2",1,82,-5.75963884300399,0.515095005611186
+"Female","Chronic respiratory diseases","Binomial LC2",1,87,-5.20199291741501,0.614536348105364
+"Female","Chronic respiratory diseases","Binomial LC2",2,62,-7.74393881964532,0.727183909027666
+"Female","Chronic respiratory diseases","Binomial LC2",2,67,-7.32151668231196,0.517714910008445
+"Female","Chronic respiratory diseases","Binomial LC2",2,72,-6.84685677141745,0.256906443297533
+"Female","Chronic respiratory diseases","Binomial LC2",2,77,-6.30231243451408,0.0900923181689676
+"Female","Chronic respiratory diseases","Binomial LC2",2,82,-5.75963884300399,-0.116579654445705
+"Female","Chronic respiratory diseases","Binomial LC2",2,87,-5.20199291741501,-0.339803578813798
+"Female","Chronic respiratory diseases","CBD",1,62,0,1
+"Female","Chronic respiratory diseases","CBD",1,67,0,1
+"Female","Chronic respiratory diseases","CBD",1,72,0,1
+"Female","Chronic respiratory diseases","CBD",1,77,0,1
+"Female","Chronic respiratory diseases","CBD",1,82,0,1
+"Female","Chronic respiratory diseases","CBD",1,87,0,1
+"Female","Chronic respiratory diseases","CBD",2,62,0,-1.25
+"Female","Chronic respiratory diseases","CBD",2,67,0,-0.75
+"Female","Chronic respiratory diseases","CBD",2,72,0,-0.25
+"Female","Chronic respiratory diseases","CBD",2,77,0,0.25
+"Female","Chronic respiratory diseases","CBD",2,82,0,0.75
+"Female","Chronic respiratory diseases","CBD",2,87,0,1.25
+"Female","Chronic respiratory diseases","Plat2",1,62,-7.74327214184224,1
+"Female","Chronic respiratory diseases","Plat2",1,67,-7.32160019983235,1
+"Female","Chronic respiratory diseases","Plat2",1,72,-6.84663392524646,1
+"Female","Chronic respiratory diseases","Plat2",1,77,-6.30185791078729,1
+"Female","Chronic respiratory diseases","Plat2",1,82,-5.76177574411289,1
+"Female","Chronic respiratory diseases","Plat2",1,87,-5.20585874168643,1
+"Female","Chronic respiratory diseases","Plat2",2,62,-7.74327214184224,1.25
+"Female","Chronic respiratory diseases","Plat2",2,67,-7.32160019983235,0.75
+"Female","Chronic respiratory diseases","Plat2",2,72,-6.84663392524646,0.25
+"Female","Chronic respiratory diseases","Plat2",2,77,-6.30185791078729,-0.25
+"Female","Chronic respiratory diseases","Plat2",2,82,-5.76177574411289,-0.75
+"Female","Chronic respiratory diseases","Plat2",2,87,-5.20585874168643,-1.25
+"Female","Chronic respiratory diseases","Plat3",1,62,-7.74553937305538,1
+"Female","Chronic respiratory diseases","Plat3",1,67,-7.32163407242929,1
+"Female","Chronic respiratory diseases","Plat3",1,72,-6.84811645454645,1
+"Female","Chronic respiratory diseases","Plat3",1,77,-6.30456758907364,1
+"Female","Chronic respiratory diseases","Plat3",1,82,-5.76176358936436,1
+"Female","Chronic respiratory diseases","Plat3",1,87,-5.20648875850311,1
+"Female","Chronic respiratory diseases","Plat3",2,62,-7.74553937305538,1.25
+"Female","Chronic respiratory diseases","Plat3",2,67,-7.32163407242929,0.75
+"Female","Chronic respiratory diseases","Plat3",2,72,-6.84811645454645,0.25
+"Female","Chronic respiratory diseases","Plat3",2,77,-6.30456758907364,-0.25
+"Female","Chronic respiratory diseases","Plat3",2,82,-5.76176358936436,-0.75
+"Female","Chronic respiratory diseases","Plat3",2,87,-5.20648875850311,-1.25
+"Female","Chronic respiratory diseases","Plat3",3,62,-7.74553937305538,1.25
+"Female","Chronic respiratory diseases","Plat3",3,67,-7.32163407242929,0.75
+"Female","Chronic respiratory diseases","Plat3",3,72,-6.84811645454645,0.25
+"Female","Chronic respiratory diseases","Plat3",3,77,-6.30456758907364,0
+"Female","Chronic respiratory diseases","Plat3",3,82,-5.76176358936436,0
+"Female","Chronic respiratory diseases","Plat3",3,87,-5.20648875850311,0
+"Female","Neurological disorders","Poisson LC1",1,62,-8.28425807766069,0.632374644381742
+"Female","Neurological disorders","Poisson LC1",1,67,-7.64243607923994,0.452849110744051
+"Female","Neurological disorders","Poisson LC1",1,72,-6.96172391179717,0.386489259380937
+"Female","Neurological disorders","Poisson LC1",1,77,-6.21310385891781,0.386555479916975
+"Female","Neurological disorders","Poisson LC1",1,82,-5.28269291027428,0.199595463385151
+"Female","Neurological disorders","Poisson LC1",1,87,-4.57008075906883,0.237471169548613
+"Female","Neurological disorders","Binomial LC1",1,62,-8.28413187143428,0.632006799353437
+"Female","Neurological disorders","Binomial LC1",1,67,-7.64219617615911,0.452630462655947
+"Female","Neurological disorders","Binomial LC1",1,72,-6.96125002278509,0.386394124622011
+"Female","Neurological disorders","Binomial LC1",1,77,-6.21210177090705,0.386663815625088
+"Female","Neurological disorders","Binomial LC1",1,82,-5.28015026493667,0.199962256098821
+"Female","Neurological disorders","Binomial LC1",1,87,-4.56488858837942,0.23853477760401
+"Female","Neurological disorders","Poisson LC2",1,62,-8.28502907884029,0.685861857817381
+"Female","Neurological disorders","Poisson LC2",1,67,-7.64249497031675,0.491088105406879
+"Female","Neurological disorders","Poisson LC2",1,72,-6.96171944008495,0.36652896404757
+"Female","Neurological disorders","Poisson LC2",1,77,-6.21310343762204,0.341692246950286
+"Female","Neurological disorders","Poisson LC2",1,82,-5.28267988534835,0.163625091880589
+"Female","Neurological disorders","Poisson LC2",1,87,-4.56949711489776,0.102741135454701
+"Female","Neurological disorders","Poisson LC2",2,62,-8.28502907884029,-0.296183116526577
+"Female","Neurological disorders","Poisson LC2",2,67,-7.64249497031675,-0.155166983178521
+"Female","Neurological disorders","Poisson LC2",2,72,-6.96171944008495,0.149975577498353
+"Female","Neurological disorders","Poisson LC2",2,77,-6.21310343762204,0.274011939145122
+"Female","Neurological disorders","Poisson LC2",2,82,-5.28267988534835,0.266366955082754
+"Female","Neurological disorders","Poisson LC2",2,87,-4.56949711489776,0.848334955908212
+"Female","Neurological disorders","Binomial LC2",1,62,-8.28490292812818,0.68557971292216
+"Female","Neurological disorders","Binomial LC2",1,67,-7.64225509496805,0.490963210108946
+"Female","Neurological disorders","Binomial LC2",1,72,-6.96124556669457,0.36658887496924
+"Female","Neurological disorders","Binomial LC2",1,77,-6.21210135336761,0.341959555500829
+"Female","Neurological disorders","Binomial LC2",1,82,-5.28013719040563,0.164041419853156
+"Female","Neurological disorders","Binomial LC2",1,87,-4.56430163791716,0.103451705022732
+"Female","Neurological disorders","Binomial LC2",2,62,-8.28490292812818,-0.296141661256415
+"Female","Neurological disorders","Binomial LC2",2,67,-7.64225509496805,-0.15527257570086
+"Female","Neurological disorders","Binomial LC2",2,72,-6.96124556669457,0.148895761187295
+"Female","Neurological disorders","Binomial LC2",2,77,-6.21210135336761,0.272663605452996
+"Female","Neurological disorders","Binomial LC2",2,82,-5.28013719040563,0.265739222206593
+"Female","Neurological disorders","Binomial LC2",2,87,-4.56430163791716,0.849151235084997
+"Female","Neurological disorders","CBD",1,62,0,1
+"Female","Neurological disorders","CBD",1,67,0,1
+"Female","Neurological disorders","CBD",1,72,0,1
+"Female","Neurological disorders","CBD",1,77,0,1
+"Female","Neurological disorders","CBD",1,82,0,1
+"Female","Neurological disorders","CBD",1,87,0,1
+"Female","Neurological disorders","CBD",2,62,0,-1.25
+"Female","Neurological disorders","CBD",2,67,0,-0.75
+"Female","Neurological disorders","CBD",2,72,0,-0.25
+"Female","Neurological disorders","CBD",2,77,0,0.25
+"Female","Neurological disorders","CBD",2,82,0,0.75
+"Female","Neurological disorders","CBD",2,87,0,1.25
+"Female","Neurological disorders","Plat2",1,62,-8.28489917469554,1
+"Female","Neurological disorders","Plat2",1,67,-7.64258617448924,1
+"Female","Neurological disorders","Plat2",1,72,-6.96178004138862,1
+"Female","Neurological disorders","Plat2",1,77,-6.21308940642526,1
+"Female","Neurological disorders","Plat2",1,82,-5.28262418250127,1
+"Female","Neurological disorders","Plat2",1,87,-4.56917976803359,1
+"Female","Neurological disorders","Plat2",2,62,-8.28489917469554,1.25
+"Female","Neurological disorders","Plat2",2,67,-7.64258617448924,0.75
+"Female","Neurological disorders","Plat2",2,72,-6.96178004138862,0.25
+"Female","Neurological disorders","Plat2",2,77,-6.21308940642526,-0.25
+"Female","Neurological disorders","Plat2",2,82,-5.28262418250127,-0.75
+"Female","Neurological disorders","Plat2",2,87,-4.56917976803359,-1.25
+"Female","Neurological disorders","Plat3",1,62,-8.28518450075798,1
+"Female","Neurological disorders","Plat3",1,67,-7.64264104969101,1
+"Female","Neurological disorders","Plat3",1,72,-6.96166489196664,1
+"Female","Neurological disorders","Plat3",1,77,-6.2130160048871,1
+"Female","Neurological disorders","Plat3",1,82,-5.28255557959895,1
+"Female","Neurological disorders","Plat3",1,87,-4.56947106501156,1
+"Female","Neurological disorders","Plat3",2,62,-8.28518450075798,1.25
+"Female","Neurological disorders","Plat3",2,67,-7.64264104969101,0.75
+"Female","Neurological disorders","Plat3",2,72,-6.96166489196664,0.25
+"Female","Neurological disorders","Plat3",2,77,-6.2130160048871,-0.25
+"Female","Neurological disorders","Plat3",2,82,-5.28255557959895,-0.75
+"Female","Neurological disorders","Plat3",2,87,-4.56947106501156,-1.25
+"Female","Neurological disorders","Plat3",3,62,-8.28518450075798,1.25
+"Female","Neurological disorders","Plat3",3,67,-7.64264104969101,0.75
+"Female","Neurological disorders","Plat3",3,72,-6.96166489196664,0.25
+"Female","Neurological disorders","Plat3",3,77,-6.2130160048871,0
+"Female","Neurological disorders","Plat3",3,82,-5.28255557959895,0
+"Female","Neurological disorders","Plat3",3,87,-4.56947106501156,0
+"Female","Unintentional injuries","Poisson LC1",1,62,-8.33573816443831,0.254713536306606
+"Female","Unintentional injuries","Poisson LC1",1,67,-7.88917535479772,0.34937821594633
+"Female","Unintentional injuries","Poisson LC1",1,72,-7.2211629065084,0.393090109746892
+"Female","Unintentional injuries","Poisson LC1",1,77,-6.40475304005609,0.430508182260628
+"Female","Unintentional injuries","Poisson LC1",1,82,-5.61186863544876,0.479889114212912
+"Female","Unintentional injuries","Poisson LC1",1,87,-4.91077597717088,0.492854121754212
+"Female","Unintentional injuries","Binomial LC1",1,62,-8.33561587941351,0.25436361752788
+"Female","Unintentional injuries","Binomial LC1",1,67,-7.88897068134006,0.348923424411235
+"Female","Unintentional injuries","Binomial LC1",1,72,-7.22076173244313,0.392630596384199
+"Female","Unintentional injuries","Binomial LC1",1,77,-6.40384865272229,0.430198645081859
+"Female","Unintentional injuries","Binomial LC1",1,82,-5.60984066712407,0.480017010205382
+"Female","Unintentional injuries","Binomial LC1",1,87,-4.90666430387429,0.493868003054939
+"Female","Unintentional injuries","Poisson LC2",1,62,-8.33943279878531,0.253158708249347
+"Female","Unintentional injuries","Poisson LC2",1,67,-7.89209749234108,0.349132200289172
+"Female","Unintentional injuries","Poisson LC2",1,72,-7.22086133509455,0.393777179905558
+"Female","Unintentional injuries","Poisson LC2",1,77,-6.40579365700063,0.430200451894172
+"Female","Unintentional injuries","Poisson LC2",1,82,-5.6112340480576,0.48029291417305
+"Female","Unintentional injuries","Poisson LC2",1,87,-4.91086566264183,0.49315636012283
+"Female","Unintentional injuries","Poisson LC2",2,62,-8.33943279878531,0.623310916149536
+"Female","Unintentional injuries","Poisson LC2",2,67,-7.89209749234108,0.606564385968889
+"Female","Unintentional injuries","Poisson LC2",2,72,-7.22086133509455,-0.0166036994853071
+"Female","Unintentional injuries","Poisson LC2",2,77,-6.40579365700063,-0.390228450941599
+"Female","Unintentional injuries","Poisson LC2",2,82,-5.6112340480576,-0.271695126761781
+"Female","Unintentional injuries","Poisson LC2",2,87,-4.91086566264183,-0.131114373033745
+"Female","Unintentional injuries","Binomial LC2",1,62,-8.3393105583621,0.252810034993513
+"Female","Unintentional injuries","Binomial LC2",1,67,-7.89189480497934,0.348678719785526
+"Female","Unintentional injuries","Binomial LC2",1,72,-7.2204601943668,0.393316859600672
+"Female","Unintentional injuries","Binomial LC2",1,77,-6.40489007664143,0.42988836353182
+"Female","Unintentional injuries","Binomial LC2",1,82,-5.60920404457744,0.480420657736866
+"Female","Unintentional injuries","Binomial LC2",1,87,-4.90675431083222,0.494170083117929
+"Female","Unintentional injuries","Binomial LC2",2,62,-8.3393105583621,0.623410534800056
+"Female","Unintentional injuries","Binomial LC2",2,67,-7.89189480497934,0.606707677820175
+"Female","Unintentional injuries","Binomial LC2",2,72,-7.2204601943668,-0.0160682279063233
+"Female","Unintentional injuries","Binomial LC2",2,77,-6.40489007664143,-0.389985780315678
+"Female","Unintentional injuries","Binomial LC2",2,82,-5.60920404457744,-0.271637187715459
+"Female","Unintentional injuries","Binomial LC2",2,87,-4.90675431083222,-0.130886363796686
+"Female","Unintentional injuries","CBD",1,62,0,1
+"Female","Unintentional injuries","CBD",1,67,0,1
+"Female","Unintentional injuries","CBD",1,72,0,1
+"Female","Unintentional injuries","CBD",1,77,0,1
+"Female","Unintentional injuries","CBD",1,82,0,1
+"Female","Unintentional injuries","CBD",1,87,0,1
+"Female","Unintentional injuries","CBD",2,62,0,-1.25
+"Female","Unintentional injuries","CBD",2,67,0,-0.75
+"Female","Unintentional injuries","CBD",2,72,0,-0.25
+"Female","Unintentional injuries","CBD",2,77,0,0.25
+"Female","Unintentional injuries","CBD",2,82,0,0.75
+"Female","Unintentional injuries","CBD",2,87,0,1.25
+"Female","Unintentional injuries","Plat2",1,62,-8.34724044558276,1
+"Female","Unintentional injuries","Plat2",1,67,-7.88848336064458,1
+"Female","Unintentional injuries","Plat2",1,72,-7.21823943469202,1
+"Female","Unintentional injuries","Plat2",1,77,-6.40259336504741,1
+"Female","Unintentional injuries","Plat2",1,82,-5.60804244033416,1
+"Female","Unintentional injuries","Plat2",1,87,-4.91370767396336,1
+"Female","Unintentional injuries","Plat2",2,62,-8.34724044558276,1.25
+"Female","Unintentional injuries","Plat2",2,67,-7.88848336064458,0.75
+"Female","Unintentional injuries","Plat2",2,72,-7.21823943469202,0.25
+"Female","Unintentional injuries","Plat2",2,77,-6.40259336504741,-0.25
+"Female","Unintentional injuries","Plat2",2,82,-5.60804244033416,-0.75
+"Female","Unintentional injuries","Plat2",2,87,-4.91370767396336,-1.25
+"Female","Unintentional injuries","Plat3",1,62,-8.34428142115249,1
+"Female","Unintentional injuries","Plat3",1,67,-7.88636424514024,1
+"Female","Unintentional injuries","Plat3",1,72,-7.22239224948777,1
+"Female","Unintentional injuries","Plat3",1,77,-6.40808707857036,1
+"Female","Unintentional injuries","Plat3",1,82,-5.60849563007363,1
+"Female","Unintentional injuries","Plat3",1,87,-4.91161515247711,1
+"Female","Unintentional injuries","Plat3",2,62,-8.34428142115249,1.25
+"Female","Unintentional injuries","Plat3",2,67,-7.88636424514024,0.75
+"Female","Unintentional injuries","Plat3",2,72,-7.22239224948777,0.25
+"Female","Unintentional injuries","Plat3",2,77,-6.40808707857036,-0.25
+"Female","Unintentional injuries","Plat3",2,82,-5.60849563007363,-0.75
+"Female","Unintentional injuries","Plat3",2,87,-4.91161515247711,-1.25
+"Female","Unintentional injuries","Plat3",3,62,-8.34428142115249,1.25
+"Female","Unintentional injuries","Plat3",3,67,-7.88636424514024,0.75
+"Female","Unintentional injuries","Plat3",3,72,-7.22239224948777,0.25
+"Female","Unintentional injuries","Plat3",3,77,-6.40808707857036,0
+"Female","Unintentional injuries","Plat3",3,82,-5.60849563007363,0
+"Female","Unintentional injuries","Plat3",3,87,-4.91161515247711,0
+"Female","Diabetes and kidney diseases","Poisson LC1",1,62,-7.7236126070999,-0.431693793384784
+"Female","Diabetes and kidney diseases","Poisson LC1",1,67,-7.1744299032495,-0.395372328382951
+"Female","Diabetes and kidney diseases","Poisson LC1",1,72,-6.64911637146523,-0.237636742509489
+"Female","Diabetes and kidney diseases","Poisson LC1",1,77,-6.22648386950442,0.0287775269298955
+"Female","Diabetes and kidney diseases","Poisson LC1",1,82,-5.92463158579391,0.326270130409271
+"Female","Diabetes and kidney diseases","Poisson LC1",1,87,-5.76356422500373,0.702545105497216
+"Female","Diabetes and kidney diseases","Binomial LC1",1,62,-7.72338446947573,-0.431274572999894
+"Female","Diabetes and kidney diseases","Binomial LC1",1,67,-7.17404161487768,-0.395070072826728
+"Female","Diabetes and kidney diseases","Binomial LC1",1,72,-6.64846418941356,-0.237504356059875
+"Female","Diabetes and kidney diseases","Binomial LC1",1,77,-6.2254960428221,0.028791774954402
+"Female","Diabetes and kidney diseases","Binomial LC1",1,82,-5.92327988482405,0.32636447188122
+"Female","Diabetes and kidney diseases","Binomial LC1",1,87,-5.76190721850136,0.702972848893678
+"Female","Diabetes and kidney diseases","Poisson LC2",1,62,-7.72726642171274,-0.428800787722083
+"Female","Diabetes and kidney diseases","Poisson LC2",1,67,-7.17297980481775,-0.410672779061915
+"Female","Diabetes and kidney diseases","Poisson LC2",1,72,-6.65420312658796,-0.231893411406336
+"Female","Diabetes and kidney diseases","Poisson LC2",1,77,-6.23532022938607,0.035830697739635
+"Female","Diabetes and kidney diseases","Poisson LC2",1,82,-5.9280061668985,0.323680205754941
+"Female","Diabetes and kidney diseases","Poisson LC2",1,87,-5.75590029976976,0.698319757872242
+"Female","Diabetes and kidney diseases","Poisson LC2",2,62,-7.72726642171274,0.475575274178809
+"Female","Diabetes and kidney diseases","Poisson LC2",2,67,-7.17297980481775,0.327551393557633
+"Female","Diabetes and kidney diseases","Poisson LC2",2,72,-6.65420312658796,0.396710203347648
+"Female","Diabetes and kidney diseases","Poisson LC2",2,77,-6.23532022938607,0.408186618469331
+"Female","Diabetes and kidney diseases","Poisson LC2",2,82,-5.9280061668985,0.431453669430035
+"Female","Diabetes and kidney diseases","Poisson LC2",2,87,-5.75590029976976,0.39546260678603
+"Female","Diabetes and kidney diseases","Binomial LC2",1,62,-7.72703989074075,-0.428172243643655
+"Female","Diabetes and kidney diseases","Binomial LC2",1,67,-7.17258850946562,-0.410202998861114
+"Female","Diabetes and kidney diseases","Binomial LC2",1,72,-6.65355182921021,-0.231593837865071
+"Female","Diabetes and kidney diseases","Binomial LC2",1,77,-6.23433453280051,0.0360128990371179
+"Female","Diabetes and kidney diseases","Binomial LC2",1,82,-5.92665201232902,0.32395711592377
+"Female","Diabetes and kidney diseases","Binomial LC2",1,87,-5.75423087470603,0.698942903180746
+"Female","Diabetes and kidney diseases","Binomial LC2",2,62,-7.72703989074075,0.475913780195476
+"Female","Diabetes and kidney diseases","Binomial LC2",2,67,-7.17258850946562,0.328014420081266
+"Female","Diabetes and kidney diseases","Binomial LC2",2,72,-6.65355182921021,0.396978089932154
+"Female","Diabetes and kidney diseases","Binomial LC2",2,77,-6.23433453280051,0.408178463570881
+"Female","Diabetes and kidney diseases","Binomial LC2",2,82,-5.92665201232902,0.431178391930381
+"Female","Diabetes and kidney diseases","Binomial LC2",2,87,-5.75423087470603,0.394710712246156
+"Female","Diabetes and kidney diseases","CBD",1,62,0,1
+"Female","Diabetes and kidney diseases","CBD",1,67,0,1
+"Female","Diabetes and kidney diseases","CBD",1,72,0,1
+"Female","Diabetes and kidney diseases","CBD",1,77,0,1
+"Female","Diabetes and kidney diseases","CBD",1,82,0,1
+"Female","Diabetes and kidney diseases","CBD",1,87,0,1
+"Female","Diabetes and kidney diseases","CBD",2,62,0,-1.25
+"Female","Diabetes and kidney diseases","CBD",2,67,0,-0.75
+"Female","Diabetes and kidney diseases","CBD",2,72,0,-0.25
+"Female","Diabetes and kidney diseases","CBD",2,77,0,0.25
+"Female","Diabetes and kidney diseases","CBD",2,82,0,0.75
+"Female","Diabetes and kidney diseases","CBD",2,87,0,1.25
+"Female","Diabetes and kidney diseases","Plat2",1,62,-7.7411206491148,1
+"Female","Diabetes and kidney diseases","Plat2",1,67,-7.17242858164802,1
+"Female","Diabetes and kidney diseases","Plat2",1,72,-6.65359204602617,1
+"Female","Diabetes and kidney diseases","Plat2",1,77,-6.23835300837243,1
+"Female","Diabetes and kidney diseases","Plat2",1,82,-5.92894357696797,1
+"Female","Diabetes and kidney diseases","Plat2",1,87,-5.72480703709902,1
+"Female","Diabetes and kidney diseases","Plat2",2,62,-7.7411206491148,1.25
+"Female","Diabetes and kidney diseases","Plat2",2,67,-7.17242858164802,0.75
+"Female","Diabetes and kidney diseases","Plat2",2,72,-6.65359204602617,0.25
+"Female","Diabetes and kidney diseases","Plat2",2,77,-6.23835300837243,-0.25
+"Female","Diabetes and kidney diseases","Plat2",2,82,-5.92894357696797,-0.75
+"Female","Diabetes and kidney diseases","Plat2",2,87,-5.72480703709902,-1.25
+"Female","Diabetes and kidney diseases","Plat3",1,62,-7.73085671764388,1
+"Female","Diabetes and kidney diseases","Plat3",1,67,-7.17049278229393,1
+"Female","Diabetes and kidney diseases","Plat3",1,72,-6.65409183188138,1
+"Female","Diabetes and kidney diseases","Plat3",1,77,-6.23369885416408,1
+"Female","Diabetes and kidney diseases","Plat3",1,82,-5.93045422674648,1
+"Female","Diabetes and kidney diseases","Plat3",1,87,-5.75313516954876,1
+"Female","Diabetes and kidney diseases","Plat3",2,62,-7.73085671764388,1.25
+"Female","Diabetes and kidney diseases","Plat3",2,67,-7.17049278229393,0.75
+"Female","Diabetes and kidney diseases","Plat3",2,72,-6.65409183188138,0.25
+"Female","Diabetes and kidney diseases","Plat3",2,77,-6.23369885416408,-0.25
+"Female","Diabetes and kidney diseases","Plat3",2,82,-5.93045422674648,-0.75
+"Female","Diabetes and kidney diseases","Plat3",2,87,-5.75313516954876,-1.25
+"Female","Diabetes and kidney diseases","Plat3",3,62,-7.73085671764388,1.25
+"Female","Diabetes and kidney diseases","Plat3",3,67,-7.17049278229393,0.75
+"Female","Diabetes and kidney diseases","Plat3",3,72,-6.65409183188138,0.25
+"Female","Diabetes and kidney diseases","Plat3",3,77,-6.23369885416408,0
+"Female","Diabetes and kidney diseases","Plat3",3,82,-5.93045422674648,0
+"Female","Diabetes and kidney diseases","Plat3",3,87,-5.75313516954876,0
+"Female","Self-harm and interpersonal violence","Poisson LC1",1,62,-8.25911395308428,0.369856449165104
+"Female","Self-harm and interpersonal violence","Poisson LC1",1,67,-8.15312074958013,0.42408559481137
+"Female","Self-harm and interpersonal violence","Poisson LC1",1,72,-8.00544368020175,0.416010123888218
+"Female","Self-harm and interpersonal violence","Poisson LC1",1,77,-7.78227760795949,0.42708207355096
+"Female","Self-harm and interpersonal violence","Poisson LC1",1,82,-7.55220359957344,0.43843244707471
+"Female","Self-harm and interpersonal violence","Poisson LC1",1,87,-7.44575918169216,0.368335558846104
+"Female","Self-harm and interpersonal violence","Binomial LC1",1,62,-8.2589748507457,0.369826302424879
+"Female","Self-harm and interpersonal violence","Binomial LC1",1,67,-8.15296216915659,0.42405811454367
+"Female","Self-harm and interpersonal violence","Binomial LC1",1,72,-8.00526074631349,0.415993465280769
+"Female","Self-harm and interpersonal violence","Binomial LC1",1,77,-7.78204778573844,0.427085875933029
+"Female","Self-harm and interpersonal violence","Binomial LC1",1,82,-7.55191254906327,0.438464745014998
+"Female","Self-harm and interpersonal violence","Binomial LC1",1,87,-7.44544421337206,0.368373425107671
+"Female","Self-harm and interpersonal violence","Poisson LC2",1,62,-8.26021347378172,0.354625858974541
+"Female","Self-harm and interpersonal violence","Poisson LC2",1,67,-8.1507716768176,0.4141047411279
+"Female","Self-harm and interpersonal violence","Poisson LC2",1,72,-8.00471895906545,0.411398381263372
+"Female","Self-harm and interpersonal violence","Poisson LC2",1,77,-7.78330337594342,0.434588811289546
+"Female","Self-harm and interpersonal violence","Poisson LC2",1,82,-7.55394011214605,0.452299936623273
+"Female","Self-harm and interpersonal violence","Poisson LC2",1,87,-7.45134920091654,0.37425454953596
+"Female","Self-harm and interpersonal violence","Poisson LC2",2,62,-8.26021347378172,0.60273795463512
+"Female","Self-harm and interpersonal violence","Poisson LC2",2,67,-8.1507716768176,0.341792014077681
+"Female","Self-harm and interpersonal violence","Poisson LC2",2,72,-8.00471895906545,0.189172436613139
+"Female","Self-harm and interpersonal violence","Poisson LC2",2,77,-7.78330337594342,-0.0898547010288347
+"Female","Self-harm and interpersonal violence","Poisson LC2",2,82,-7.55394011214605,-0.415429921210815
+"Female","Self-harm and interpersonal violence","Poisson LC2",2,87,-7.45134920091654,-0.550856677954108
+"Female","Self-harm and interpersonal violence","Binomial LC2",1,62,-8.26007397280049,0.354603444335299
+"Female","Self-harm and interpersonal violence","Binomial LC2",1,67,-8.15061299609707,0.414083499393698
+"Female","Self-harm and interpersonal violence","Binomial LC2",1,72,-8.00453598351868,0.411385823781209
+"Female","Self-harm and interpersonal violence","Binomial LC2",1,77,-7.78307341871085,0.434591360975729
+"Female","Self-harm and interpersonal violence","Binomial LC2",1,82,-7.55364891917249,0.452323643982656
+"Female","Self-harm and interpersonal violence","Binomial LC2",1,87,-7.45103637556093,0.374281480769196
+"Female","Self-harm and interpersonal violence","Binomial LC2",2,62,-8.26007397280049,0.602724898643696
+"Female","Self-harm and interpersonal violence","Binomial LC2",2,67,-8.15061299609707,0.341814349606096
+"Female","Self-harm and interpersonal violence","Binomial LC2",2,72,-8.00453598351868,0.189208367427821
+"Female","Self-harm and interpersonal violence","Binomial LC2",2,77,-7.78307341871085,-0.0898039160609769
+"Female","Self-harm and interpersonal violence","Binomial LC2",2,82,-7.55364891917249,-0.415399179606513
+"Female","Self-harm and interpersonal violence","Binomial LC2",2,87,-7.45103637556093,-0.550876228290852
+"Female","Self-harm and interpersonal violence","CBD",1,62,0,1
+"Female","Self-harm and interpersonal violence","CBD",1,67,0,1
+"Female","Self-harm and interpersonal violence","CBD",1,72,0,1
+"Female","Self-harm and interpersonal violence","CBD",1,77,0,1
+"Female","Self-harm and interpersonal violence","CBD",1,82,0,1
+"Female","Self-harm and interpersonal violence","CBD",1,87,0,1
+"Female","Self-harm and interpersonal violence","CBD",2,62,0,-1.25
+"Female","Self-harm and interpersonal violence","CBD",2,67,0,-0.75
+"Female","Self-harm and interpersonal violence","CBD",2,72,0,-0.25
+"Female","Self-harm and interpersonal violence","CBD",2,77,0,0.25
+"Female","Self-harm and interpersonal violence","CBD",2,82,0,0.75
+"Female","Self-harm and interpersonal violence","CBD",2,87,0,1.25
+"Female","Self-harm and interpersonal violence","Plat2",1,62,-8.26932737987862,1
+"Female","Self-harm and interpersonal violence","Plat2",1,67,-8.14387045492054,1
+"Female","Self-harm and interpersonal violence","Plat2",1,72,-8.00230939252767,1
+"Female","Self-harm and interpersonal violence","Plat2",1,77,-7.77784881634177,1
+"Female","Self-harm and interpersonal violence","Plat2",1,82,-7.54801701096116,1
+"Female","Self-harm and interpersonal violence","Plat2",1,87,-7.46337583621987,1
+"Female","Self-harm and interpersonal violence","Plat2",2,62,-8.26932737987862,1.25
+"Female","Self-harm and interpersonal violence","Plat2",2,67,-8.14387045492054,0.75
+"Female","Self-harm and interpersonal violence","Plat2",2,72,-8.00230939252767,0.25
+"Female","Self-harm and interpersonal violence","Plat2",2,77,-7.77784881634177,-0.25
+"Female","Self-harm and interpersonal violence","Plat2",2,82,-7.54801701096116,-0.75
+"Female","Self-harm and interpersonal violence","Plat2",2,87,-7.46337583621987,-1.25
+"Female","Self-harm and interpersonal violence","Plat3",1,62,-8.26160676976389,1
+"Female","Self-harm and interpersonal violence","Plat3",1,67,-8.14443526066275,1
+"Female","Self-harm and interpersonal violence","Plat3",1,72,-8.01039131325375,1
+"Female","Self-harm and interpersonal violence","Plat3",1,77,-7.78450813474621,1
+"Female","Self-harm and interpersonal violence","Plat3",1,82,-7.54529089628657,1
+"Female","Self-harm and interpersonal violence","Plat3",1,87,-7.45751501877829,1
+"Female","Self-harm and interpersonal violence","Plat3",2,62,-8.26160676976389,1.25
+"Female","Self-harm and interpersonal violence","Plat3",2,67,-8.14443526066275,0.75
+"Female","Self-harm and interpersonal violence","Plat3",2,72,-8.01039131325375,0.25
+"Female","Self-harm and interpersonal violence","Plat3",2,77,-7.78450813474621,-0.25
+"Female","Self-harm and interpersonal violence","Plat3",2,82,-7.54529089628657,-0.75
+"Female","Self-harm and interpersonal violence","Plat3",2,87,-7.45751501877829,-1.25
+"Female","Self-harm and interpersonal violence","Plat3",3,62,-8.26160676976389,1.25
+"Female","Self-harm and interpersonal violence","Plat3",3,67,-8.14443526066275,0.75
+"Female","Self-harm and interpersonal violence","Plat3",3,72,-8.01039131325375,0.25
+"Female","Self-harm and interpersonal violence","Plat3",3,77,-7.78450813474621,0
+"Female","Self-harm and interpersonal violence","Plat3",3,82,-7.54529089628657,0
+"Female","Self-harm and interpersonal violence","Plat3",3,87,-7.45751501877829,0
+"Female","Respiratory infections and tuberculosis","Poisson LC1",1,62,-9.09797020972641,0.370832791590748
+"Female","Respiratory infections and tuberculosis","Poisson LC1",1,67,-8.71712055163289,0.437994086784209
+"Female","Respiratory infections and tuberculosis","Poisson LC1",1,72,-8.17783096736207,0.443962289294118
+"Female","Respiratory infections and tuberculosis","Poisson LC1",1,77,-7.53492810167475,0.431262294913511
+"Female","Respiratory infections and tuberculosis","Poisson LC1",1,82,-6.89212122928007,0.416518177534653
+"Female","Respiratory infections and tuberculosis","Poisson LC1",1,87,-6.32619808475446,0.337738281923961
+"Female","Respiratory infections and tuberculosis","Binomial LC1",1,62,-9.09791053298026,0.370734938496654
+"Female","Respiratory infections and tuberculosis","Binomial LC1",1,67,-8.71703212551262,0.437887877773301
+"Female","Respiratory infections and tuberculosis","Binomial LC1",1,72,-8.17768030119373,0.443885434862711
+"Female","Respiratory infections and tuberculosis","Binomial LC1",1,77,-7.53464301200841,0.431252083799361
+"Female","Respiratory infections and tuberculosis","Binomial LC1",1,82,-6.8915807187933,0.416627401149766
+"Female","Respiratory infections and tuberculosis","Binomial LC1",1,87,-6.32526653196085,0.337962692354821
+"Female","Respiratory infections and tuberculosis","Poisson LC2",1,62,-9.09805049617012,0.369953833286935
+"Female","Respiratory infections and tuberculosis","Poisson LC2",1,67,-8.71481128641353,0.436255448427398
+"Female","Respiratory infections and tuberculosis","Poisson LC2",1,72,-8.1761653805992,0.441888192799983
+"Female","Respiratory infections and tuberculosis","Poisson LC2",1,77,-7.53494644151156,0.43299110886083
+"Female","Respiratory infections and tuberculosis","Poisson LC2",1,82,-6.89233235156604,0.41954005920886
+"Female","Respiratory infections and tuberculosis","Poisson LC2",1,87,-6.33268556952696,0.337720310884868
+"Female","Respiratory infections and tuberculosis","Poisson LC2",2,62,-9.09805049617012,-0.306538001737459
+"Female","Respiratory infections and tuberculosis","Poisson LC2",2,67,-8.71481128641353,-0.416777556678979
+"Female","Respiratory infections and tuberculosis","Poisson LC2",2,72,-8.1761653805992,-0.309452864610656
+"Female","Respiratory infections and tuberculosis","Poisson LC2",2,77,-7.53494644151156,0.0396353657100622
+"Female","Respiratory infections and tuberculosis","Poisson LC2",2,82,-6.89233235156604,0.471740114939389
+"Female","Respiratory infections and tuberculosis","Poisson LC2",2,87,-6.33268556952696,0.642230603495167
+"Female","Respiratory infections and tuberculosis","Binomial LC2",1,62,-9.09799167066757,0.369856480451933
+"Female","Respiratory infections and tuberculosis","Binomial LC2",1,67,-8.71472339578846,0.436154628689989
+"Female","Respiratory infections and tuberculosis","Binomial LC2",1,72,-8.17601458672665,0.441816559744603
+"Female","Respiratory infections and tuberculosis","Binomial LC2",1,77,-7.53466125336041,0.432981894229406
+"Female","Respiratory infections and tuberculosis","Binomial LC2",1,82,-6.89179198606158,0.419644450774087
+"Female","Respiratory infections and tuberculosis","Binomial LC2",1,87,-6.33176032693527,0.337932930445497
+"Female","Respiratory infections and tuberculosis","Binomial LC2",2,62,-9.09799167066757,-0.306567551648923
+"Female","Respiratory infections and tuberculosis","Binomial LC2",2,67,-8.71472339578846,-0.416839185749622
+"Female","Respiratory infections and tuberculosis","Binomial LC2",2,72,-8.17601458672665,-0.30959056531886
+"Female","Respiratory infections and tuberculosis","Binomial LC2",2,77,-7.53466125336041,0.0394101507170357
+"Female","Respiratory infections and tuberculosis","Binomial LC2",2,82,-6.89179198606158,0.471464477666467
+"Female","Respiratory infections and tuberculosis","Binomial LC2",2,87,-6.33176032693527,0.642326394977095
+"Female","Respiratory infections and tuberculosis","CBD",1,62,0,1
+"Female","Respiratory infections and tuberculosis","CBD",1,67,0,1
+"Female","Respiratory infections and tuberculosis","CBD",1,72,0,1
+"Female","Respiratory infections and tuberculosis","CBD",1,77,0,1
+"Female","Respiratory infections and tuberculosis","CBD",1,82,0,1
+"Female","Respiratory infections and tuberculosis","CBD",1,87,0,1
+"Female","Respiratory infections and tuberculosis","CBD",2,62,0,-1.25
+"Female","Respiratory infections and tuberculosis","CBD",2,67,0,-0.75
+"Female","Respiratory infections and tuberculosis","CBD",2,72,0,-0.25
+"Female","Respiratory infections and tuberculosis","CBD",2,77,0,0.25
+"Female","Respiratory infections and tuberculosis","CBD",2,82,0,0.75
+"Female","Respiratory infections and tuberculosis","CBD",2,87,0,1.25
+"Female","Respiratory infections and tuberculosis","Plat2",1,62,-9.11620999625691,1
+"Female","Respiratory infections and tuberculosis","Plat2",1,67,-8.71442249358204,1
+"Female","Respiratory infections and tuberculosis","Plat2",1,72,-8.17019694608244,1
+"Female","Respiratory infections and tuberculosis","Plat2",1,77,-7.52987184251155,1
+"Female","Respiratory infections and tuberculosis","Plat2",1,82,-6.88905726465642,1
+"Female","Respiratory infections and tuberculosis","Plat2",1,87,-6.33467638402931,1
+"Female","Respiratory infections and tuberculosis","Plat2",2,62,-9.11620999625691,1.25
+"Female","Respiratory infections and tuberculosis","Plat2",2,67,-8.71442249358204,0.75
+"Female","Respiratory infections and tuberculosis","Plat2",2,72,-8.17019694608244,0.25
+"Female","Respiratory infections and tuberculosis","Plat2",2,77,-7.52987184251155,-0.25
+"Female","Respiratory infections and tuberculosis","Plat2",2,82,-6.88905726465642,-0.75
+"Female","Respiratory infections and tuberculosis","Plat2",2,87,-6.33467638402931,-1.25
+"Female","Respiratory infections and tuberculosis","Plat3",1,62,-9.10109611696377,1
+"Female","Respiratory infections and tuberculosis","Plat3",1,67,-8.71027085781761,1
+"Female","Respiratory infections and tuberculosis","Plat3",1,72,-8.17874694814515,1
+"Female","Respiratory infections and tuberculosis","Plat3",1,77,-7.53739950124461,1
+"Female","Respiratory infections and tuberculosis","Plat3",1,82,-6.88908315235589,1
+"Female","Respiratory infections and tuberculosis","Plat3",1,87,-6.33461283123289,1
+"Female","Respiratory infections and tuberculosis","Plat3",2,62,-9.10109611696377,1.25
+"Female","Respiratory infections and tuberculosis","Plat3",2,67,-8.71027085781761,0.75
+"Female","Respiratory infections and tuberculosis","Plat3",2,72,-8.17874694814515,0.25
+"Female","Respiratory infections and tuberculosis","Plat3",2,77,-7.53739950124461,-0.25
+"Female","Respiratory infections and tuberculosis","Plat3",2,82,-6.88908315235589,-0.75
+"Female","Respiratory infections and tuberculosis","Plat3",2,87,-6.33461283123289,-1.25
+"Female","Respiratory infections and tuberculosis","Plat3",3,62,-9.10109611696377,1.25
+"Female","Respiratory infections and tuberculosis","Plat3",3,67,-8.71027085781761,0.75
+"Female","Respiratory infections and tuberculosis","Plat3",3,72,-8.17874694814515,0.25
+"Female","Respiratory infections and tuberculosis","Plat3",3,77,-7.53739950124461,0
+"Female","Respiratory infections and tuberculosis","Plat3",3,82,-6.88908315235589,0
+"Female","Respiratory infections and tuberculosis","Plat3",3,87,-6.33461283123289,0
