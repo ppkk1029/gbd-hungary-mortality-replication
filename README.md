@@ -25,6 +25,12 @@
 - 该异常组正负抵消比 **0.00334884**，按标准约束归一化时 `max(abs(beta))=98.849445`；其余 17 组最大不超过 **0.329914**。**九类死因不从估计或分析中剔除**，仅将异常的女性 beta 另绘以免遮蔽其他曲线。
 - Figure 4 的二因子 Poisson LC 必须重新拟合；其他五种单人口模型连同一因子 Binomial LC 共六种尚待完成。单因子 Poisson LC **1/7**；§4.2 DTW 算法代码已就绪、真实聚类与七模型比较**尚未运行核验**。
 
+## Figure 4｜双因子 Poisson LC（代码已就绪；真实结果待用户本地运行）
+
+- [Figure 4 R 拟合与导出程序](04_results/4_1_single_population/run_4_1_poisson_lc_2factor.R)：读取此前 Figure 3 输出的 `fitted_rates.csv`，重新拟合实际 GBD Deaths/Exposure，18组模型，输出男女各五条参数类别图和 deviance 比较。
+- [详细执行说明、数学识别约束与证据范围](04_results/4_1_single_population/FIGURE4_REPLICATION_PLAN_AND_VERIFICATION.md)。
+- [独立模拟自测图](04_results/4_1_single_population/figure4_synthetic_numeric_selftest.svg) 明确标注 **synthetic, not actual GBD**。当前会话无法读入 Library 的 CSV 原始字节；**不能把程序准备完毕或模拟测试误写成 Figure 4 真实拟合已完成**。
+
 ## 继续复现的正确顺序（全部交互选文件）
 
 1. 若要检查你现有截图的女性 β≈18，先运行 [§4.1 旧参数诊断](04_results/4_1_single_population/diagnose_previous_beta.R)，在 `file.choose()` 窗口选择**旧版 beta.csv、kappa.csv**；输出异常抵消比和尺度校验，**不会覆盖旧结果**。
