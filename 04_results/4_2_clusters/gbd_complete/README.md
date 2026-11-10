@@ -9,7 +9,7 @@
 3. z-standardize each factor across the **training** years (1980–2015) within its cause and sex. This ensures scale does not dominate a similarity measure, while preserving temporal shape.
 4. Compute pairwise symmetric2 DTW with squared local cost, diagonal weight 2, horizontal/vertical weight 1, and `sqrt(accumulated_cost/(N+M))`. No time window in main analysis; five-year window used for sensitivity.
 5. Perform average-linkage hierarchical clustering and exact-enumeration k-medoids on the same DTW matrix, for K=2…8. Choose max average silhouette in this project. Compare seven auxiliary internal CVIs, medoid starting points and rotated LC factors.
-6. Make separate Figure 5 (male second LC factor alignment), Figure 6 (female), Figure 7 (male CBD first factor grouped) and Tables 3–4 analogues. These are **GBD analogues**, not numerical reproductions of the original HCSO figures.
+6. Make separate Figure 5 (male second LC factor alignment), Figure 6 (female), Figure 7 (male CBD first factor grouped), Figure 8 (male two-factor Binomial LC second-factor grouped), and Tables 3–4 analogues. These are **GBD analogues**, not numerical reproductions of the original HCSO figures.
 
 ## Figures — view directly in GitHub
 
@@ -19,7 +19,7 @@
 
 **Figure 7: male CBD first-factor groups.** [SVG](figures/Figure7_GBD_Male_CBD.svg). Two clusters: CVD+NEO+DIG+CRD+INJ+SHV+RIT versus NEU+DKD, silhouette **0.7144**. Original male CBD Figure 7 reported **six** clusters on HCSO ICD groups, not two.
 
-The SVGs are plotted from verified, standardized factor values rounded to 0.01 for compact text-based GitHub storage; full-resolution source CSVs and PNGs are in the referenced result archive, with all output computed before rounding.
+**Figure 8: male two-factor Binomial Lee–Carter second-factor groups.** [SVG](figures/Figure8_GBD_Male_Binomial_LC2.svg). Two groups: CVD+NEU and seven other causes; silhouette **0.5154**. Original male Binomial LC2 Figure 8 reported **five** clusters; the GBD grouping differs from the original and from our CBD Figure 7.\n\nThe SVGs are plotted from verified, standardized factor values rounded to 0.01 for compact text-based GitHub storage; full-resolution source CSVs and PNGs are in the referenced result archive, with all output computed before rounding.
 
 ## Audited aggregate results
 
