@@ -31,6 +31,13 @@
 - [详细执行说明、数学识别约束与证据范围](04_results/4_1_single_population/FIGURE4_REPLICATION_PLAN_AND_VERIFICATION.md)。
 - [独立模拟自测图](04_results/4_1_single_population/figure4_synthetic_numeric_selftest.svg) 明确标注 **synthetic, not actual GBD**。当前会话无法读入 Library 的 CSV 原始字节；**不能把程序准备完毕或模拟测试误写成 Figure 4 真实拟合已完成**。
 
+## 2026-11-10｜Figure 4 双因子 Poisson LC **实证已经运行**
+
+- [真实参数结果、18组模型对照与限度](04_results/4_1_single_population/FIGURE4_REAL_GBD_RESULTS_2026-11-10.md)
+- [实际男性 Figure 4](04_results/4_1_single_population/figure4_male_actual_data.svg) | [实际女性 Figure 4](04_results/4_1_single_population/figure4_female_actual_data.svg) | [18 组指标表](04_results/4_1_single_population/figure4_actual_summary_2026-11-10.csv)
+- 上传的 `fitted_rates(1).csv` 提供3888个真实 GBD 观测单元，Python/SciPy 已独立重新拟合18个双因子模型：18组训练 deviance 全部降低，但只有9组伪AIC和6组伪BIC降低。这是训练期拟合改善，**不是样本外预测提升**。
+- [修正 R 版脚本](04_results/4_1_single_population/run_4_1_poisson_lc_2factor.R)：取消 `readline` 保存交互、自动保存结果、RStudio Plots 最后显示男性原文 Figure 4 参数图。R 实现仍待与 Python 结果对照。
+
 ## 继续复现的正确顺序（全部交互选文件）
 
 1. 若要检查你现有截图的女性 β≈18，先运行 [§4.1 旧参数诊断](04_results/4_1_single_population/diagnose_previous_beta.R)，在 `file.choose()` 窗口选择**旧版 beta.csv、kappa.csv**；输出异常抵消比和尺度校验，**不会覆盖旧结果**。
