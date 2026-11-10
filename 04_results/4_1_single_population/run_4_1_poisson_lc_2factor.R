@@ -7,7 +7,7 @@
 # Run in RStudio:
 #   source(file.choose())  # select THIS R file
 #   -> select your saved fitted_rates.csv in the next dialog
-#   -> inspect figures / diagnostics; type y to save
+#   -> results auto-save next to fitted_rates.csv; male Figure 4 displayed last
 #
 # Optional command line: Rscript run_4_1_poisson_lc_2factor.R input.csv output_dir
 # Base R only. GBD modeled noninteger deaths => Poisson mean-based
