@@ -33,7 +33,7 @@ if (!all(fields %in% hdr)) stop("输入 CSV 缺少必需列：",paste(setdiff(fi
 out <- file.path(srcdir,"results")
 cat("\n源程序：",srcdir,"\n输入文件：",raw,
     "\n结果目录：",out,
-    "\n本操作将估计 126 组模型，执行 14 组聚类并生成 Figure 5/6/7。\n")
+    "\n本操作将估计 126 组模型，执行 14 组聚类并生成 Figure 5/6/7/8。\n")
 ans <- tolower(trimws(readline("输入 y 确认执行及允许覆盖同名结果；其他键取消：")))
 if (ans!="y") stop("已取消，没有执行模型或写文件。")
 py <- choose_python()
@@ -54,7 +54,8 @@ run_step("plot_paper_figures.py",character(0))
 needed <- c("fit_diagnostics_all_models.csv","cluster_summary.csv",
             "cluster_membership.csv","Figure_5_GBD_Male_Poisson_LC2.png",
             "Figure_6_GBD_Female_Poisson_LC2.png",
-            "Figure_7_GBD_Male_CBD_Clusters.png","validation.json")
+            "Figure_7_GBD_Male_CBD_Clusters.png",
+            "Figure_8_GBD_Male_Binomial_LC2.png","validation.json")
 if(!all(file.exists(file.path(out,needed)))) stop(
   "程序执行完毕但部分结果缺失：",
   paste(setdiff(needed,list.files(out)),collapse=", "))
