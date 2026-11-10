@@ -1,6 +1,6 @@
 # 匈牙利分死因死亡率预测：GBD 2023 方法复现（R）
 
-> **最新可复核入口（2026-11-10）：** [§4.2 完整七模型复现（代码、图 5/6/7、14 组聚类表）](04_results/4_2_clusters/gbd_complete/README.md)｜[Notion 分析全文（问题—方法—原因—结果—解释—原文对照）](https://app.notion.com/p/413eb49c94ed81149a9bfdca526c0bc2)。此项目是 GBD 对 Varga 论文的**方法性复现**，不是 HCSO 数值复刻。之前的 1/7、Figure 4 尚未重估等表述是历史记录，不能作为当前项目状态。
+> **最新可复核入口（2026-11-10）：** [§4.2 完整七模型复现（代码、图 5/6/7/8、14 组聚类表）](04_results/4_2_clusters/gbd_complete/README.md)｜[Notion 分析全文（问题—方法—原因—结果—解释—原文对照）](https://app.notion.com/p/413eb49c94ed81149a9bfdca526c0bc2)。此项目是 GBD 对 Varga 论文的**方法性复现**，不是 HCSO 数值复刻。之前的 1/7、Figure 4 尚未重估等表述是历史记录，不能作为当前项目状态。
 
 本项目面向初学者，按 Varga (2025) 论文的研究顺序，用 GBD 数据复现分死因死亡率预测方法。**只制作原文实际涉及的分析与图表**；每章解释研究问题、计算公式、R 代码、实际结果以及与论文的异同。尚未运行的分析明确标记为“待复现”。
 
@@ -14,7 +14,7 @@
 |---|---|---|
 | [§3.1 描述性统计](03_1_descriptive_statistics/README.md) | Figure 1 死因构成 + Figure 2 年龄标准化死亡率，**同属一小节** | 用户已在 RStudio 绘制 GBD Figure 1、Figure 2；原文件与质控记录尚未全部上传 |
 | [§4.1 单人口模型拟合](04_results/4_1_single_population/README.md) | Figure 3、Figure 4；七种模型 × 两性别 × 九死因的参数及诊断 | **已有126组实测拟合**；女性 DKD 单因子 β 特殊尺度与 Figure 4 双因子模型单独核验，训练拟合不代表预测精度 |
-| [§4.2 死因聚类](04_results/4_2_clusters/gbd_complete/README.md) | 七模型时期因子、DTW 公式（6）–（8）、Figures 5–8、Tables 3–4、稳健性检验 | **已核验14组性别×模型聚类及 Figures 5–7 的 GBD 对照版本**；[详细 Notion 报告](https://app.notion.com/p/413eb49c94ed81149a9bfdca526c0bc2)；非 HCSO 原数据逐值复刻 |
+| [§4.2 死因聚类](04_results/4_2_clusters/gbd_complete/README.md) | 七模型时期因子、DTW 公式（6）–（8）、Figures 5–8、Tables 3–4、稳健性检验 | **已核验14组性别×模型聚类及 Figures 5–8 的 GBD 对照版本**；[详细 Notion 报告](https://app.notion.com/p/413eb49c94ed81149a9bfdca526c0bc2)；非 HCSO 原数据逐值复刻 |
 | [§4.3 多人口模型](05_multi_population/README.md) | 类内共享时期因子建模 | 待复现 |
 | [§4.4–4.7 模型比较与预测](06_forecast_comparison/README.md) | 拟合、ARIMA、回测及长期预测 | 待复现 |
 
