@@ -1,6 +1,6 @@
 # §4.2｜The clusters of causes of death
 
-**当前完整实验版本（2026-11-10）：** [点击查看七模型完整工作目录（方法、可运行 Python、Figure 5–7 单图、Table 3/4 对照与 CSV）](gbd_complete/README.md)。已经从以前真实结果包核验：7 模型 × 2 性别 × 9 死因 = 126 拟合；14 次聚类；九类死因全部保留；Figures 5、6、7 已分别输出并同步 Notion。此处不是原 HCSO 数据逐值复刻，且 §4.3 预测尚未执行。
+**当前完整实验版本（2026-11-10）：** [点击查看七模型完整工作目录（方法、可运行 Python、Figure 5–7 单图、Table 3/4 对照与 CSV）](gbd_complete/README.md)。已经从以前真实结果包核验：7 模型 × 2 性别 × 9 死因 = 126 拟合；14 次聚类；九类死因全部保留；Figures 5、6、7、8 已分别输出并同步 Notion。此处不是原 HCSO 数据逐值复刻，且 §4.3 预测尚未执行。
 
 **本目录下的** [run_4_2_dtw.R](run_4_2_dtw.R) **是较早的单因子 Poisson LC RStudio 原型，只覆盖 1/7 模型**，不能用于重现当前 14 组聚类；不要从其早期 K=2..6 等参数推断最新实验已经遵守相同规则。完整七模型 Python 版本使用 K=2..8、SVD 识别和精确 k-medoids，结果和所有改动见上述链接。
 
@@ -8,7 +8,7 @@
 
 - [Figure 5｜男性 Poisson LC2 第二时期因子 CVD–DIG DTW 对齐](gbd_complete/figures/Figure5_GBD_Male_DTW.svg)：距离 1.2283，36 对中的第 35；与原文“近似配对”不一致。
 - [Figure 6｜女性 Poisson LC2 第二时期因子 CVD–DKD DTW 对齐](gbd_complete/figures/Figure6_GBD_Female_DTW.svg)：距离 0.2044，36 对中的第 1；但 DKD 与原文 ICD IV 非同类。
-- [Figure 7｜男性 CBD 第一时期因子的全部九类分组](gbd_complete/figures/Figure7_GBD_Male_CBD.svg)：2 簇，Silhouette 0.714；原文男性 CBD 为 6 簇。
+- [Figure 7｜男性 CBD 第一时期因子的全部九类分组](gbd_complete/figures/Figure7_GBD_Male_CBD.svg)：2 簇，Silhouette 0.714；原文男性 CBD 为 6 簇。\n- [Figure 8｜男性双因子 Binomial LC 第二时期因子的全部九类分组](gbd_complete/figures/Figure8_GBD_Male_Binomial_LC2.svg)：2 簇，Silhouette 0.515；原文男性 Binomial LC2 为 5 簇。
 - [14 组实测 K 与 Silhouette](gbd_complete/results/cluster_summary_selected.csv)｜[126 条实测死因归属](gbd_complete/results/cluster_membership.csv)｜[验证数字](gbd_complete/results/validation.json)｜[完整 Notion 复现报告](https://app.notion.com/p/413eb49c94ed81149a9bfdca526c0bc2)。
 
 ---
