@@ -1,0 +1,9 @@
+{
+  "dtw_bruteforce_error": 0.0,
+  "fits_passed": 126,
+  "max_gradient": 8.88598686155937e-09,
+  "max_multistart_eta_difference": 1.8793409935824457e-05,
+  "rotation_surface_max_error": 2.220446049250313e-16,
+  "max_deviance_difference_vs_prior_Poisson2": 2.129126168881612e-05,
+  "note": "Values transcribed from the verified previous results/validation.json, not from a fresh hosted run."
+}
