@@ -1,0 +1,15 @@
+sex,model,factor,method,K,silhouette
+Male,Poisson LC1,1,average,2,0.6377939493314739
+Male,Binomial LC1,1,average,2,0.6378763219659319
+Male,Poisson LC2,2,average,2,0.5133444489336783
+Male,Binomial LC2,2,average,2,0.5153719259248731
+Male,CBD,1,average,2,0.7144488335700486
+Male,Plat2,1,average,2,0.700430800414689
+Male,Plat3,1,average,2,0.7257416078970008
+Female,Poisson LC1,1,average,2,0.7046894523984251
+Female,Binomial LC1,1,average,2,0.7047244529396777
+Female,Poisson LC2,2,average,3,0.4141986927016432
+Female,Binomial LC2,2,average,3,0.4129936611179605
+Female,CBD,1,average,2,0.5414935892549751
+Female,Plat2,1,average,2,0.5217793174104328
+Female,Plat3,1,average,2,0.5784756853537101
