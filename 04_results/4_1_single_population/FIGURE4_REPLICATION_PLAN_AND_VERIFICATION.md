@@ -1,3 +1,5 @@
+> **2026-11-10 最新进展：原先的真实 GBD 数据限制已经解除。** 用户已上传 `fitted_rates(1).csv`，我们已在 Python/SciPy 实际重新拟合18组双因子 Poisson LC、生成男女真实 Figure 4 参数图，并核验拟合指标。**请优先阅读 [实际结果报告](FIGURE4_REAL_GBD_RESULTS_2026-11-10.md)。** 下文模拟自检和“缺真实CSV”的叙述仅保留为此前阶段的历史记录，已不再代表当前状态；RStudio 旧版保存流程也已修正。
+
 # §4.1 | Figure 4 | 双因子 Poisson Lee–Carter：复现方法、执行证据与状态
 
 ## 一、原文对应位置
