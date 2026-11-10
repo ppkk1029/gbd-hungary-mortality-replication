@@ -37,11 +37,19 @@ mean(kappa) = 0
 
 输出 `alpha.csv`、`beta.csv`、`kappa.csv`、`fit_diagnostics.csv`、`fitted_rates.csv`、`selected_causes.csv`、`figure3_poisson_lc.png`、`run_summary.txt`。
 
+## 三点五、2026-11-10 实际 Figure 3 展示结果（已核验 CSV）
+
+- [**结果分析：18 组模型诊断、图 3 单独分图理由与 Figure 4/DTW 进度**](FIGURE3_VERIFIED_RESULTS.md)
+- [**真实数据女性糖尿病／肾脏疾病 beta 独立图**](female_diabetes_beta_standard.svg)；[18 组诊断 CSV](figure3_constraint_diagnostics_2026-11-10.csv)
+- [**主图与独立图一键重绘 R 脚本**](plot_figure3_standard.R)：所有九类在 alpha、kappa 均保留；女性 beta 主面板暂不叠加异常曲线，改由独立图展示。
+
+本轮恢复 `sum(beta)=1` 后：女性糖尿病与肾脏疾病抵消比 **0.00334884**；`max(abs(beta))` 为 **98.849445**；其余17组的最大值不超过 **0.329914**。这支持“共轴会压扁其他曲线”的绘图决策，不证明模型拟合失败；新拟合与预测比较仍待运行。
+
 ## 四、还缺什么？
 
 - 原文 §4.1 涉及七种模型：Poisson LC、Binomial LC、双因子 Poisson LC、双因子 Binomial LC、CBD、2因子/3因子 reduced Plat。目前只实现 Poisson LC（**1/7**）。
 - Figure 4 与另外模型的参数尚未估计；第 4.2 节当前只能对已有的 Poisson LC κ 做真实聚类，不能制造其他六套 κ。
-- 本轮没有可用的 Deaths CSV 供我执行完整拟合；上面的数值质量检查会在用户本地真实运行后才产生结果。
+- 本轮已有并核验 **先前拟合生成的 beta、kappa 与 18 组约束诊断**，但仍没有原始 Deaths CSV 供重新运行 Figure 4 或六个其他模型；新的重拟合及 §4.2 聚类尚未执行。
 - 原文对照须保留 GBD Level 2 / 年龄 60–89 / 1980–2015，与 HCSO ICD 九章 / 60+ / 1970–2021 的区别。
 
 原文第 12–13 页 Figure 3、Figure 4：[PDF](https://unipub.lib.uni-corvinus.hu/11046/1/Forecastingcause-of-deathmortalitywithsingle-andmulti-populationmodelsinHungary.pdf#page=13)。
