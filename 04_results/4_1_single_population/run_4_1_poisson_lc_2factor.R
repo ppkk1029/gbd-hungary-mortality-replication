@@ -291,53 +291,62 @@ plot_comparison <- function(){
   legend("topright",legend=c("Male","Female"),
          col=c("#3778a6","#c47649"),lty=1,lwd=4,bty="n")
 }
-cat("\nRStudio Plots: male, female Figure 4; and deviance comparison.\n")
-plot_sex("Male");plot_sex("Female");plot_comparison()
-if(interactive()){
-  View(stats,title="Two-factor Poisson LC — QC and model comparison")
-  answer<-tolower(trimws(readline("检查预览后，输入 y 保存所有 Figure 4 真实结果；否则取消：")))
-  if(answer!="y") {cat("未保存；结果保留在 R 会话内存。\n")}
-  else {
-    outbase<-if(.Platform$OS.type=="windows")
-      utils::choose.dir(default=getwd(),caption="选择 Figure 4 输出父目录")
-    else {
-      z<-readline("输出文件夹路径（留空用当前工作目录）：")
-      if(nzchar(z))z else getwd()
-    }
-    if(is.na(outbase)||!nzchar(outbase))stop("取消选择文件夹")
-    outdir<-file.path(outbase,"Figure4_Poisson_LC_2factor")
-  }
-} else {answer<-"y";outdir<-argv[2]}
-if(answer=="y"){
-  dir.create(outdir,recursive=TRUE,showWarnings=FALSE)
-  write.csv(stats,file.path(outdir,"fit_diagnostics_2factor.csv"),row.names=FALSE)
-  write.csv(alpha_tab,file.path(outdir,"alpha_2factor.csv"),row.names=FALSE)
-  write.csv(beta_tab,file.path(outdir,"beta_2factor.csv"),row.names=FALSE)
-  write.csv(kappa_tab,file.path(outdir,"kappa_2factor.csv"),row.names=FALSE)
-  write.csv(fitted_tab,file.path(outdir,"fitted_rates_2factor.csv"),row.names=FALSE)
-  k2<-subset(kappa_tab,factor==2L,select=c(sex_name,cause_name,year,kappa))
-  k2$model<-"Poisson LC 2factor";k2$factor<-2L
-  write.csv(k2,file.path(outdir,"kappa_factor2_for_DTW.csv"),row.names=FALSE)
-  for(sx in sexes) {
-    grDevices::png(file.path(outdir,paste0("figure4_",tolower(sx),".png")),
-                   width=2200,height=1600,res=150)
-    plot_sex(sx);grDevices::dev.off()
-  }
-  grDevices::png(file.path(outdir,"figure4_deviance_comparison.png"),
-                 width=2200,height=1100,res=160)
-  plot_comparison();grDevices::dev.off()
-  writeLines(c("GBD Figure 4 two-factor Poisson LC",
-    paste("Source:",normalizePath(inpath,winslash="/")),
-    "Data: actual deaths_gbd and exposure_proxy columns, not onefactor fitted_count.",
-    "Years 1980-2015, six five-year age groups 60-89, 9 causes x 2 sexes.",
-    "Poisson mean pseudo-likelihood: GBD deaths are modeled noninteger estimates.",
-    "Identification: beta columns SVD-orthonormal, centered kappa; descending singular values.",
-    "2x2 anchor parameterization used during BFGS optimization; 3 starts per group.",
-    "Do NOT interpret in-sample deviance improvements as predictive improvements.",
-    "Do NOT interpret AIC/BIC from modeled GBD estimates as exact likelihood inference.",
-    "Second factor periods are candidates for DTW only after quality/rotation checks.",
-    paste("Date:",Sys.time())),
-     file.path(outdir,"METHOD_AND_LIMITATIONS.txt"))
-  cat("Figure 4 outputs: ",normalizePath(outdir,winslash="/"),"\n")
-  print(list.files(outdir))
+# -----------------------------------------------------------------------
+# FIXED on 2026-11-10 after user RStudio screenshot:
+# 1. The previous script displayed the deviance bar plot LAST, so users
+#    thought the bar chart was Figure 4.
+# 2. RStudio Source/readline may return "" without a prompt, leaving outdir
+#    undefined and causing 'object outdir not found' when lines are run.
+# The figures and all CSVs are now saved AUTOMATICALLY. No readline.
+# The actual paper-style MALE Figure 4 is displayed LAST in Plots.
+# RStudio Plots back-arrow shows Female and the comparison.
+# -----------------------------------------------------------------------
+outdir <- if(interactive()) {
+  file.path(dirname(normalizePath(inpath, winslash="/",mustWork=TRUE)),
+            paste0("Figure4_Poisson_LC_2factor_",
+                   format(Sys.time(),"%Y%m%d_%H%M%S")))
+} else argv[2]
+if (!dir.exists(outdir) && !dir.create(outdir,recursive=TRUE,
+                                       showWarnings=FALSE))
+  stop("无法创建 Figure 4 输出目录：",outdir)
+
+write.csv(stats,file.path(outdir,"fit_diagnostics_2factor.csv"),row.names=FALSE)
+write.csv(alpha_tab,file.path(outdir,"alpha_2factor.csv"),row.names=FALSE)
+write.csv(beta_tab,file.path(outdir,"beta_2factor.csv"),row.names=FALSE)
+write.csv(kappa_tab,file.path(outdir,"kappa_2factor.csv"),row.names=FALSE)
+write.csv(fitted_tab,file.path(outdir,"fitted_rates_2factor.csv"),row.names=FALSE)
+k2 <- subset(kappa_tab,factor==2L,select=c(sex_name,cause_name,year,kappa))
+k2$model<-"Poisson LC 2factor";k2$factor<-2L
+write.csv(k2,file.path(outdir,"kappa_factor2_for_DTW.csv"),row.names=FALSE)
+for(sx in sexes) {
+  grDevices::png(file.path(outdir,paste0("figure4_",tolower(sx),".png")),
+                 width=2200,height=1600,res=150)
+  plot_sex(sx);grDevices::dev.off()
+}
+grDevices::png(file.path(outdir,"figure4_deviance_comparison.png"),
+               width=2200,height=1100,res=160)
+plot_comparison();grDevices::dev.off()
+writeLines(c("GBD Figure 4 two-factor Poisson LC",
+   paste("Source:",normalizePath(inpath,winslash="/")),
+   "Data: ORIGINAL deaths_gbd and exposure_proxy. fitted_count only comparison.",
+   "Years: 1980-2015; ages: 60-89 in six groups; 9 causes x 2 sexes.",
+   "Poisson mean pseudo-likelihood of GBD modeled estimated deaths.",
+   "Canonicalization: centered SVD with orthonormal beta and ordered factors.",
+   "2x2 anchor ages + BFGS 3 starts per group.",
+   "Do not interpret training improvements as out-of-sample forecast gains.",
+   "The displayed main chart is a PARAMETER figure, not bar chart.",
+   paste("Run date:",Sys.time())),
+   file.path(outdir,"METHOD_AND_LIMITATIONS.txt"))
+
+cat("\nSUCCESS — all Figure 4 figures and tables saved to:\n",
+    normalizePath(outdir,winslash="/",mustWork=TRUE),"\n")
+print(list.files(outdir))
+cat("\nPlots will now display: model-comparison bar plot; female Figure 4; MALE Figure 4 LAST.\n")
+cat("Use RStudio Plots LEFT arrow for the earlier charts.\n")
+# Make the main plot the very last figure on the RStudio device.
+if(interactive()) {
+  plot_comparison()
+  plot_sex("Female")
+  plot_sex("Male")
+  View(stats,title="Two-factor Poisson LC diagnostics")
 }
