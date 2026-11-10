@@ -1,0 +1,19 @@
+sex_name,cause_name,deviance_1factor,deviance_2factor,deviance_reduction,pseudo_AIC_delta_2_minus_1,pseudo_BIC_delta_2_minus_1,second_factor_ratio,converged
+Male,Cardiovascular diseases,665.1726,189.5911,475.5814,-399.5814,-271.3208,0.1169,True
+Male,Neoplasms,756.9963,106.2537,650.7426,-574.7426,-446.4820,0.8059,True
+Male,Digestive diseases,512.4206,43.6097,468.8109,-392.8109,-264.5504,0.5512,True
+Male,Chronic respiratory diseases,125.2403,68.7212,56.5191,19.4809,147.7414,0.1148,True
+Male,Neurological disorders,4.6409,2.2804,2.3604,73.6396,201.9002,0.3372,True
+Male,Unintentional injuries,104.2913,16.1101,88.1812,-12.1812,116.0794,0.1799,True
+Male,Diabetes and kidney diseases,72.7724,17.9474,54.8251,21.1749,149.4355,0.1980,True
+Male,Self-harm and interpersonal violence,41.7221,15.1425,26.5796,49.4204,177.6810,0.1584,True
+Male,Respiratory infections and tuberculosis,34.0355,14.6078,19.4277,56.5723,184.8329,0.0730,True
+Female,Cardiovascular diseases,472.7803,227.7431,245.0373,-169.0373,-40.7767,0.0561,True
+Female,Neoplasms,166.4904,69.2665,97.2238,-21.2238,107.0367,0.2709,True
+Female,Digestive diseases,176.4295,20.7818,155.6476,-79.6476,48.6129,0.3214,True
+Female,Chronic respiratory diseases,416.1457,29.7349,386.4109,-310.4109,-182.1503,0.4821,True
+Female,Neurological disorders,6.0960,2.6072,3.4887,72.5113,200.7718,0.4085,True
+Female,Unintentional injuries,43.3324,14.2914,29.0410,46.9590,175.2196,0.0774,True
+Female,Diabetes and kidney diseases,568.8344,18.1007,550.7337,-474.7337,-346.4731,0.5702,True
+Female,Self-harm and interpersonal violence,66.2136,11.9976,54.2160,21.7840,150.0446,0.1481,True
+Female,Respiratory infections and tuberculosis,34.7401,7.1539,27.5862,48.4138,176.6744,0.1160,True
