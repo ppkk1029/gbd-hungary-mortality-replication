@@ -45,9 +45,18 @@ mean(kappa) = 0
 
 本轮恢复 `sum(beta)=1` 后：女性糖尿病与肾脏疾病抵消比 **0.00334884**；`max(abs(beta))` 为 **98.849445**；其余17组的最大值不超过 **0.329914**。这支持“共轴会压扁其他曲线”的绘图决策，不证明模型拟合失败；新拟合与预测比较仍待运行。
 
+## 三点六、Figure 4 双因子模型的下一步实证流程（2026-11-10）
+
+- [RStudio 实际重新拟合脚本：run_4_1_poisson_lc_2factor.R](run_4_1_poisson_lc_2factor.R)。
+- [完整方法、原始输入文件、输出清单、识别约束、数值自测与证据状态](FIGURE4_REPLICATION_PLAN_AND_VERIFICATION.md)。
+- 选择**已生成的 fitted_rates.csv**，脚本真正使用其中的 `deaths_gbd` 和 `exposure_proxy` 重新拟合 18 个**双因子**模型；`fitted_count` 仅用于与已有单因子模型比较，不用于重估。
+- 输出男性 Figure 4 参数图和女性对应参数图，以及训练期 deviance 比较图、18 组诊断、第二时期因子 CSV（供后续 DTW）。
+- 本轮独立 Python 数值自测使用模拟 Poisson 数据（**不是匈牙利真实拟合**），梯度最大误差约 `1.21e-12`，标准化重建误差 `8.88e-16`。[仅模拟的测试图](figure4_synthetic_numeric_selftest.svg)。此处验证方法，不等于已实证完成 Figure 4。
+- 当前运行环境无法从用户 Library 取得 **fitted_rates.csv** 原始字节，且没有 R 运行时，故 **Figure 4 的实际 18 组模型尚未计算；不能将自测数字写成预测/实证提升**。
+
 ## 四、还缺什么？
 
-- 原文 §4.1 涉及七种模型：Poisson LC、Binomial LC、双因子 Poisson LC、双因子 Binomial LC、CBD、2因子/3因子 reduced Plat。目前只实现 Poisson LC（**1/7**）。
+- 原文 §4.1 涉及七种模型：Poisson LC、Binomial LC、双因子 Poisson LC、双因子 Binomial LC、CBD、2因子/3因子 reduced Plat。目前 Figure 3 的一因子 Poisson LC 已有实测结果（**1/7**），Figure 4 双因子 Poisson LC 已有可运行的拟合程序但尚未在真实 CSV 上完成实证。
 - Figure 4 与另外模型的参数尚未估计；第 4.2 节当前只能对已有的 Poisson LC κ 做真实聚类，不能制造其他六套 κ。
 - 本轮已有并核验 **先前拟合生成的 beta、kappa 与 18 组约束诊断**，但仍没有原始 Deaths CSV 供重新运行 Figure 4 或六个其他模型；新的重拟合及 §4.2 聚类尚未执行。
 - 原文对照须保留 GBD Level 2 / 年龄 60–89 / 1980–2015，与 HCSO ICD 九章 / 60+ / 1970–2021 的区别。
