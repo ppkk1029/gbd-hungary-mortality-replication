@@ -54,6 +54,15 @@ mean(kappa) = 0
 - 本轮独立 Python 数值自测使用模拟 Poisson 数据（**不是匈牙利真实拟合**），梯度最大误差约 `1.21e-12`，标准化重建误差 `8.88e-16`。[仅模拟的测试图](figure4_synthetic_numeric_selftest.svg)。此处验证方法，不等于已实证完成 Figure 4。
 - 当前运行环境无法从用户 Library 取得 **fitted_rates.csv** 原始字节，且没有 R 运行时，故 **Figure 4 的实际 18 组模型尚未计算；不能将自测数字写成预测/实证提升**。
 
+## 2026-11-10｜Figure 4 **真实 GBD 数据已拟合并取得图片**
+
+- [**本项目真实 Figure 4 实验报告（含18组定量对照和真实图）**](FIGURE4_REAL_GBD_RESULTS_2026-11-10.md)
+- [男性真实 Figure 4 五面板](figure4_male_actual_data.svg) | [女性真实 Figure 4 五面板](figure4_female_actual_data.svg) | [18 组实测 CSV](figure4_actual_summary_2026-11-10.csv)
+- 用户实际上传的 `fitted_rates(1).csv` 共3888行。用其 `deaths_gbd`、`exposure_proxy` 而非 `fitted_count`，独立 Python/SciPy 重新拟合了9死因×2性别共18个双因子模型。**真实数据结果：18/18 training deviance 下降；伪 AIC 9/18 更低；伪 BIC 6/18 更低。**
+- 女性 Diabetes and kidney diseases：一因子 deviance 568.8344 → 双因子 18.1007；训练改善550.7337，伪 BIC 差 -346.47。尚不能推断预测更优。
+- [**更新后的 RStudio R 程序**](run_4_1_poisson_lc_2factor.R) 已修复用户截图的 `outdir` 未定义错误：不再询问 `y`，自动在输入文件所在目录新建时间戳结果文件夹并保存图表；**男性5参数Figure4作为最后一张图**，不再停在对比柱状图。
+- 这里的实际参数由 Python/SciPy 拟合，RStudio 的优化结果需再次运行并交叉核验；下面原先“未完成 Figure 4”的说明是更早阶段记录，以此处及实验报告为准。
+
 ## 四、还缺什么？
 
 - 原文 §4.1 涉及七种模型：Poisson LC、Binomial LC、双因子 Poisson LC、双因子 Binomial LC、CBD、2因子/3因子 reduced Plat。目前 Figure 3 的一因子 Poisson LC 已有实测结果（**1/7**），Figure 4 双因子 Poisson LC 已有可运行的拟合程序但尚未在真实 CSV 上完成实证。
