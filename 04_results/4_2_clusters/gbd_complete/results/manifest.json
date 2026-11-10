@@ -1,0 +1,18 @@
+{
+  "provenance": "Prior completed section4_2_GBD_complete.zip (2026-11-10)",
+  "input_sha256": "d42bee01e8f3dcb1897303de060120eccf4228a326cdb45c4f85c7854c8bfa68",
+  "input_columns": ["sex_name","cause_name","age_name","year","deaths_gbd","exposure_proxy"],
+  "seed": 20261110,
+  "training_years": "1980-2015",
+  "age_groups": "60-64,65-69,70-74,75-79,80-84,85-89",
+  "models": 7,
+  "sexes": 2,
+  "causes": 9,
+  "fits": 126,
+  "dtw_pair_distances": 504,
+  "cluster_analyses": 14,
+  "original_data_version": "GBD 2023",
+  "raw_input_committed": false,
+  "all_full_resolution_output_committed": false,
+  "note": "The actual results archive exists in the linked ChatGPT Library; repo contains selected verified CSV, plots and rerunnable source."
+}
