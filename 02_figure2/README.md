@@ -1,6 +1,6 @@
 # 02｜Figure 2：年龄标准化分死因死亡率（ASMR）
 
-**代码逐步学习与导师汇报讲解：** [CODE_WALKTHROUGH.md](CODE_WALKTHROUGH.md)（研究问题、年龄标准化公式、逐块R代码与真实人口权重、质控、绘图、结果验证和常见错误）。
+**Figure 2 R代码精读已移至 Notion：** [打开 Notion 讲解页](https://app.notion.com/p/413eb49c94ed81c7a043dd878c2dbaee)。本仓库仅保留运行脚本、数据口径和运行说明。
 
 ## 当前状态（2026-11-09）
 **已核验独立 Population CSV，并完成 1980 年固定权重的真实计算。**
