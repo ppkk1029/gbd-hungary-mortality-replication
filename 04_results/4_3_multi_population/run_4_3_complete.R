@@ -6,10 +6,10 @@
 .section43_dir <- local({
   z<-lapply(sys.frames(),function(e)e$ofile)
   z<-Filter(function(e)!is.null(e)&&length(e)==1L,z)
-  if(length(z))return(dirname(normalizePath(tail(z,1)[[1]],mustWork=TRUE)))
   arg<-grep("^--file=",commandArgs(),value=TRUE)
-  if(length(arg))return(dirname(normalizePath(sub("^--file=","",arg[1]),mustWork=TRUE)))
-  getwd()
+  if(length(z)) dirname(normalizePath(tail(z,1)[[1]],mustWork=TRUE))
+  else if(length(arg)) dirname(normalizePath(sub("^--file=","",arg[1]),mustWork=TRUE))
+  else getwd()
 })
 .section42_dir<-file.path(dirname(.section43_dir),"4_2_clusters","gbd_complete")
 if(!file.exists(file.path(.section42_dir,"model_functions.R")))
