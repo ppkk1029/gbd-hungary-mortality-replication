@@ -56,7 +56,7 @@ author_appendix_inventory <- function(path) {
           sex=if(sex=="males")"Male" else "Female",
           model=s$model,ICD10_chapters=codes,image_type=typ,
           original_basename=f,
-          source_url=paste0(rr,utils::URLencode(paste0(base,f),reserved=TRUE)),
+          source_url=paste0(rr,"9.%20The%20fitted%20parameters%20of%20the%20multi-population%20models/",utils::URLencode(f,reserved=TRUE)),
           interpretation=if(typ=="joint_parameters")
             "Age/period joint fitted parameters; compare shared and cause-specific components"
             else "A common jointly estimated period index compared with independent cause-specific period indices; different model units need identification checks",
