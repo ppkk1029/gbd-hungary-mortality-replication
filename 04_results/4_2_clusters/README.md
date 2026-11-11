@@ -1,15 +1,16 @@
-# §4.2｜死因聚类：完整 R 版本
+# §4.2｜死因DTW聚类（Figures 5–8，Tables 3–4）
 
-**当前版本：七种模型、全部聚类、Figures 5–8 和核验均用 R 执行。**
+**只保留本章聚类与诊断代码。** 七模型估计模块已归入[§4.1](../4_1_single_population/README.md)；§4.2入口仍自动从原始D/E重新拟合全部七模型，再运行聚类，避免混用时期因子版本。
 
-- [完整代码与结果说明](gbd_complete/README.md)
-- [RStudio 一键入口](gbd_complete/run_4_2_complete.R)：打开后点 Source，选择含 `deaths_gbd` 与 `exposure_proxy` 的 `fitted_rates.csv`。
-- [逐步代码讲解：问题→方法→为什么→结果→原文对照](gbd_complete/CODE_WALKTHROUGH_R.md)
-- [126组拟合及14组聚类的R实跑核验](gbd_complete/R_MIGRATION_VALIDATION.md)
-- [Notion完整报告](https://app.notion.com/p/413eb49c94ed81149a9bfdca526c0bc2)
+| 部分 | 入口 |
+| --- | --- |
+| **唯一正式入口** | [run_4_2_complete.R](gbd_complete/run_4_2_complete.R) |
+| 选取κ、所有模型聚类与敏感性 | [cluster_all_models.R](gbd_complete/cluster_all_models.R) |
+| 标准化、DTW、层次聚类、精确medoids | [clustering_functions.R](gbd_complete/clustering_functions.R) |
+| CVI与随机起点核验 | [complete_cvi.R](gbd_complete/complete_cvi.R) |
+| 梯度/路径及结果核验 | [verify_and_plot.R](gbd_complete/verify_and_plot.R) |
+| Figure 5–8与附加诊断图 | [plot_paper_figures.R](gbd_complete/plot_paper_figures.R) |
 
-本目录旧文件名 `run_4_2_dtw.R` 也转向同一个完整R流程，避免误运行仅支持单因子的早期原型。旧实现和早期结果可通过Git历史追溯，当前工作树以此版本为准。
+[完整结果、Figure5–8、14组聚类表](gbd_complete/README.md) · [纯R实跑验收](gbd_complete/R_MIGRATION_VALIDATION.md) · [Notion R代码逐步学习笔记](https://app.notion.com/p/413eb49c94ed81149a9bfdca526c0bc2)
 
-数据仍为GBD Hungary、1980–2015、60–89岁、九类死因。双因子LC取κ2，其余模型取κ1；逐条样本z标准化，平方局部差的symmetric2 DTW，average-linkage与精确枚举medoids，K=2…8，最大平均Silhouette选择。七项CVI与旋转、五年窗口、删除女性DKD的敏感性均保留。
-
-这是方法复现，不是HCSO数值复刻。分组属于后续共享模型的候选结构，§4.3及样本外预测仍未完成。
+目前14组模型×性别聚类、504个DTW距离、196种候选CVI、294项多起点比较已保存；仅是GBD的历史趋势聚类，不证明§4.3共享模型可提高预测。

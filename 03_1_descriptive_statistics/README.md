@@ -1,15 +1,12 @@
-# §3.1｜Descriptive statistics（描述性统计）
+# §3.1｜描述性统计（Figures 1–2）
 
-**按原论文的 3.1 小节整理为一个 Part**，包含两个不同的描述性统计内容：
-- **Figure 1**：九类死因人数占全部死亡人数的构成（堆积面积图）；
-- **Figure 2**：各死因 ASMR（年龄标准化死亡率）的历史趋势，男女分别计算。
+| 任务 | 正式R文件 | 验证状态 |
+| --- | --- | --- |
+| Figure 1：死因死亡人数构成（堆积面积图） | [figure1/run.R](figure1/run.R) · [说明](figure1/README.md) | Level1与Level2人数一致性、历史数值已核验；RStudio完整重跑日志尚未入库 |
+| Figure 2：年龄标准化分死因死亡率（ASMR） | [figure2/run.R](figure2/run.R) · [说明](figure2/README.md) · [1980人口权重](figure2/verified_age_weights_1980.csv) | 权重已独立核验；尚缺完整R重跑日志及1672行正式输出的仓库验收 |
 
-这里暂时保留以前的代码和图形文件以避免已有 GitHub 链接失效，不新增“Figure 1 Part”和“Figure 2 Part”：
-- [Figure 1 原有 R 与详细文档](../01_figure1/README.md)；
-- [Figure 2 原有 R 与详细文档](../02_figure2/README.md)。
+Figure 1统计占全部死亡人数之比；Figure 2使用固定1980年年龄构成的加权年龄别死亡率。Figure 2的ASMR已汇总年龄，**不能直接用于§4.1拟合年龄载荷**。数据为GBD Hungary（1980–2023、60–89岁六组）而非HCSO原文数值。
 
-**本项目当前数据**：GBD Hungary，1980–2023，60–89 岁六组，九类按 1980–2015 年人数选出；原文为 HCSO、1970–2021、60+、九个 ICD 章节。这是方法性复现，不是数值复刻。
+**运行目录要求：** Figure1脚本使用相对仓库根路径 `data/raw/`，请从仓库根目录运行；Figure2脚本通过 `file.choose()` 选择Population和Deaths文件。详细原理已移至[Notion Figure1](https://app.notion.com/p/413eb49c94ed81c688bde90150342930)与[Notion Figure2](https://app.notion.com/p/413eb49c94ed81c7a043dd878c2dbaee)。
 
-Figure 1 的“死因人数占比”与 Figure 2 的“年龄标准化死亡率”不是同一个统计量；§4.1 模型拟合应使用每年人口与 Deaths Number，不应使用 Figure 2 固定的 1980 年标准权重。
-
-后续以 [§4.1 + §4.2 研究结果的分节目录](../04_results/README.md) 为主。
+[数据核验](../00_data/README.md) · [§4.1建模](../04_results/4_1_single_population/README.md)
