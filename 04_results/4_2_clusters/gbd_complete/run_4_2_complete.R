@@ -9,7 +9,11 @@
   if(length(a)) dirname(normalizePath(sub('^--file=','',a[1]),mustWork=TRUE)) else getwd()
  }
 })
-for(.f in c('model_functions.R','clustering_functions.R','run_all_models.R',
+.section41_script_dir <- file.path(dirname(dirname(.section42_script_dir)), "4_1_single_population")
+for(.f in c('model_functions.R','run_all_models.R')) {
+ source(file.path(.section41_script_dir,.f),local=TRUE,encoding='UTF-8')
+}
+for(.f in c('clustering_functions.R','cluster_all_models.R',
              'complete_cvi.R','verify_and_plot.R','plot_paper_figures.R')) {
  source(file.path(.section42_script_dir,.f),local=TRUE,encoding='UTF-8')
 }
