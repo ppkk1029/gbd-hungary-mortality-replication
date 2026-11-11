@@ -1,4 +1,4 @@
-# 02｜Figure 2：年龄标准化分死因死亡率（ASMR）
+# §3.1 / Figure 2：年龄标准化分死因死亡率（ASMR）
 
 **Figure 2 R代码精读已移至 Notion：** [打开 Notion 讲解页](https://app.notion.com/p/413eb49c94ed81c7a043dd878c2dbaee)。本仓库仅保留运行脚本、数据口径和运行说明。
 

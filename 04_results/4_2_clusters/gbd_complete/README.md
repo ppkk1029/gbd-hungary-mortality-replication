@@ -1,6 +1,6 @@
 # §4.2｜七模型与死因聚类：完整 R 代码、实跑结果与图 5–8
 
-**2026-11-10：已改为纯 R，并从同一份原始 GBD 输入端到端重跑。** 126 组拟合、14 组聚类全部完成；与迁移前存档的14组成员归属全部ARI=1。详见[实跑核验](R_MIGRATION_VALIDATION.md)和[中文逐步代码讲解](CODE_WALKTHROUGH_R.md)。
+**2026-11-10：已改为纯 R，并从同一份原始 GBD 输入端到端重跑。** 126 组拟合、14 组聚类全部完成；与迁移前存档的14组成员归属全部ARI=1。详见[实跑核验](R_MIGRATION_VALIDATION.md)和[Notion中文代码精读](https://app.notion.com/p/413eb49c94ed81149a9bfdca526c0bc2)。
 
 ## Reproduction order and rationale
 
@@ -35,7 +35,7 @@
 | Plat2 | 2 / 0.700 | 2 / 0.522 |
 | Plat3 | 2 / 0.726 | 2 / 0.578 |
 
-See [cluster_summary_selected.csv](results/cluster_summary_selected.csv) and [cluster_membership.csv](results/cluster_membership.csv) for the actual numbers and each of the 126 memberships. Each row is a different sex-model factor-space clustering; group numbers do not have a global identity across models.
+See [cluster_summary.csv](results/cluster_summary.csv) and [cluster_membership.csv](results/cluster_membership.csv) for the actual numbers and each of the 126 memberships. Each row is a different sex-model factor-space clustering; group numbers do not have a global identity across models.
 
 ### Important stability limitations
 
@@ -64,19 +64,20 @@ run_section42("D:/mortality/fitted_rates.csv", "D:/mortality/new_R_results")
 Rscript run_4_2_complete.R fitted_rates.csv new_R_results
 ```
 
-输出目录必须不存在或为空。原始GBD输入未公开上传；`fitted_count`不用于估计。旧文件名 `run_4_2_complete_RStudio_launcher.R` 已改成直接执行完整R流程。原四个Python脚本已从当前工作树移除，历史可由Git记录追溯。
+输出目录必须不存在或为空。原始GBD输入未公开上传；`fitted_count`不用于估计。已清理多余的旧RStudio启动器，现在只有 `run_4_2_complete.R` 作为本章正式入口。原四个Python脚本已从当前工作树移除，历史可由Git记录追溯。
 
 ## R 文件逐项对应
 
 | 文件 | 内容 |
 |---|---|
-| [model_functions.R](model_functions.R) | 数据检查、七模型目标函数/解析梯度、三起点估计、SVD |
-| [run_all_models.R](run_all_models.R) | 126组模型、14组聚类、旋转/窗口/删项敏感性 |
+| [§4.1/model_functions.R](../../4_1_single_population/model_functions.R) | 数据检查、七模型目标函数/解析梯度、三起点估计、SVD（属于§4.1） |
+| [§4.1/run_all_models.R](../../4_1_single_population/run_all_models.R) | 126组单人口模型拟合、参数导出（属于§4.1） |
+| [cluster_all_models.R](cluster_all_models.R) | 14组聚类、旋转/窗口/删项敏感性（属于§4.2） |
 | [clustering_functions.R](clustering_functions.R) | DTW动态规划、hclust、精确medoids、七项CVI、ARI |
 | [complete_cvi.R](complete_cvi.R) | 196组CVI核对、294次PAM起点检查 |
 | [verify_and_plot.R](verify_and_plot.R) | 有限差分梯度、路径枚举、结果完整性、迁移对照 |
 | [plot_paper_figures.R](plot_paper_figures.R) | Figures 5–8、热图、树状图、全模型曲线 |
-| [CODE_WALKTHROUGH_R.md](CODE_WALKTHROUGH_R.md) | 从研究问题到每一步R代码的中文讲解 |
+| [Notion R代码精读](https://app.notion.com/p/413eb49c94ed81149a9bfdca526c0bc2) | 详细教学已放在Notion，GitHub只保留源码与验证结果 |
 
 ## 当前 R 实跑文件
 

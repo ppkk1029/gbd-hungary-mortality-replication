@@ -1,5 +1,7 @@
 # §4.1 Figure 4 — GBD Hungary **实测双因子 Poisson Lee–Carter**（2026-11-10）
 
+> **历史独立Python拟合记录。** 后来§4.1已经用纯R对全部126组单人口模型重新估计与验收。最新权威入口：[§4.1](README.md)／[纯R数值验收](../4_2_clusters/gbd_complete/R_MIGRATION_VALIDATION.md)。保留本文件用于追溯Figure4最初的真实数值图、RStudio报错与交叉验证。
+
 > **本次是真实拟合，不是模拟测试。** 用户提供真实 `fitted_rates(1).csv`，包含 `deaths_gbd`（GBD Number）、`exposure_proxy`（GBD Population）和旧 `fitted_count`。我们通过 Python/SciPy 分别拟合 18 个双因子模型，旧一因子拟合值只用于比较、不用于新模型的估计。RStudio 原脚本先前能拟合但保存出现 `outdir` 未定义问题，现已修复，见 [最新版 R 代码](run_4_1_poisson_lc_2factor.R)。
 
 ## 0. 真实参数结果图（九个死因均保留）

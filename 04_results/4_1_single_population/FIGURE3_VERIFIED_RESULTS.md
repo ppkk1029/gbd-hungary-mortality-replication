@@ -1,4 +1,6 @@
 # Figure 3 | 实际结果与异常 beta 单独展示（2026-11-10）
+
+> **历史阶段记录。** 下文写的“Figure 4尚未完成、只实现1/7”等已不代表当前进度；最新纯R七模型126组实跑证据见[§4.1入口](README.md)和[验收报告](../4_2_clusters/gbd_complete/R_MIGRATION_VALIDATION.md)。
     
 本页记录的是**已有单因子 Poisson LC 拟合的后处理结果**，不是新的拟合实验；区别于原文 HCSO 数据。输入为同一次模型拟合输出的 alpha、beta、kappa（GBD 2023 Hungary、60–89 岁、1980–2015 训练、男女×九个 GBD Level 2 死因）。
     
@@ -36,4 +38,4 @@
 3. **其余五种模型（实际加上一因子 Binomial LC，共六种待完成）：** 原文总计7种单人口模型，当前仅验证一因子 Poisson LC。这六种依次是 Binomial LC、二因子 Poisson LC、二因子 Binomial LC、CBD、二因子 reduced Plat、三因子 reduced Plat。不能写成已拟合。
 4. **§4.2 DTW：** 仓库已含单因子 Poisson LC 的 DTW 代码，但未运行并核验聚类结果。分不同模型，双因子 Poisson/Binomial LC 采用第二时期因子，并针对异常 beta 对应时间因子进行敏感性分析。不能声称已得到七模型的聚类表。
     
-完整 R 重绘脚本：[plot_figure3_standard.R](plot_figure3_standard.R)；现有单因子重拟合脚本：[run_4_1_poisson_lc.R](run_4_1_poisson_lc.R)；§4.2：[run_4_2_dtw.R](../4_2_clusters/run_4_2_dtw.R)。
+完整 R 重绘脚本：[plot_figure3_standard.R](plot_figure3_standard.R)；现有单因子重拟合脚本：[run_4_1_poisson_lc.R](run_4_1_poisson_lc.R)；§4.2：[run_4_2_dtw.R](../4_2_clusters/gbd_complete/run_4_2_complete.R)。

@@ -55,7 +55,7 @@
 
 ## 在 RStudio 中执行（完整仓库）
 
-打开 [run_4_3_complete.R](run_4_3_complete.R)，点击 Source；选择与 §4.2 相同的原始 fitted_rates.csv。保持本目录和相邻 §4.2 目录完整，确保 §4.2/results 内有 parameters_all_models.csv、kappa_all_models.csv、cluster_membership.csv。脚本将依次检查数据→加载单人口参数及簇→逐簇联合优化→数值梯度验证→输出拟合误差及参数→绘 Figure9 / GBD 附录图。
+打开 [run_4_3_complete.R](run_4_3_complete.R)，点击 Source；选择与 §4.2 相同的原始 fitted_rates.csv。保持本目录、相邻的§4.1七模型目录和§4.2聚类目录完整，确保 §4.2/results 内有 parameters_all_models.csv、kappa_all_models.csv、cluster_membership.csv。脚本将依次检查数据→加载单人口参数及簇→逐簇联合优化→数值梯度验证→输出拟合误差及参数→绘 Figure9 / GBD 附录图。
 
 若需要自己设路径、逐步运行，先关闭自动入口：
 

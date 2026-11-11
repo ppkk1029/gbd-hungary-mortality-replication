@@ -33,4 +33,4 @@
 ## 与原文不同的地方
 原文 HCSO、1970–2021、九类 ICD、包含 90+；本项目 GBD、1980–2023、19 类原生 Level 2、只到 85–89。核对成功仅代表下载数据内部一致，不等于它与 HCSO 数值相同。
 
-另见 [基础数据字段检查](check_data.R) 与 [Figure 1](../01_figure1/README.md)。
+另见 [基础数据字段检查](check_data.R) 与 [Figure 1](../03_1_descriptive_statistics/figure1/README.md)。
