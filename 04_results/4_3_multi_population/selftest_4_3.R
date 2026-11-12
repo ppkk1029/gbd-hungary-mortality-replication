@@ -12,20 +12,10 @@ source(file.path(root, "04_results/4_1_single_population/model_functions.R"),
 source(file.path(here, "multi_model_functions.R"), encoding = "UTF-8")
 source(file.path(here, "author_appendix_inventory.R"), encoding = "UTF-8")
 
-# The clustering inputs are committed, so their contract can be checked offline.
-cl_path <- file.path(root, "04_results/4_2_clusters/gbd_complete/results",
-                     "cluster_membership.csv")
-cl <- read.csv(cl_path, stringsAsFactors = FALSE)
-expected <- expand.grid(sex = c("Male", "Female"), model = MODELS,
-                        cause = CAUSES, stringsAsFactors = FALSE)
-tag <- function(x) paste(x$sex, x$model, x$cause, sep = "::")
-stopifnot(nrow(cl) == 126L, !anyDuplicated(tag(cl)),
-          setequal(tag(cl), tag(expected)), !anyNA(cl$cluster))
-n_groups <- length(unique(paste(cl$sex, cl$model, cl$cluster)))
-n_joint <- sum(vapply(split(cl$cause, paste(cl$sex, cl$model, cl$cluster)),
-                      length, 1L) > 1L)
-stopifnot(n_groups == 30L, n_joint == 27L)
-cat("PASS: saved Section 4.2 grouping = 30 groups, 27 joint groups\n")
+# §4.2 now requires genuine seven-CVI review and no longer stores any
+# historical Silhouette-only cluster CSV. The REAL 126-row grouping contract
+# is checked by run_section43(source42=...) when reviewed results exist.
+cat("PASS: §4.3 synthetic test does not import obsolete §4.2 groupings\\n")
 
 # Synthetic population: J=2 different causes, six age points, 36 years.
 # Explicitly constructed WITHOUT reading or inventing any real GBD death counts.
