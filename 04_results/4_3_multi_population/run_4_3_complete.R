@@ -1,7 +1,8 @@
 # §4.3 pure R: fit each cluster jointly (NEVER average kappa as a "joint fit").
-# RStudio: open this file and click Source, then choose the SAME fitted_rates.csv
-# that was used in §4.2. Run default: 30 clusters = 27 joint + 3 singleton.
-# Command: Rscript run_4_3_complete.R /path/fitted_rates.csv /path/new_output
+# Requires the *newly reviewed* §4.2 output directory explicitly (source42).
+# No fallback to the old Silhouette-only cluster CSV (deleted).
+# R: run_section43(input="fitted_rates.csv",source42="path/to/reviewed_section42")
+# CLI: Rscript run_4_3_complete.R fitted_rates.csv new_output reviewed_section42
 
 .section43_dir <- local({
   z<-lapply(sys.frames(),function(e)e$ofile)
@@ -29,7 +30,7 @@ run_section43 <- function(input=NULL,out=NULL,source42=NULL,
     input<-file.choose()
   }
   input<-normalizePath(input,mustWork=TRUE)
-  if(is.null(source42))source42<-file.path(.section42_dir,"results")
+  if(is.null(source42)) stop("§4.3必须指定已经审查选K的新版§4.2输出目录source42；旧分组已删除")
   source42<-normalizePath(source42,mustWork=TRUE)
   if(is.null(out))out<-file.path(dirname(input),
     paste0("Section_4_3_R_",format(Sys.time(),"%Y%m%d_%H%M%S")))
@@ -39,7 +40,8 @@ run_section43 <- function(input=NULL,out=NULL,source42=NULL,
   dir.create(file.path(out,"figures"),showWarnings=FALSE)
   dir.create(file.path(out,"rds"),showWarnings=FALSE)
   out<-normalizePath(out,mustWork=TRUE)
-  must<-c("parameters_all_models.csv","kappa_all_models.csv","cluster_membership.csv")
+  must<-c("parameters_all_models.csv","kappa_all_models.csv","cluster_membership.csv",
+          "cluster_selection_decisions.csv","selection_manifest.txt")
   if(!all(file.exists(file.path(source42,must))))
     stop("§4.2单人口拟合与聚类结果CSV缺失: ",
          paste(must[!file.exists(file.path(source42,must))],collapse=", "))
@@ -47,6 +49,9 @@ run_section43 <- function(input=NULL,out=NULL,source42=NULL,
   pp<-read.csv(file.path(source42,must[1]),stringsAsFactors=FALSE)
   kk<-read.csv(file.path(source42,must[2]),stringsAsFactors=FALSE)
   cl<-read.csv(file.path(source42,must[3]),stringsAsFactors=FALSE)
+  selected<-read.csv(file.path(source42,must[4]),stringsAsFactors=FALSE)
+  if(nrow(selected)!=14L || any(selected$selection_status!="researcher_reviewed"))
+    stop("§4.2的类数尚未完成有依据的审查，禁止把候选K送入§4.3")
   expect<-expand.grid(sex=c("Male","Female"),model=MODELS,
                       cause=CAUSES,stringsAsFactors=FALSE)
   tag<-function(d)paste(d$sex,d$model,d$cause,sep="::")
@@ -180,5 +185,6 @@ run_section43 <- function(input=NULL,out=NULL,source42=NULL,
 if(isTRUE(getOption("section43.autorun",TRUE))) {
   aa<-commandArgs(trailingOnly=TRUE)
   run_section43(input=if(length(aa)>=1)aa[1] else NULL,
-                out=if(length(aa)>=2)aa[2] else NULL)
+                out=if(length(aa)>=2)aa[2] else NULL,
+                source42=if(length(aa)>=3)aa[3] else NULL)
 }
