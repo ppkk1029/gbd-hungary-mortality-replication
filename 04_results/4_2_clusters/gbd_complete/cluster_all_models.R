@@ -59,7 +59,7 @@ cluster_all_models <- function(fits,out,selection_file=NULL,
     d <- distance_matrix(Z,p=2,check_impl=TRUE)
     eva <- evaluate_clusters(Z,d,seed=SEED)
     nm <- paste(sex,model)
-    analyses[[nm]] <- list(Z=Z,d=d,hc=eva$hc,labels=NULL,
+    analyses[[nm]] <- list(Z=Z,raw_kappa=X,d=d,hc=eva$hc,labels=NULL,
        factor=factor,scores=eva$scores,proposal=eva$proposal,
        candidate_labels=eva$labels)
     sc <- eva$scores
