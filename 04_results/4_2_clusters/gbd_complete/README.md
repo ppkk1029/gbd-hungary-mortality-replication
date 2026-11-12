@@ -9,9 +9,9 @@
 | 环节 | 论文可确认的做法 | 本版处理 | 边界 |
 |---|---|---|---|
 | 单人口模型 | 七种模型，分别取时期因子 | 复用 §4.1 的全部七模型估计，LC2 用第2因子，其余用第1因子 | GBD 原始数据口径不同 |
-| DTW | 标准化，公式(6)–(8)，p=2 | `dtw::dtw()` 在平方局部成本下用 symmetric2，并除以序列长度和开平方；和 `dtwclust::dtw_basic()` 逐对核对 | 原文没有充分披露所有窗口与参数细节；无窗口是显式假定 |
-| 层次聚类 | Hierarchical + dendrogram | `dtwclust::tsclust(type="hierarchical")`，平均联接 | 原文没有披露联接方式，average 是可核验的额外假定 |
-| PAM | Partition around medoids, 三个起点 | `dtwclust::tsclust(type="partitional",centroid="pam")`，逐 K 运行三组可复现种子 | 并不声称作者使用了相同随机种子 |
+| DTW | 标准化，公式(6)–(8)，p=2 | `dtw::dtw()` 在平方局部成本下用 symmetric2，并除以序列长度和开平方；`dtwclust::dtw_basic(normalize=FALSE,sqrt.dist=FALSE)` 的未标准化累计成本逐对核对后进行**同一外部归一化** | 原文没有充分披露所有窗口与参数细节；无窗口是显式假定 |
+| 层次聚类 | Hierarchical + dendrogram | `dtwclust::tsclust(type="hierarchical")`，平均联接；通过 proxy 注册与距离矩阵一致的 `paperDTW_p2` | 原文没有披露联接方式，average 是可核验的额外假定 |
+| PAM | Partition around medoids, 三个起点 | `dtwclust::tsclust(type="partitional",centroid="pam")`，使用相同的 `paperDTW_p2` 距离，逐 K 运行三组可复现种子 | 并不声称作者使用了相同随机种子 |
 | 聚类质量 | Silhouette、Dunn、COP、DB、DBstar、CH、SF | **七项全部由 `dtwclust::cvi()` 计算**，另保留算法×K×成员归属及单成员组数量 | 部分指标在某种分组下可能不可计算；记录 NA 和原因 |
 | 最终 K | 树状图、两种算法、7 CVI、重复起点综合判断 | 默认 **researcher review**：输出全部候选和填写表，经人工审核后才能生成正式结果 | **原文没有公布七项指标的唯一合并公式，严禁虚构权重、投票法或硬编码 K=5/6** |
 | 画图 | Fig.5–8 + 在线附录 | 原始 κ 展示与标准化 DTW 路径分开；树状图/热图/聚类组图 | 女性 GBD 的 DKD 不等于原文 ICD IV，明确写在 Figure6 类比图上 |
