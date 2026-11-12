@@ -51,7 +51,9 @@ make_multi_problem <- function(D,E,model,singles) {
   if (lc1 || lc2) for(j in seq_len(J)) {
     if(j!=ref && cor(ks0[,j],ks0[,ref])<0) {
       ks0[,j] <- -ks0[,j]
+      # Flip BOTH the factor and its loading, so B*K' is unchanged.
       singles[[j]]$B[,kshare_index] <- -singles[[j]]$B[,kshare_index]
+      singles[[j]]$K[,kshare_index] <- -singles[[j]]$K[,kshare_index]
     }
   }
   mask1 <- mask2 <- NULL
