@@ -178,5 +178,8 @@ read_selection_file <- function(path, models, sexes=c("Male","Female")) {
   if(any(!x$method %in% c("hierarchical_average","pam")) ||
      any(is.na(x$K)) || any(x$K<2 | x$K>8) || any(x$K!=as.integer(x$K)))
     stop("手工选K须有合法的 method 和整数K(2:8)")
+  if(!("reason" %in% names(x)) ||
+     any(is.na(x$reason) | !nzchar(trimws(as.character(x$reason)))))
+    stop("每个模型都必须填写非空reason，注明CVI、树状图与组内/组间判断依据")
   x
 }
