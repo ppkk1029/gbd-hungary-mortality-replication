@@ -91,11 +91,19 @@ for (model in MODELS) {
         stopifnot(max(abs(colMeans(c0$u$Kc[,,h]))) < 1e-8)
     }
   }
-  if (endsWith(model, "LC2")) {
-    for (j in seq_len(J)) {
-      stopifnot(abs(c0$u$B1[p$anchor1[j],j] - 1) < 1e-12)
-      stopifnot(abs(c0$u$B2[p$anchor1[j],j]) < 1e-12)
-    }
+  if (endsWith(model, "LC1") || endsWith(model, "LC2")) {
+    stopifnot(max(abs(colSums(c0$u$B1) - 1)) < 1e-10)
+    if (endsWith(model, "LC2"))
+      stopifnot(max(abs(colSums(c0$u$B2) - 1)) < 1e-10)
+  }
+  if (!p$binom) {
+    # Stress the Poisson overflow branch: score must remain finite and NONZERO.
+    huge <- p$start
+    huge[1] <- huge[1] + 55
+    stress <- p$calc(huge)
+    stopifnot(is.finite(stress$value),
+              all(is.finite(stress$gradient)),
+              max(abs(stress$gradient)) > 0)
   }
   check <- check_multi_gradient(p, eps = 2e-6, ncheck = 60L)
   stopifnot(isTRUE(check$gradient_check_ok))
