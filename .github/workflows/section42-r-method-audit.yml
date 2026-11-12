@@ -4,10 +4,12 @@ on:
   push:
     paths:
       - "04_results/4_2_clusters/**"
+      - "04_results/4_1_single_population/results/**"
       - ".github/workflows/section42-r-method-audit.yml"
   pull_request:
     paths:
       - "04_results/4_2_clusters/**"
+      - "04_results/4_1_single_population/results/**"
       - ".github/workflows/section42-r-method-audit.yml"
   workflow_dispatch:
 
@@ -30,3 +32,19 @@ jobs:
           Rscript -e 'files <- list.files("04_results/4_2_clusters/gbd_complete",pattern="\\.R$",full.names=TRUE); invisible(lapply(files,parse)); cat("Parsed",length(files),"R files\n")'
       - name: Synthetic DTW and seven-CVI audit
         run: Rscript 04_results/4_2_clusters/gbd_complete/selftest_section42.R
+      - name: Real GBD §4.1 factors through all §4.2 clustering analyses
+        run: |
+          Rscript 04_results/4_2_clusters/gbd_complete/run_4_2_complete.R \
+            04_results/4_1_single_population/results/kappa_all_models.csv \
+            /tmp/section42-new-real
+          Rscript -e 'd <- read.csv("/tmp/section42-new-real/cluster_validity_scores.csv"); stopifnot(nrow(d)==196, all(c("Sil","D","COP","DB","DBstar","CH","SF") %in% names(d))); for (g in split(d,paste(d$sex,d$model))) for(m in c("Sil","D","COP","DB","DBstar","CH","SF")) stopifnot(any(is.finite(g[[m]])))'
+      - name: Upload new candidate diagnostics
+        uses: actions/upload-artifact@v4
+        with:
+          name: section42-current-candidates
+          path: |
+            /tmp/section42-new-real/*.csv
+            /tmp/section42-new-real/*.txt
+            /tmp/section42-new-real/figures/*.png
+          retention-days: 14
+
