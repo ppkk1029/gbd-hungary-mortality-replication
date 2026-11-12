@@ -2,6 +2,14 @@
 
 > **2026-11-12 更新**：已按原论文章节清理目录；§4.3 的七类 R 联合模型通过自动合成数据测试，但还没有真实 GBD 联合拟合图。以 R 代码、实际结果及验收记录为准；完整学习笔记放 Notion。使用 GBD 而非 HCSO，只能称为**方法复现**，不是原文数值重现。
 
+## 在 RStudio 从头运行到 §4.2
+
+**只需下载完整仓库并打开 [run_00_to_42.R](run_00_to_42.R)，点击 Source。** 统一入口会优先使用已经保存的 §4.1 时期因子，在 R 中计算全部 DTW、PAM、层次聚类和七项 CVI；若有原始 GBD Level1/Level2 文件，会先执行原始数据核验和 Figure 1。
+
+如果要重估 126 个模型，将入口顶部的 `REFIT_ALL_41_MODELS <- TRUE`，然后选择本地 `fitted_rates.csv`。要另外运行交互式 Figure 2、Figure 3、Figure 4，可以把入口顶部对应的 `RUN_FIGURE2/3/4` 设为 TRUE；这些图需要本地原始 Population/Deaths 文件。注意作者的 HCSO 数据未公开于此仓库，GBD 只能称作方法复现。
+
+[一键下载整个仓库（ZIP）](https://github.com/ppkk1029/gbd-hungary-mortality-replication/archive/refs/heads/main.zip) · [§4.2 详细说明](04_results/4_2_clusters/gbd_complete/README.md)
+
 ## 研究进度与目录
 
 | 章节 | 研究任务 | 当前状态 |
