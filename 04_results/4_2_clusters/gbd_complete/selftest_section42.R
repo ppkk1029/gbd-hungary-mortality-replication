@@ -26,9 +26,9 @@ D <- distance_matrix(Z,p=2,check_impl=TRUE)
 stopifnot(max(abs(D-t(D)))<1e-12,all(diag(D)==0))
 e <- evaluate_clusters(Z,D,k_values=2:3,seed=42L)
 stopifnot(nrow(e$scores)==4L,nrow(e$starts)==6L,
-          length(e$candidate_labels)==4L,
+          length(e$labels)==4L,
           all(CVI_NAMES %in% colnames(e$scores)))
-stopifnot(all(vapply(e$candidate_labels,length,0L)==9L))
+stopifnot(all(vapply(e$labels,length,0L)==9L))
 for (method in c("hierarchical_average","pam")) {
   fit <- cluster_fit(Z,D,method,k=2L,seed=42L)
   stopifnot(length(fit@cluster)==9L,length(unique(fit@cluster))==2L)
@@ -40,7 +40,7 @@ for(sex in c("Male","Female"))for(model in MODELS) {
   a[[paste(sex,model)]] <- list(
     Z=Z,raw_kappa=Z,d=D,hc=e$hc,
     labels=NULL,factor=if(endsWith(model,"LC2"))2L else 1L,
-    scores=e$scores,candidate_labels=e$candidate_labels,proposal=e$proposal)
+    scores=e$scores,candidate_labels=e$labels,proposal=e$proposal)
 }
 manual <- expand.grid(sex=c("Male","Female"),model=MODELS,
                       stringsAsFactors=FALSE)
