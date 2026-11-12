@@ -1,6 +1,6 @@
-# §4.3｜多人口共享因子模型：纯 R 复现与作者附录 52 张图对照
+# §4.3｜多人口共享因子模型：R 语言联合估计、验证与作者附录对照
 
-> 状态（2026-11-11）：联合估计与绘图 R 源码已提交。尚未在本环境对完整 GBD 原始面板执行 R 计算，故当前不把预期输出的图称为真实已复现的图。运行所需的 3888 行 fitted_rates.csv 只有用户之前在本地的副本，未存入公开 GitHub；本环境也未安装 R。
+> **状态（2026-11-12）**：七类多人口模型的 R 解析梯度和两类合成数据优化实测已通过 [GitHub Actions](https://github.com/ppkk1029/gbd-hungary-mortality-replication/actions/workflows/section43-r-synthetic-tests.yml)。已修正 Lee–Carter 的识别约束以遵循原文 Table 2，而非只锚定一个年龄点。但**尚未使用真实 GBD 3888 行 fitted_rates.csv 完成联合估计**：输入文件不在公开仓库，本环境中没有原始数据。请勿将测试通过当作图 9、原文结果或预留样本预测已成功复现。
 
 [原论文 PDF](https://unipub.lib.uni-corvinus.hu/11046/1/Forecastingcause-of-deathmortalitywithsingle-andmulti-populationmodelsinHungary.pdf)｜[作者附录第 9 目录：52 张 PNG](https://github.com/LiviaVarga/Forecasting-cause-of-death-mortality-with-single-and-multi-population-models-in-Hungary/tree/main/9.%20The%20fitted%20parameters%20of%20the%20multi-population%20models)｜[§4.2 已实跑完整 R 结果](../4_2_clusters/gbd_complete/README.md)
 
@@ -24,7 +24,7 @@
 | reduced Plat2 | α(x,j)+κ1(t)+(x̄−x)κ2(t,j) | **κ1** | α、κ2(t,j) |
 | reduced Plat3 | α(x,j)+κ1(t)+(x̄−x)κ2(t,j)+(x̄−x)_+κ3(t,j) | **κ1** | α、κ2(t,j)、κ3(t,j) |
 
-实现中使用已有 §4.2 R 参数初始化；共同与个别时期因子对大多数模型做中心化，并为 LC 模型使用年龄载荷锚点防止简单的尺度/旋转不识别。CBD 没有 α。数值梯度有限差分检查是强制步骤，未通过则停止；优化后还需检查最大归一化梯度。年龄基函数沿用 §4.2 代码的 /10 缩放，因此作者与本项目的 κ 数值不能直接比较。
+实现中使用已有 §4.2 R 参数初始化，并严格执行原文 **Table 2 的 Lee–Carter 识别条件：每一种死因 j、每一个因子 i 的年龄系数之和为 1（Σₓβₓⱼ⁽ⁱ⁾=1）；所有相应时期因子按年份求和为 0**。这与此前“只固定一个年龄的 β”不等价，尤其在时期因子跨死因共享时，会改变联合模型允许的拟合范围。双因子 LC 初始化先通过代数重参数化将各死因两条 β 的和均调整为 1，再联合估计共享的 κ²；该重参数化在共享之前保持各死因的单人口拟合面。CBD 不含 α。有限差分梯度检验是强制步骤；优化后的最大缩放梯度仍须检查。年龄基函数沿用 §4.2 的 /10 缩放，因此不能直接比较与作者使用不同标度的 κ 数值。
 
 本项目 GBD 2023 模拟死亡数为连续估计，而非 HCSO 登记整数。对于 Binomial，本项目仍沿用 §4.2 的 N=exposure_proxy+D/2 近似：方法性拟似然对照，不应当写成精确的原文 HCSO 极大似然。
 
@@ -67,18 +67,31 @@ run_section43(
   out="D:/mortality/Section_4_3_NEW",
   source42="D:/mortality/gbd-hungary-mortality-replication/04_results/4_2_clusters/gbd_complete/results",
   restarts=1L,
+  maxit=3500L,
   strict=TRUE,
-  forecast_preview=TRUE
+  forecast_preview=FALSE
 )
 ~~~
 
 新建输出目录必须不存在或为空；命令行入口为 Rscript run_4_3_complete.R /path/fitted_rates.csv /path/new_results。预计主输出包括 fit_summary.csv、cause_fit_metrics.csv、joint_age_parameters.csv、joint_period_indices.csv、finite_difference_gradient_checks.csv、author_original_appendix_52_files.csv、appendix_image_manifest.csv、common_vs_single_diagnostics.csv、Figure9_GBD...png 及 54 张 GBD 附录对照图。RDS 和运行环境/输入哈希也同时保存。检查 fit_summary.csv 中所有联合组状态为 CONVERGED 后才能讨论拟合图。
 
-Figure10_GBD_Male... 和 FigureA4_GBD_Female... 是可选的 **§4.5 预测预览**，不是 §4.3 的已验证模型预测；默认采用简化的 ARIMA/RW 漂移，尚未实现原文逐项的异常年份及 ARIMA 诊断选择，因此不可声称完成 §4.5。
+Figure10_GBD_Male... 和 FigureA4_GBD_Female... 是可选的 **§4.5 预测预览**，不是 §4.3 的已验证预测；**现在默认关闭**（只有显式 `forecast_preview=TRUE` 才绘制）。其简化 ARIMA/RW 漂移尚未完成原文逐项异常值处理与 ARIMA 诊断，不能声称完成 §4.5。
+
+## 自动验证与实际复现的区别
+
+在仓库根目录运行（不需要私有 GBD 原始文件）：
+
+```bash
+Rscript 04_results/4_3_multi_population/selftest_4_3.R
+```
+
+脚本利用**明确标为合成数据**的年龄×年份×死因张量，针对 7 种 Table 2 模型逐一核对：模型维度、年龄 β 求和约束、时期 κ 中心化、目标函数与解析梯度的有限差分一致性；另对 Poisson Carter–Lee 和三因子 Plat 执行真正的优化程序，并核对作者附录第 9 目录的 52 个文件名。GitHub Actions 每次修改上述 R 源码都会运行同样的检查。[测试脚本](selftest_4_3.R)｜[CI 工作流](../../.github/workflows/section43-r-synthetic-tests.yml)。
+
+这些检查不能替代真实 GBD 拟合（尤其不能证明 27 组联合模型均会收敛），也不能检验原文 HCSO 曲线一致性。原文使用整数登记死亡数、官方期初/期中暴露量和 Newton–Raphson；本仓库使用 GBD 估计数、代理暴露量和 R 的 L-BFGS-B / nlminb 目标函数优化。二者即使拥有相同模型公式也不保证出现相同参数数值。
 
 ## 核验限制与下一步
 
-- 目前只核验：作者 52 张原图的全量名称/链接，§4.2 真实已存的分组和输入结构，§4.3 R 代码的接口与建模逻辑。
+- 已实测：7 种模型的合成数据梯度，2 种模型的合成数据优化，30 个旧分组中 27 个应联合拟合的分组个数，作者附录 52 张图的文件目录核对，以及 R 语法检查。
 - **没有核验：本环境运行 §4.3 联合拟合结果、每组是否优化收敛、54 张新图是否成功生成、样本外是否更准。**
 - 原始 HCSO 人口/死亡数未获得；目前是与原文机制相同但数据定义不同的 GBD 方法性复现。
 - 模型较高维，初次 RStudio 运行若梯度检查不通过，应先排查估计的尺度、锚点和数值稳定性，不应取消检查把失败结果写成论文实证。
