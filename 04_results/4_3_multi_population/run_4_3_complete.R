@@ -21,7 +21,8 @@ source(file.path(.section43_dir,"plot_appendix.R"),local=TRUE,encoding="UTF-8")
 source(file.path(.section43_dir,"author_appendix_inventory.R"),local=TRUE,encoding="UTF-8")
 
 run_section43 <- function(input=NULL,out=NULL,source42=NULL,
-                          restarts=1L,strict=TRUE,forecast_preview=TRUE) {
+                          restarts=1L,maxit=3500L,strict=TRUE,
+                          forecast_preview=FALSE) {
   if(is.null(input)) {
     if(!interactive())stop("命令行需提供 fitted_rates.csv")
     message("选择与§4.2完全相同的原始GBD拟合输入 CSV")
@@ -83,7 +84,7 @@ run_section43 <- function(input=NULL,out=NULL,source42=NULL,
       ck<-check_multi_gradient(q)
       checks[[nm]]<-cbind(data.frame(sex=sex,model=model,cluster=g),ck)
       if(!ck$gradient_check_ok)stop("联合解析梯度未通过检查：",nm)
-      f<-fit_multi_group(q,Ds,Es,restarts=restarts)
+      f<-fit_multi_group(q,Ds,Es,maxit=maxit,restarts=restarts)
       f$sex<-sex;f$model<-model;f$group<-g;f$causes<-causes
       fitgood<-isTRUE(f$metrics$converged)
       status<-if(fitgood)"CONVERGED" else "NOT_CONVERGED_CHECK_FIT"
@@ -161,11 +162,13 @@ run_section43 <- function(input=NULL,out=NULL,source42=NULL,
     "1980-2015, 60-89 y (six ages), nine GBD causes, male/female separately",
     "Figure9 & appendix9: actual joint estimator output, not averaged single kappa",
     "LC1 shares first index; LC2 shares second; CBD/Plat2/Plat3 share first",
+    "LC beta^(i) sum_x = 1 within each cause; sum_t(kappa) = 0 (Table 2)",
     "30 model-sex-clusters; 27 joint groups, 3 unshared singletons",
     "Binomial n=GBD_population_proxy + 0.5*GBD_deaths, not official raw E0",
     "Criterion: scaled score gradient, first-order necessary condition only",
     "2016-2019 held out; no predictive accuracy claim in this section",
     "Figure 10 / A4 previews are §4.5 extensions, not §4.3 fitting results",
+    paste("Optimizer maximum iterations per attempt:",maxit),
     "All author images are external references, no source pixels re-used")
   writeLines(lines,file.path(out,"MANIFEST.txt"))
   capture.output(sessionInfo(),file=file.path(out,"sessionInfo.txt"))
