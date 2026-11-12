@@ -1,60 +1,104 @@
-# §4.2完整纯R入口。RStudio打开本文件点Source，选择 fitted_rates.csv 即可。
-# 命令行：Rscript run_4_2_complete.R /path/fitted_rates.csv /path/new_results
-# 输入CSV只读取 deaths_gbd / exposure_proxy，不使用 fitted_count。
+# §4.2 single entry. Read original GBD deaths/exposures, NOT fitted_count.
+# First run (paper-review mode): calculate ALL candidates and figures, export
+# cluster_selection_template.csv; no hidden Silhouette-only selection.
+# Finalize a previously computed run without refitting 126 models:
+#   Rscript run_4_2_complete.R --finalize OUTPUT_DIR REVIEWED_SELECTION.csv
 .section42_script_dir <- local({
- files <- lapply(sys.frames(),function(f) f$ofile)
- files <- Filter(function(x)!is.null(x)&&length(x)==1L,files)
- if(length(files)) dirname(normalizePath(tail(files,1)[[1]],mustWork=TRUE)) else {
-  a <- grep('^--file=',commandArgs(),value=TRUE)
-  if(length(a)) dirname(normalizePath(sub('^--file=','',a[1]),mustWork=TRUE)) else getwd()
- }
+  files <- lapply(sys.frames(),function(f) f$ofile)
+  files <- Filter(function(x)!is.null(x)&&length(x)==1L,files)
+  if(length(files)) dirname(normalizePath(tail(files,1L)[[1L]],mustWork=TRUE)) else {
+    a <- grep("^--file=",commandArgs(),value=TRUE)
+    if(length(a)) dirname(normalizePath(sub("^--file=","",a[1L]),mustWork=TRUE)) else getwd()
+  }
 })
-.section41_script_dir <- file.path(dirname(dirname(.section42_script_dir)), "4_1_single_population")
-for(.f in c('model_functions.R','run_all_models.R')) {
- source(file.path(.section41_script_dir,.f),local=TRUE,encoding='UTF-8')
+.section41_script_dir <- file.path(dirname(dirname(.section42_script_dir)),"4_1_single_population")
+for(.f in c("model_functions.R","run_all_models.R"))
+  source(file.path(.section41_script_dir,.f),local=TRUE,encoding="UTF-8")
+for(.f in c("clustering_functions.R","cluster_all_models.R",
+            "complete_cvi.R","verify_and_plot.R","plot_paper_figures.R"))
+  source(file.path(.section42_script_dir,.f),local=TRUE,encoding="UTF-8")
+finalize_section42 <- function(output_dir, selection_file) {
+  check_cluster_packages()
+  output_dir <- normalizePath(output_dir,mustWork=TRUE)
+  selection_file <- normalizePath(selection_file,mustWork=TRUE)
+  obj <- file.path(output_dir,"cluster_analyses.rds")
+  if(!file.exists(obj))stop("找不到第一阶段生成的 cluster_analyses.rds")
+  a <- readRDS(obj)
+  a <- finalize_cluster_selections(a,output_dir,selection_file,"review_required")
+  plot_paper_figures(a,output_dir)
+  x <- read.csv(file.path(output_dir,"cluster_summary.csv"))
+  if(nrow(x)!=14L || any(x$selection_status!="researcher_reviewed"))
+    stop("最终K决策未记录完成")
+  writeLines(c("K decision stage: researcher reviewed",
+      paste("selection_file:",selection_file),
+      paste("selection_file_md5:",unname(tools::md5sum(selection_file))),
+      paste("R:",as.character(getRversion()))),
+      file.path(output_dir,"selection_manifest.txt"))
+  print(x[,c("sex","model","K","method","singleton_count","selection_status")],
+        row.names=FALSE)
+  message("§4.2已完成审查后选K；本次未重新估计模型：",output_dir)
+  invisible(output_dir)
 }
-for(.f in c('clustering_functions.R','cluster_all_models.R',
-             'complete_cvi.R','verify_and_plot.R','plot_paper_figures.R')) {
- source(file.path(.section42_script_dir,.f),local=TRUE,encoding='UTF-8')
+run_section42 <- function(input=NULL,out=NULL,selection_file=NULL,
+                          selection_mode="review_required",reference=NULL) {
+  check_cluster_packages()
+  if(is.null(input)) {
+    if(!interactive())stop("命令行必须提供输入CSV路径")
+    message("选择 fitted_rates.csv（包含 deaths_gbd 与 exposure_proxy）")
+    input <- file.choose()
+  }
+  input <- normalizePath(input,mustWork=TRUE)
+  if(is.null(out))out <- file.path(dirname(input),
+      paste0("Section_4_2_review_",format(Sys.time(),"%Y%m%d_%H%M%S")))
+  if(dir.exists(out)&&length(list.files(out,all.files=TRUE,no..=TRUE)))
+    stop("输出目录必须为空，避免覆盖旧结果：",out)
+  dir.create(out,recursive=TRUE,showWarnings=FALSE)
+  out <- normalizePath(out,mustWork=TRUE)
+  message("§4.2 实验开始：",input," → ",out)
+  checks <- algorithm_selftest()
+  write_csv(checks,file.path(out,"algorithm_selftest.csv"))
+  fits <- fit_all_models(input,out)
+  analyses <- cluster_all_models(fits,out,selection_file,selection_mode)
+  complete_cvi(analyses,out)
+  verify_results(fits,analyses,out,reference)
+  plot_paper_figures(analyses,out,fits)
+  writeLines(c(
+    "engine: R + official CRAN packages dtw / dtwclust",
+    paste("R:",as.character(getRversion())),
+    paste("dtw:",as.character(utils::packageVersion("dtw"))),
+    paste("dtwclust:",as.character(utils::packageVersion("dtwclust"))),
+    paste("input_md5:",unname(tools::md5sum(input))),
+    "GBD estimated deaths/exposure proxy; not HCSO registered counts",
+    "years: 1980-2015; ages: six 5-year groups; causes: 9 GBD level-2",
+    "DTW: p=2, squared local cost, symmetric2, sqrt(acc/(n+m)), no main window",
+    "LC: centered K, SVD orthogonalization; rotation-sensitive LC2 clustering",
+    "clustering: hierarchical average + dtwclust PAM from three seeds, K=2..8",
+    "CVI: seven named indices via dtwclust::cvi, missing/error is recorded",
+    paste("selection_mode:",selection_mode),
+    if(is.null(selection_file))
+      "UNREVIEWED: no paper claim about final K. Inspect template, CVIs, dendrograms."
+    else "Final K manually selected using complete evidence; not auto-author K",
+    "paper does not disclose an exact seven-CVI voting or weighted rule",
+    "Legacy checked-in results (generated by Silhouette-only selector) are NOT overwritten"
+  ),file.path(out,"manifest.txt"))
+  capture.output(sessionInfo(),file=file.path(out,"sessionInfo.txt"))
+  if(file.exists(file.path(out,"cluster_summary.csv"))) {
+    x <- read.csv(file.path(out,"cluster_summary.csv"))
+    print(x[,c("sex","model","K","method","selection_status")],row.names=FALSE)
+  } else {
+    message("第一阶段完成：打开 cluster_selection_template.csv，并结合CVI和树状图填写K与method；之后使用 finalize_section42()。")
+  }
+  message("完成：",out)
+  invisible(out)
 }
-run_section42 <- function(input=NULL,out=NULL,reference=NULL) {
- if(is.null(input)) {
-  if(!interactive()) stop('命令行必须提供输入CSV路径')
-  message('选择原始 fitted_rates.csv，需含 deaths_gbd 与 exposure_proxy。')
-  input<-file.choose()
- }
- input<-normalizePath(input,mustWork=TRUE)
- if(is.null(out)) out<-file.path(dirname(input),paste0('Section_4_2_R_',format(Sys.time(),'%Y%m%d_%H%M%S')))
- if(dir.exists(out) && length(list.files(out,all.files=TRUE,no..=TRUE))) stop('输出目录非空，请指定一个新的目录，避免覆盖之前结果：',out)
- dir.create(out,recursive=TRUE,showWarnings=FALSE);out<-normalizePath(out,mustWork=TRUE)
- message('R版开始。输入：',input,'；输出：',out)
- checks<-algorithm_selftest();write_csv(checks,file.path(out,'algorithm_selftest.csv'))
- fits<-fit_all_models(input,out)
- analyses<-cluster_all_models(fits,out)
- complete_cvi(analyses,out)
- verify_results(fits,analyses,out,reference)
- plot_paper_figures(analyses,out,fits)
- writeLines(c('engine: R (no external-language dependency)',paste('R:',getRversion()),
-  paste('input_md5:',unname(tools::md5sum(input))),paste('seed:',SEED),
-  'years: 1980-2015; ages: 62,67,72,77,82,87; 9 causes; Male/Female',
-  'DTW: squared local cost, symmetric2, sqrt(acc/(n+m)), closed endpoints; no main window',
-  'LC: centered K, SVD orthogonal B, descending singular values, largest loading positive',
-  'Binomial: N=exposure_proxy+deaths_gbd/2 (approximation)',
-  'selection: maximum silhouette; tie lower K then alphabetical method; K=2..8',
-  'GBD estimated counts: working likelihood, not HCSO registered counts'),file.path(out,'manifest.txt'))
- capture.output(sessionInfo(),file=file.path(out,'sessionInfo.txt'))
- needed<-c('Figure_5_GBD_Male_Poisson_LC2.png','Figure_6_GBD_Female_Poisson_LC2.png',
-           'Figure_7_GBD_Male_CBD_Clusters.png','Figure_8_GBD_Male_Binomial_LC2.png')
- stopifnot(all(file.exists(file.path(out,needed))))
- print(read.csv(file.path(out,'cluster_summary.csv'))[,c('sex','model','K','silhouette')],row.names=FALSE)
- message('全部完成：',out)
- if(interactive()) plot_cluster_panels(analyses[['Male Binomial LC2']],'Figure 8 | Male Binomial LC2 | GBD')
- invisible(out)
-}
-# source() 默认立即运行；开发/分步学习可先 options(section42.autorun=FALSE)。
-if(isTRUE(getOption('section42.autorun',TRUE))) {
- .args<-commandArgs(trailingOnly=TRUE)
- run_section42(if(length(.args)>=1L) .args[1] else NULL,
-               if(length(.args)>=2L) .args[2] else NULL,
-               if(length(.args)>=3L) .args[3] else NULL)
+if(isTRUE(getOption("section42.autorun",TRUE))) {
+  a <- commandArgs(trailingOnly=TRUE)
+  if(length(a)>=1L && identical(a[1L],"--finalize")) {
+    if(length(a)<3L)stop("请传入 --finalize 输出目录 selection.csv")
+    finalize_section42(a[2L],a[3L])
+  } else {
+    run_section42(input=if(length(a)>=1L)a[1L] else NULL,
+                  out=if(length(a)>=2L)a[2L] else NULL,
+                  selection_file=if(length(a)>=3L)a[3L] else NULL)
+  }
 }

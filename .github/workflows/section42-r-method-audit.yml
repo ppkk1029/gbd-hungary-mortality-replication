@@ -1,0 +1,32 @@
+name: Section 4.2 DTW and CVI methodology checks
+
+on:
+  push:
+    paths:
+      - "04_results/4_2_clusters/**"
+      - ".github/workflows/section42-r-method-audit.yml"
+  pull_request:
+    paths:
+      - "04_results/4_2_clusters/**"
+      - ".github/workflows/section42-r-method-audit.yml"
+  workflow_dispatch:
+
+jobs:
+  section42-r-checks:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Install R
+        uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: "release"
+          use-public-rspm: true
+      - name: Install required clustering packages
+        run: Rscript -e 'install.packages(c("dtw", "dtwclust"))'
+      - name: Parse section 4.2 source files
+        run: |
+          Rscript -e 'files <- list.files("04_results/4_2_clusters/gbd_complete",pattern="\\.R$",full.names=TRUE); invisible(lapply(files,parse)); cat("Parsed",length(files),"R files\n")'
+      - name: Synthetic DTW and seven-CVI audit
+        run: Rscript 04_results/4_2_clusters/gbd_complete/selftest_section42.R

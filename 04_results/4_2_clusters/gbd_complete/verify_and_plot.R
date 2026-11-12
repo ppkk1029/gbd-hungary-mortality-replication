@@ -26,7 +26,16 @@ verify_results <- function(fits,analyses,out,reference=NULL) {
   nrow(read.csv(file.path(out,'kappa_all_models.csv')))==8424L,
   nrow(read.csv(file.path(out,'standardized_kappa.csv')))==4536L,
   nrow(read.csv(file.path(out,'pairwise_distances.csv')))==504L,
-  nrow(read.csv(file.path(out,'cluster_membership.csv')))==126L)
+  nrow(read.csv(file.path(out,'cluster_validity_scores.csv')))==196L,
+  nrow(read.csv(file.path(out,'candidate_membership.csv')))==1764L,
+  nrow(read.csv(file.path(out,'pam_three_start_check.csv')))==294L)
+ if(file.exists(file.path(out,'cluster_membership.csv'))) {
+  m <- read.csv(file.path(out,'cluster_membership.csv'))
+  stopifnot(nrow(m)==126L)
+ } else {
+  t <- read.csv(file.path(out,'cluster_selection_template.csv'))
+  stopifnot(nrow(t)==14L)
+ }
  rotation<-0;th<-pi/12;R<-matrix(c(cos(th),sin(th),-sin(th),cos(th)),2,2)
  for(nm in names(fits)) if(endsWith(nm,'LC2')) {a<-fits[[nm]]
   rotation<-max(rotation,abs(a$B%*%t(a$K)-(a$B%*%R)%*%t(a$K%*%R)))}
@@ -43,8 +52,7 @@ compare_reference <- function(out,reference) {
  for(item in list(c('fit_diagnostics_all_models','sex','cause','model','deviance'),
                   c('kappa_all_models','sex','cause','model','factor','year','kappa'),
                   c('standardized_kappa','sex','model','cause','year','z'),
-                  c('pairwise_distances','sex','model','cause1','cause2','dtw_p2'),
-                  c('cluster_summary','sex','model','silhouette'))) {
+                  c('pairwise_distances','sex','model','cause1','cause2','dtw_p2'))) {
   file<-paste0(item[1],'.csv');value<-tail(item,1);by<-item[2:(length(item)-1)]
   a<-read.csv(file.path(out,file));b<-read.csv(file.path(reference,file));m<-merge(a,b,by=by,suffixes=c('.R','.reference'))
   stopifnot(nrow(m)==nrow(a),nrow(m)==nrow(b))
@@ -58,6 +66,6 @@ compare_reference <- function(out,reference) {
   data.frame(sex=d$sex[1],model=d$model[1],ARI=ari(d$cluster.x,d$cluster.y))))
  write_csv(do.call(rbind,comparisons),file.path(out,'migration_numeric_comparison.csv'))
  write_csv(aris,file.path(out,'migration_membership_comparison.csv'))
- stopifnot(all(aris$ARI==1))
+ # Changes in K are expected after replacing the Silhouette-only decision rule.
  invisible(aris)
 }
