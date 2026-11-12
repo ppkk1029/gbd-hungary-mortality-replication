@@ -144,7 +144,8 @@ run_section43 <- function(input=NULL,out=NULL,source42=NULL,
         year=YEARS,kappa=f$u$ks)
     }
   }
-  stopifnot(length(summ)==30L)
+  expected_groups <- length(unique(paste(cl$sex,cl$model,cl$cluster,sep='::')))
+  stopifnot(length(summ)==expected_groups)
   write_csv(do.call(rbind,summ),file.path(out,"fit_summary.csv"))
   write_csv(do.call(rbind,causemetrics),file.path(out,"cause_fit_metrics.csv"))
   write_csv(do.call(rbind,plist),file.path(out,"joint_age_parameters.csv"))
@@ -163,7 +164,7 @@ run_section43 <- function(input=NULL,out=NULL,source42=NULL,
     "Figure9 & appendix9: actual joint estimator output, not averaged single kappa",
     "LC1 shares first index; LC2 shares second; CBD/Plat2/Plat3 share first",
     "LC beta^(i) sum_x = 1 within each cause; sum_t(kappa) = 0 (Table 2)",
-    "30 model-sex-clusters; 27 joint groups, 3 unshared singletons",
+    paste(expected_groups,"model-sex-clusters; group counts recomputed from reviewed §4.2 membership"),
     "Binomial n=GBD_population_proxy + 0.5*GBD_deaths, not official raw E0",
     "Criterion: scaled score gradient, first-order necessary condition only",
     "2016-2019 held out; no predictive accuracy claim in this section",
