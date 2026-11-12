@@ -16,9 +16,12 @@ Z <- z_rows(Z)
 rownames(Z) <- paste0("S",seq_len(nrow(Z)))
 x <- c(1,2,3,4);y <- c(1,1,3,4)
 d1 <- dtw_distance(x,y,p=2)
-d2 <- dtwclust::dtw_basic(x,y,norm="L2",normalize=TRUE,
-  sqrt.dist=TRUE,step.pattern=dtw::symmetric2)
-stopifnot(isTRUE(all.equal(d1,as.numeric(d2),tolerance=1e-7)))
+raw_d2 <- dtwclust::dtw_basic(x,y,norm="L2",normalize=FALSE,
+  sqrt.dist=FALSE,step.pattern=dtw::symmetric2)
+d2 <- sqrt(as.numeric(raw_d2)/(length(x)+length(y)))
+cat("DTW cross-package squared-cost comparison: dtw=",d1,
+    " dtwclust(raw->paper)=",d2,"\n")
+stopifnot(isTRUE(all.equal(as.numeric(d1),d2,tolerance=1e-7)))
 D <- distance_matrix(Z,p=2,check_impl=TRUE)
 stopifnot(max(abs(D-t(D)))<1e-12,all(diag(D)==0))
 e <- evaluate_clusters(Z,D,k_values=2:3,seed=42L)
