@@ -198,16 +198,22 @@ make_multi_problem <- function(D,E,model,singles) {
         et<-et+matrix(rep(u$ks,each=A),A,TT)
         for(h in seq_len(S)) et<-et+tcrossprod(V[,h],u$Kc[,j,h])
       }
-      if(any(!is.finite(et)) || max(et)>100) {
-        return(list(value=1e60,gradient=rep(0,length(v))))
-      }
+      if(any(!is.finite(et)))
+        stop("Non-finite linear predictor in multi-population likelihood")
       if(binom) {
         mu<-N[,,j]*plogis(et)
         value<-value-sum(D[,,j]*plogis(et,log.p=TRUE)+
           (N[,,j]-D[,,j])*plogis(et,lower.tail=FALSE,log.p=TRUE))/n_total
       } else {
-        mu<-E[,,j]*exp(et)
-        value<-value+sum(mu-D[,,j]*et)/n_total
+        # At eta<=30 this is EXACTLY the Poisson log-likelihood and score.
+        # Above 30, continue exp(eta) by its quadratic Taylor upper branch,
+        # matching function and first derivative at 30. This prevents
+        # numerical overflow without introducing a false zero-gradient plateau.
+        excess<-pmax(et-30,0)
+        ecap<-exp(pmin(et,30))
+        mu<-E[,,j]*ecap*(1+excess)
+        value<-value+sum(E[,,j]*ecap*(1+excess+0.5*excess^2)-
+                         D[,,j]*et)/n_total
       }
       R<-(mu-D[,,j])/n_total
       ga[,j]<-rowSums(R)
