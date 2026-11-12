@@ -62,7 +62,7 @@ ari <- function(a,b) {
   x <- sum(choose2(tab)); aa <- sum(choose2(rowSums(tab)))
   bb <- sum(choose2(colSums(tab))); expected <- aa*bb/total
   den <- (aa+bb)/2-expected
-  if(abs(den)<1e-14) return(as.numeric(identical(as.integer(a),as.integer(b))))
+  if(abs(den)<1e-14) return(as.numeric(identical(outer(a,a,"=="),outer(b,b,"=="))))
   (x-expected)/den
 }
 CVI_NAMES <- c("Sil","D","COP","DB","DBstar","CH","SF")
@@ -168,19 +168,11 @@ evaluate_clusters <- function(Z, d, k_values = 2:(nrow(d)-1L), seed = 20261110L)
   rr <- as.matrix(tab[,rank_columns,drop=FALSE])
   tab$mean_indicator_rank <- rowMeans(rr,na.rm=TRUE)
   tab$mean_indicator_rank[!is.finite(tab$mean_indicator_rank)] <- NA_real_
-  # Exploratory suggestion only; NOT a rule published by Varga (2025).
-  ks <- sort(unique(tab$K))
-  suggest <- data.frame(K=ks,mean_rank=vapply(ks,function(k)
-      mean(tab$mean_indicator_rank[tab$K==k],na.rm=TRUE),0.0),
-    singleton_min=vapply(ks,function(k) min(tab$singleton_count[tab$K==k]),0L))
-  suggest <- suggest[order(suggest$mean_rank,suggest$singleton_min,suggest$K),]
-  proposed_k <- suggest$K[1L]
-  candidates <- tab[tab$K==proposed_k,]
-  candidates <- candidates[order(candidates$mean_indicator_rank,
-                                candidates$method!="hierarchical_average"),]
-  proposal <- candidates[1L,c("method","K","mean_indicator_rank","singleton_count")]
-  list(scores=tab,labels=labels,starts=if(length(starts))do.call(rbind,starts) else data.frame(),
-       hc=hc,proposal=proposal,k_summary=suggest)
+  # Do NOT choose K from an invented aggregate score. Researchers review the
+  # seven raw CVIs, dendrogram, singleton counts and three PAM initializations.
+  list(scores=tab,labels=labels,
+       starts=if(length(starts)) do.call(rbind,starts) else data.frame(),
+       hc=hc)
 }
 # Run-only feature to ensure all 14 decisions are explicit and auditable.
 read_selection_file <- function(path, models, sexes=c("Male","Female")) {
