@@ -29,6 +29,13 @@ stopifnot(nrow(e$scores)==4L,nrow(e$starts)==6L,
           length(e$labels)==4L,
           all(CVI_NAMES %in% colnames(e$scores)))
 stopifnot(all(vapply(e$labels,length,0L)==9L))
+# All seven advertised CVIs must actually compute at least one finite value on
+# nondegenerate synthetic data; names alone do not establish working formulas.
+finite_cvi <- vapply(CVI_NAMES,function(nm) sum(is.finite(e$scores[[nm]])),0L)
+print(finite_cvi)
+if(any(finite_cvi==0L))
+  stop("原生CVI运行未产生有效值: ",paste(names(finite_cvi)[finite_cvi==0L],collapse=","),
+       "\\n",paste(e$scores$cvi_issues,collapse=" | "))
 for (method in c("hierarchical_average","pam")) {
   fit <- cluster_fit(Z,D,method,k=2L,seed=42L)
   stopifnot(length(fit@cluster)==9L,length(unique(fit@cluster))==2L)
