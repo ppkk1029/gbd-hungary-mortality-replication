@@ -24,7 +24,7 @@ jobs:
           r-version: "release"
           use-public-rspm: true
       - name: Install required clustering packages
-        run: Rscript -e 'install.packages(c("dtw", "dtwclust"), repos = "https://cloud.r-project.org")'
+        run: Rscript -e 'install.packages(c("dtw", "dtwclust"))'
       - name: Parse section 4.2 source files
         run: |
           Rscript -e 'files <- list.files("04_results/4_2_clusters/gbd_complete",pattern="\\.R$",full.names=TRUE); invisible(lapply(files,parse)); cat("Parsed",length(files),"R files\n")'
