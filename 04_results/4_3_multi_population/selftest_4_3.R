@@ -84,6 +84,27 @@ for (model in MODELS) {
   c0 <- p$calc(p$start, return_details = TRUE)
   stopifnot(is.finite(c0$value), all(is.finite(c0$gradient)),
             identical(dim(c0$mu), dim(z$D)), all(c0$mu > 0))
+  if (endsWith(model,"LC1") || endsWith(model,"LC2")) {
+    # SVD column sign has no scientific meaning: flipping B and K together
+    # must not change the initial joint eta, even when sign alignment runs.
+    zflip <- z
+    h <- if (endsWith(model,"LC2")) 2L else 1L
+    zflip$singles[[2]]$B[,h] <- -zflip$singles[[2]]$B[,h]
+    zflip$singles[[2]]$K[,h] <- -zflip$singles[[2]]$K[,h]
+    pf <- make_multi_problem(z$D,z$E,model,zflip$singles)
+    ef <- pf$calc(pf$start, return_details=TRUE)$eta
+    stopifnot(max(abs(ef-c0$eta)) < 1e-8)
+    if (endsWith(model,"LC2")) {
+      # Here each synthetic cause has exactly the SAME second index:
+      # the constrained rotation and pooling must reproduce both original
+      # single-population fitted surfaces up to numerical rounding.
+      for (j in seq_len(J)) {
+        sg <- z$singles[[j]]
+        independent_eta <- sg$a + sg$B %*% t(sg$K)
+        stopifnot(max(abs(independent_eta-c0$eta[,,j])) < 1e-8)
+      }
+    }
+  }
   if (model != "CBD") {
     stopifnot(abs(mean(c0$u$ks)) < 1e-8)
     if (!is.null(c0$u$Kc)) {
