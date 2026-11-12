@@ -3,6 +3,7 @@ name: Section 4.2 DTW and CVI methodology checks
 on:
   push:
     paths:
+      - "run_00_to_42.R"
       - "04_results/4_2_clusters/**"
       - "04_results/4_1_single_population/results/**"
       - ".github/workflows/section42-r-method-audit.yml"
@@ -38,6 +39,10 @@ jobs:
             04_results/4_1_single_population/results/kappa_all_models.csv \
             /tmp/section42-new-real
           Rscript -e 'd <- read.csv("/tmp/section42-new-real/cluster_validity_scores.csv"); stopifnot(nrow(d)==196, all(c("Sil","D","COP","DB","DBstar","CH","SF") %in% names(d))); for (g in split(d,paste(d$sex,d$model))) for(m in c("Sil","D","COP","DB","DBstar","CH","SF")) stopifnot(any(is.finite(g[[m]])))'
+      - name: Verify the one-file RStudio launcher with cached actual factors
+        run: |
+          Rscript run_00_to_42.R
+          Rscript -e 'p <- list.dirs("04_results/4_2_clusters/gbd_complete/outputs",recursive=FALSE,full.names=TRUE); stopifnot(length(p)==1L); f<-file.path(p[1],"cluster_validity_scores.csv"); stopifnot(file.exists(f),nrow(read.csv(f))==196L)'
       - name: Upload new candidate diagnostics
         uses: actions/upload-artifact@v4
         with:
