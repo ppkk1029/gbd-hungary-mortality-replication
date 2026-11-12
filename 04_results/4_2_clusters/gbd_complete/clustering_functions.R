@@ -43,11 +43,15 @@ distance_matrix <- function(Z, p = 2, window = Inf, check_impl = FALSE) {
     x <- Z[i,]; y <- Z[j,]
     d[i,j] <- d[j,i] <- dtw_distance(x,y,p,window)
     if (check_impl && p == 2L) {
-      b <- dtwclust::dtw_basic(x,y,norm="L2",
-         step.pattern=dtw::symmetric2, normalize=TRUE, sqrt.dist=TRUE,
+      # Compare RAW accumulated squared-cost before applying the paper's
+      # normalization ourselves. dtwclust's normalize/sqrt ordering differs.
+      b_raw <- dtwclust::dtw_basic(x,y,norm="L2",
+         step.pattern=dtw::symmetric2, normalize=FALSE, sqrt.dist=FALSE,
          window.size=if(is.finite(window)) as.integer(window) else NULL)
-      if (!isTRUE(all.equal(d[i,j],as.numeric(b),tolerance=1e-7)))
-        stop("dtw和dtwclust距离不一致: ",i," / ",j,": ",d[i,j]," vs ",b)
+      b <- sqrt(as.numeric(b_raw)/(length(x)+length(y)))
+      if (!isTRUE(all.equal(as.numeric(d[i,j]),b,tolerance=1e-7)))
+        stop("dtw和dtwclust的原始路径累计成本不一致: ",i," / ",j,
+             ": dtw=",d[i,j]," vs dtwclust=",b)
     }
   }
   d
@@ -63,23 +67,33 @@ ari <- function(a,b) {
 }
 CVI_NAMES <- c("Sil","D","COP","DB","DBstar","CH","SF")
 CVI_DIRECTION <- c(Sil=1,D=1,COP=-1,DB=-1,DBstar=-1,CH=1,SF=1)
+# Register one custom distance so every assignment, medoid, and CVI
+# uses EXACTLY the same paper-defined metric as the precomputed matrix.
+register_paper_distance <- function() {
+  check_cluster_packages()
+  if(!proxy::pr_DB$entry_exists("paperDTW_p2")) {
+    fun <- function(x,y,...) dtw_distance(x,y,p=2)
+    proxy::pr_DB$set_entry(FUN=fun,names="paperDTW_p2",
+      loop=TRUE,type="metric",distance=TRUE,
+      description="symmetric2 squared-cost DTW: sqrt(accumulated/(n+m))")
+  }
+  invisible("paperDTW_p2")
+}
 # tsclust receives the exact same pre-computed distance matrix as hclust.
 # PAM is run from three independently reproducible random seeds for each K.
 cluster_fit <- function(Z, d, method, k, seed = 20261110L) {
-  check_cluster_packages()
-  params <- dtwclust::tsclust_args(
-    dist=list(norm="L2",step.pattern=dtw::symmetric2,
-              normalize=TRUE,sqrt.dist=TRUE))
+  register_paper_distance()
+  params <- dtwclust::tsclust_args()
   if (method=="hierarchical_average") {
     ans <- dtwclust::tsclust(
        series=Z,type="hierarchical",k=as.integer(k),
-       distance="dtw_basic",args=params,
+       distance="paperDTW_p2",args=params,
        control=dtwclust::hierarchical_control(
          method="average",symmetric=TRUE,distmat=as.dist(d)))
   } else if (method=="pam") {
     ans <- dtwclust::tsclust(
        series=Z,type="partitional",k=as.integer(k),centroid="pam",
-       distance="dtw_basic",seed=as.integer(seed),args=params,
+       distance="paperDTW_p2",seed=as.integer(seed),args=params,
        control=dtwclust::partitional_control(
          nrep=1L,symmetric=TRUE,pam.precompute=TRUE,
          distmat=as.dist(d)))
