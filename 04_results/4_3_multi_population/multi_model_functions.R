@@ -1,5 +1,5 @@
 # §4.3 - Joint maximum-(pseudo)likelihood for all seven multi-population models.
-# Pure base R. Requires the §4.2 model_functions.R constants and read_input().
+# Pure base R. Requires the §4.1 model_functions.R constants and read_input().
 # Data: GBD estimated deaths / population proxy, NOT integer registry counts.
 # Table 2: LC1 shares k1; LC2 shares k2; CBD / Plat2 / Plat3 share k1.
 # No averaging of separate fitted time series is reported as a joint fit.
@@ -23,9 +23,10 @@ get_single_fit <- function(pp, kk, sex, cause, model) {
   list(a=a,B=B,K=K)
 }
 
-# All cause-specific and common temporal vectors have their explicit constraints.
-# LC2 reference age/loadings additionally eliminate within-cause rotation:
-# B1[anchor1_j,j]=1, B2[anchor1_j,j]=0, B2[anchor2_ref,ref]=1.
+# Paper Table 2: every LC loading beta^(i)_{xj} sums to 1 OVER AGES
+# for EACH cause j, and every LC temporal index sums to 0 over time.
+# A single reference-age anchor is NOT equivalent to this assumption when
+# kappa is shared. Keep the per-cause beta sums as explicit restrictions.
 make_multi_problem <- function(D,E,model,singles) {
   dd <- dim(D); A<-dd[1]; TT<-dd[2]; J<-dd[3]
   stopifnot(identical(dim(E),dd),length(singles)==J,J>=2L,
@@ -53,55 +54,49 @@ make_multi_problem <- function(D,E,model,singles) {
       singles[[j]]$B[,kshare_index] <- -singles[[j]]$B[,kshare_index]
     }
   }
-  ks <- drop(ks0 %*% w)
-  if (sd(ks)<1e-10) ks <- ks0[,ref]
-
-  anchor1 <- integer(J); anchor2 <- NA_integer_
   mask1 <- mask2 <- NULL
   B1 <- B2 <- NULL
   Kc <- NULL
   if (lc1) {
-    B1 <- sapply(singles,function(x)x$B[,1])
-    if(is.null(dim(B1))) B1 <- matrix(B1,A,J)
-    anchor1[ref] <- which.max(abs(B1[,ref]))
-    scale <- B1[anchor1[ref],ref]
-    if(abs(scale)<1e-9) stop("LC1 reference loading close to zero")
-    B1 <- B1/scale; ks <- ks*scale
-    mask1 <- matrix(TRUE,A,J); mask1[anchor1[ref],ref]<-FALSE
+    B1 <- sapply(singles, function(x) x$B[,1])
+    if (is.null(dim(B1))) B1 <- matrix(B1,A,J)
+    # Under a shared kappa, each beta_j has its OWN sum-to-one constraint.
+    sc <- colSums(B1)
+    if(any(!is.finite(sc)) || any(abs(sc)<1e-9))
+      stop("LC1 beta sum near zero: cannot initialize paper constraints")
+    B1 <- sweep(B1,2,sc,"/")
+    ks0 <- sweep(ks0,2,sc,"*")
+    mask1 <- matrix(TRUE,A,J); mask1[A,] <- FALSE
   } else if (lc2) {
-    B1 <- sapply(singles,function(x)x$B[,1])
-    B2 <- sapply(singles,function(x)x$B[,2])
-    if(is.null(dim(B1))) B1 <- matrix(B1,A,J)
-    if(is.null(dim(B2))) B2 <- matrix(B2,A,J)
+    B1 <- sapply(singles, function(x) x$B[,1])
+    B2 <- sapply(singles, function(x) x$B[,2])
+    if (is.null(dim(B1))) B1 <- matrix(B1,A,J)
+    if (is.null(dim(B2))) B2 <- matrix(B2,A,J)
     Kc <- array(0,c(TT,J,1L))
+    # Algebraically rotate each independent two-factor surface into
+    # TWO beta columns whose age-wise sums are both 1:
+    # B1* = B1/s1, B2* = B2 + (1-s2)*B1*,
+    # K1* = s1*K1 - (1-s2)*K2, K2* = K2.
+    # This preserves each single-population fitted eta BEFORE common pooling.
     for(j in seq_len(J)) {
-      anchor1[j] <- which.max(abs(B1[,j]))
-      sc <- B1[anchor1[j],j]
-      if(abs(sc)<1e-10) stop("LC2 primary reference loading near zero")
-      B1[,j] <- B1[,j]/sc
-      Kc[,j,1] <- singles[[j]]$K[,1]*sc
-      # Add shared k2 into cause-specific k1, then zero one loading in B2.
-      h <- B2[anchor1[j],j]
-      Kc[,j,1] <- Kc[,j,1]+h*ks
-      B2[,j] <- B2[,j]-h*B1[,j]
+      s1 <- sum(B1[,j]); s2 <- sum(B2[,j])
+      if(!is.finite(s1) || !is.finite(s2) || abs(s1)<1e-9)
+        stop("LC2 first beta sum near zero: cannot initialize constraints")
+      B1[,j] <- B1[,j]/s1
+      B2[,j] <- B2[,j] + (1-s2)*B1[,j]
+      Kc[,j,1] <- s1*singles[[j]]$K[,1] -
+                   (1-s2)*singles[[j]]$K[,2]
     }
-    opts <- setdiff(seq_len(A),anchor1[ref])
-    anchor2 <- opts[which.max(abs(B2[opts,ref]))]
-    sc <- B2[anchor2,ref]
-    if(abs(sc)<1e-10) stop("LC2 second loading is numerically unidentified")
-    B2 <- B2/sc; ks <- ks*sc
     mask1 <- mask2 <- matrix(TRUE,A,J)
-    for(j in seq_len(J)) {
-      mask1[anchor1[j],j] <- FALSE
-      mask2[anchor1[j],j] <- FALSE
-    }
-    mask2[anchor2,ref] <- FALSE
+    mask1[A,] <- FALSE; mask2[A,] <- FALSE
   } else {
     S <- if(model=="Plat3") 2L else 1L
     Kc <- array(0,c(TT,J,S))
     for(j in seq_len(J)) for(h in seq_len(S))
       Kc[,j,h] <- singles[[j]]$K[,h+1L]
   }
+  ks <- drop(ks0 %*% w)
+  if (sd(ks)<1e-10) ks <- ks0[,ref]
 
   if (!cbd) {
     # Center each time effect and absorb its level into cause-specific alpha.
@@ -147,15 +142,16 @@ make_multi_problem <- function(D,E,model,singles) {
     take <- function(n) {i<-pos+seq_len(n);pos<<-pos+n;v[i]}
     if(lc1) {
       a<-matrix(take(A*J),A,J)
-      b<-matrix(0,A,J);b[mask1]<-take(sum(mask1));b[anchor1[ref],ref]<-1
+      b<-matrix(0,A,J);b[mask1]<-take(sum(mask1))
+      b[A,]<-1-colSums(b[-A,,drop=FALSE])
       h<-take(TT-1L);k<-c(h,-sum(h))
       u<-list(a=a,B1=b,ks=k)
     } else if(lc2) {
       a<-matrix(take(A*J),A,J)
       b1<-matrix(0,A,J);b1[mask1]<-take(sum(mask1))
       b2<-matrix(0,A,J);b2[mask2]<-take(sum(mask2))
-      for(j in seq_len(J))b1[anchor1[j],j]<-1
-      b2[anchor2,ref]<-1
+      b1[A,]<-1-colSums(b1[-A,,drop=FALSE])
+      b2[A,]<-1-colSums(b2[-A,,drop=FALSE])
       q<-matrix(take((TT-1L)*J),TT-1L,J)
       kc<-array(0,c(TT,J,1L));kc[-TT,,1]<-q;kc[TT,,1]<- -colSums(q)
       h<-take(TT-1L);k<-c(h,-sum(h))
@@ -176,12 +172,6 @@ make_multi_problem <- function(D,E,model,singles) {
     u
   }
   u0 <- list(a=alpha,B1=B1,B2=B2,Kc=Kc,ks=ks)
-  # Guard the pointwise beta anchors in initial values.
-  if(lc1) u0$B1[anchor1[ref],ref]<-1
-  if(lc2) {
-    for(j in seq_len(J)) {u0$B1[anchor1[j],j]<-1;u0$B2[anchor1[j],j]<-0}
-    u0$B2[anchor2,ref]<-1
-  }
   initial <- pack(u0)
 
   calc <- function(v,return_details=FALSE) {
@@ -231,8 +221,13 @@ make_multi_problem <- function(D,E,model,singles) {
       }
       etas[,,j]<-et;mus[,,j]<-mu
     }
-    grad<-if(lc1) c(as.vector(ga),gb1[mask1],gks[-TT]-gks[TT])
-      else if(lc2) c(as.vector(ga),gb1[mask1],gb2[mask2],
+    # beta[A,j]=1-sum(beta[1:(A-1),j]), hence the reduced gradient
+    # for a free beta[x,j] is g_beta[x,j] - g_beta[A,j].
+    grad<-if(lc1) c(as.vector(ga),
+        gb1[mask1]-rep(gb1[A,],each=A-1L),gks[-TT]-gks[TT])
+      else if(lc2) c(as.vector(ga),
+        gb1[mask1]-rep(gb1[A,],each=A-1L),
+        gb2[mask2]-rep(gb2[A,],each=A-1L),
         as.vector(sweep(gkc[-TT,,1,drop=FALSE],2,gkc[TT,,1],'-')),
         gks[-TT]-gks[TT])
       else {
@@ -248,7 +243,8 @@ make_multi_problem <- function(D,E,model,singles) {
     list(value=value,gradient=grad,u=u,eta=etas,mu=mus)
   }
   list(start=initial,unpack=unpack,calc=calc,reference=ref,
-       anchor1=anchor1,anchor2=anchor2,binom=binom,N=N,
+       identification=if(lc1||lc2)"per-cause beta age-sum = 1" else "fixed age basis",
+       binom=binom,N=N,
        causes=names(singles),J=J,age_basis=V,model=model,
        sum_deaths=sum(D),death_weights=w)
 }
