@@ -20,7 +20,7 @@ algorithm_selftest <- function() {
  stopifnot(max(ge)<1e-6)
  data.frame(check=c('DTW_bruteforce_error',paste0('gradient_',MODELS)),value=c(err,ge))
 }
-verify_results <- function(fits,analyses,out,reference=NULL) {
+verify_results <- function(fits,analyses,out) {
  f<-read.csv(file.path(out,'fit_diagnostics_all_models.csv'))
  stopifnot(nrow(f)==126L,all(f$accepted),length(analyses)==14L,
   nrow(read.csv(file.path(out,'kappa_all_models.csv')))==8424L,
@@ -43,29 +43,51 @@ verify_results <- function(fits,analyses,out,reference=NULL) {
  v<-data.frame(check=c('fits_passed','max_gradient','max_multistart_eta_difference','rotation_surface_max_error'),
   value=c(nrow(f),max(f$max_abs_scaled_gradient),max(f$max_eta_difference_3_starts),rotation))
  write_csv(rbind(algorithm_selftest(),v),file.path(out,'validation.csv'))
- if(!is.null(reference)) compare_reference(out,reference)
  invisible(v)
 }
-compare_reference <- function(out,reference) {
- # reference是迁移前的只读数值基准；只用于核验，绝不参与参数估计。
- comparisons<-list()
- for(item in list(c('fit_diagnostics_all_models','sex','cause','model','deviance'),
-                  c('kappa_all_models','sex','cause','model','factor','year','kappa'),
-                  c('standardized_kappa','sex','model','cause','year','z'),
-                  c('pairwise_distances','sex','model','cause1','cause2','dtw_p2'))) {
-  file<-paste0(item[1],'.csv');value<-tail(item,1);by<-item[2:(length(item)-1)]
-  a<-read.csv(file.path(out,file));b<-read.csv(file.path(reference,file));m<-merge(a,b,by=by,suffixes=c('.R','.reference'))
-  stopifnot(nrow(m)==nrow(a),nrow(m)==nrow(b))
-  delta<-abs(m[[paste0(value,'.R')]]-m[[paste0(value,'.reference')]])
-  comparisons[[item[1]]]<-data.frame(file=file,quantity=value,max_abs_difference=max(delta))
- }
- a<-read.csv(file.path(out,'cluster_membership.csv'));b<-read.csv(file.path(reference,'cluster_membership.csv'))
- m<-merge(a,b,by=c('sex','model','cause'))
- # 直接按模型性别切片计算ARI，避免簇号交换被误判为不同。
- aris<-do.call(rbind,lapply(split(m,paste(m$sex,m$model)),function(d)
-  data.frame(sex=d$sex[1],model=d$model[1],ARI=ari(d$cluster.x,d$cluster.y))))
- write_csv(do.call(rbind,comparisons),file.path(out,'migration_numeric_comparison.csv'))
- write_csv(aris,file.path(out,'migration_membership_comparison.csv'))
- # Changes in K are expected after replacing the Silhouette-only decision rule.
- invisible(aris)
+
+# Works for BOTH raw-GBD refitting and already-fitted §4.1 period indices.
+verify_cluster_stage <- function(analyses,out) {
+  if(length(analyses)!=14L)stop("应完成2性别×7模型共14组")
+  files <- c("cluster_validity_scores.csv","candidate_membership.csv",
+             "pam_three_start_check.csv","pairwise_distances.csv",
+             "standardized_kappa.csv","cluster_selection_template.csv")
+  absent <- files[!file.exists(file.path(out,files))]
+  if(length(absent))stop("缺失聚类文件：",paste(absent,collapse=","))
+  scored <- read.csv(file.path(out,files[1]),stringsAsFactors=FALSE)
+  members <- read.csv(file.path(out,files[2]),stringsAsFactors=FALSE)
+  starts <- read.csv(file.path(out,files[3]),stringsAsFactors=FALSE)
+  distances <- read.csv(file.path(out,files[4]),stringsAsFactors=FALSE)
+  std <- read.csv(file.path(out,files[5]),stringsAsFactors=FALSE)
+  template <- read.csv(file.path(out,files[6]),stringsAsFactors=FALSE)
+  stopifnot(nrow(scored)==196L,nrow(members)==1764L,
+    nrow(starts)==294L,nrow(distances)==504L,
+    nrow(std)==4536L,nrow(template)==14L)
+  if(anyDuplicated(scored[c("sex","model","method","K")]))
+    stop("CVI出现重复模型/性别/方法/K")
+  if(any(!is.finite(distances$dtw_p2))||
+     any(distances$dtw_p2 < 0))stop("DTW距离包含无效数值")
+  if(any(!is.finite(starts$objective)) ||
+     any(starts$ARI_vs_best < -1 | starts$ARI_vs_best > 1))
+    stop("PAM三起点记录错误")
+  if(!setequal(names(CVI_DIRECTION),CVI_NAMES))
+    stop("七指标方向与名称不一致")
+  if(any(!CVI_NAMES %in% names(scored)))
+    stop("CVI指标缺失")
+  for(key in unique(paste(scored$sex,scored$model,sep="::"))) {
+    v <- scored[paste(scored$sex,scored$model,sep="::")==key,]
+    for(metric in CVI_NAMES) {
+      if(!any(is.finite(v[[metric]])))
+        stop("以下模型七项指标之一完全无法计算：",key," ",metric,
+             "；请检查dtwclust参数和原始数据")
+    }
+  }
+  if(file.exists(file.path(out,"cluster_membership.csv"))) {
+    m <- read.csv(file.path(out,"cluster_membership.csv"))
+    dec <- read.csv(file.path(out,"cluster_selection_decisions.csv"))
+    if(nrow(m)!=126L||nrow(dec)!=14L||
+       any(dec$selection_status!="researcher_reviewed"))
+      stop("最终分组缺少审查记录")
+  }
+  invisible(TRUE)
 }
