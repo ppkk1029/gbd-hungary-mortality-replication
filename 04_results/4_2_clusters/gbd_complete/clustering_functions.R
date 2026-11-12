@@ -84,19 +84,22 @@ register_paper_distance <- function() {
 cluster_fit <- function(Z, d, method, k, seed = 20261110L) {
   register_paper_distance()
   params <- dtwclust::tsclust_args()
+  precomputed <- as.dist(d)
+  # dtwclust verifies the metadata of precomputed proxy distances.
+  attr(precomputed,"method") <- "paperDTW_p2"
   if (method=="hierarchical_average") {
     ans <- dtwclust::tsclust(
        series=Z,type="hierarchical",k=as.integer(k),
        distance="paperDTW_p2",args=params,
        control=dtwclust::hierarchical_control(
-         method="average",symmetric=TRUE,distmat=as.dist(d)))
+         method="average",symmetric=TRUE,distmat=precomputed))
   } else if (method=="pam") {
     ans <- dtwclust::tsclust(
        series=Z,type="partitional",k=as.integer(k),centroid="pam",
        distance="paperDTW_p2",seed=as.integer(seed),args=params,
        control=dtwclust::partitional_control(
          nrep=1L,symmetric=TRUE,pam.precompute=TRUE,
-         distmat=as.dist(d)))
+         distmat=precomputed))
   } else stop("不支持的聚类方法：",method)
   if (is.list(ans) && !methods::is(ans,"TSClusters")) ans <- ans[[1L]]
   ans
