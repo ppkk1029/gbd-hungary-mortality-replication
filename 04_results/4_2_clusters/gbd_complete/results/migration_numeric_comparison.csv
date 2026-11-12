@@ -1,6 +1,0 @@
-"file","quantity","max_abs_difference"
-"fit_diagnostics_all_models.csv","deviance",5.46059197858995e-08
-"kappa_all_models.csv","kappa",4.87239592081995e-06
-"standardized_kappa.csv","z",9.11630524525198e-05
-"pairwise_distances.csv","dtw_p2",1.63491218626577e-05
-"cluster_summary.csv","silhouette",3.85968964250472e-06
