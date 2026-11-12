@@ -3,6 +3,8 @@
 p <- "04_results/4_2_clusters/gbd_complete"
 source("04_results/4_1_single_population/model_functions.R",local=TRUE,encoding="UTF-8")
 source(file.path(p,"clustering_functions.R"),local=TRUE,encoding="UTF-8")
+source(file.path(p,"kappa_import.R"),local=TRUE,encoding="UTF-8")
+source(file.path(p,"plot_paper_figures.R"),local=TRUE,encoding="UTF-8")
 source(file.path(p,"cluster_all_models.R"),local=TRUE,encoding="UTF-8")
 check_cluster_packages()
 set.seed(3104)
@@ -35,7 +37,7 @@ finite_cvi <- vapply(CVI_NAMES,function(nm) sum(is.finite(e$scores[[nm]])),0L)
 print(finite_cvi)
 if(any(finite_cvi==0L))
   stop("原生CVI运行未产生有效值: ",paste(names(finite_cvi)[finite_cvi==0L],collapse=","),
-       "\\n",paste(e$scores$cvi_issues,collapse=" | "))
+       "\n",paste(e$scores$cvi_issues,collapse=" | "))
 for (method in c("hierarchical_average","pam")) {
   fit <- cluster_fit(Z,D,method,k=2L,seed=42L)
   stopifnot(length(fit@cluster)==9L,length(unique(fit@cluster))==2L)
@@ -47,7 +49,7 @@ for(sex in c("Male","Female"))for(model in MODELS) {
   a[[paste(sex,model)]] <- list(
     Z=Z,raw_kappa=Z,d=D,hc=e$hc,
     labels=NULL,factor=if(endsWith(model,"LC2"))2L else 1L,
-    scores=e$scores,candidate_labels=e$labels,proposal=e$proposal)
+    scores=e$scores,candidate_labels=e$labels)
 }
 manual <- expand.grid(sex=c("Male","Female"),model=MODELS,
                       stringsAsFactors=FALSE)
@@ -57,8 +59,29 @@ manual$reason <- "synthetic smoke test, not a research conclusion"
 manual_path <- file.path(out,"reviewed_selection.csv")
 write.csv(manual,manual_path,row.names=FALSE)
 a2 <- finalize_cluster_selections(a,out,manual_path)
+# Plots include original and standardized kappa views and all 14 appendix panels.
+plot_paper_figures(a2,out)
+stopifnot(file.exists(file.path(out,"figures","Figure_7_GBD_Male_CBD.png")),
+          file.exists(file.path(out,"figures","Appendix_standardized_Female_Plat3.svg")),
+          file.exists(file.path(out,"within_cluster_dtw_alignments.csv")))
 m <- read.csv(file.path(out,"cluster_membership.csv"))
 s <- read.csv(file.path(out,"cluster_summary.csv"))
 stopifnot(nrow(m)==126L,nrow(s)==14L,all(s$K==2L),
           all(s$selection_status=="researcher_reviewed"))
 cat("§4.2 package, DTW equality, 7 CVIs, PAM starts and review-mode smoke test: PASS\n")
+
+# Strictly round-trip all 126 fits, 13 factors per sex/cause, 1980-2015.
+fake <- list()
+for(sex in c("Male","Female"))for(cause in CAUSES)for(model in MODELS) {
+  nf <- if(model=="Plat3")3L else if(endsWith(model,"LC1"))1L else 2L
+  for(j in seq_len(nf)) fake[[length(fake)+1L]] <- data.frame(
+     sex=sex,cause=cause,model=model,factor=j,year=YEARS,
+     kappa=seq_along(YEARS)*j/36 + if(sex=="Male")0.1 else -0.1)
+}
+fake_path <- file.path(out,"test_single_period_indices.csv")
+write.csv(do.call(rbind,fake),fake_path,row.names=FALSE)
+loaded <- read_single_population_kappa(fake_path)
+stopifnot(length(loaded)==126L,
+          nrow(loaded[[key("Male",CAUSES[1],"Plat3")]]$K)==36L,
+          ncol(loaded[[key("Male",CAUSES[1],"Plat3")]]$K)==3L)
+cat("§4.2 synthetic verification: real DTW/CVI, 3 PAM starts, grouped figures and 126 cached fits: PASS\\n")
