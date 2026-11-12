@@ -1,0 +1,32 @@
+name: Section 4.3 R synthetic verification
+
+on:
+  push:
+    paths:
+      - "04_results/4_1_single_population/model_functions.R"
+      - "04_results/4_2_clusters/gbd_complete/results/cluster_membership.csv"
+      - "04_results/4_3_multi_population/**"
+      - ".github/workflows/section43-r-synthetic-tests.yml"
+  pull_request:
+    paths:
+      - "04_results/4_3_multi_population/**"
+      - ".github/workflows/section43-r-synthetic-tests.yml"
+  workflow_dispatch:
+
+jobs:
+  section43-r-selftest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+      - name: Install R
+        uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: 'release'
+          use-public-rspm: false
+      - name: Check R syntax and all seven joint-score models
+        shell: bash
+        run: |
+          Rscript -e 'invisible(parse(file="04_results/4_3_multi_population/run_4_3_complete.R")); invisible(parse(file="04_results/4_3_multi_population/multi_model_functions.R")); invisible(parse(file="04_results/4_3_multi_population/plot_appendix.R"))'
+          Rscript 04_results/4_3_multi_population/selftest_4_3.R
